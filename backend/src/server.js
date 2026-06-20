@@ -1653,10 +1653,24 @@ const TOPIC_PASS_SCORE = 90;
 const LEVEL_PASS_SCORE = 90;
 const PLAN_DAYS = ['Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'Shanba', 'Yakshanba'];
 
+function normalizeLevelName(value) {
+  const raw = String(value || '').trim().toLowerCase().replace(/[–—_]+/g, '-').replace(/\s+/g, ' ');
+  const compact = raw.replace(/\s*-\s*/g, '-');
+  const aliases = {
+    'beginner': 'Beginner',
+    'elementary': 'Elementary',
+    'pre-intermediate': 'Pre-Intermediate',
+    'pre intermediate': 'Pre-Intermediate',
+    'preintermediate': 'Pre-Intermediate',
+    'intermediate': 'Intermediate'
+  };
+  return aliases[compact] || aliases[raw] || levels.find(level => level.toLowerCase() === raw) || '';
+}
+
 function normalizeUnlockedLevels(value = []) {
   const list = Array.isArray(value) ? value : String(value || '').split(',');
   const selected = list
-    .map(item => String(item || '').trim())
+    .map(item => normalizeLevelName(item))
     .filter(level => levels.includes(level));
 
   // Admin yuqori darajani ochsa, undan oldingi darajalar ham avtomatik ochiq hisoblanadi.

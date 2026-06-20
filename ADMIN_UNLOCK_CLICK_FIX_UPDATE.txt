@@ -1,0 +1,5 @@
+Admin ochgan daraja fix:
+- Student yuqoridagi Elementary yoki Pre-Intermediate tugmasini bosganda, admin tomonidan shu daraja ochilgan bo'lsa Ruxsat testi sahifasi umuman chiqmaydi.
+- Pre-Intermediate ochilgan bo'lsa Beginner + Elementary + Pre-Intermediate avtomatik testsiz ochiladi.
+- Daraja nomlari Pre-intermediate / pre intermediate / Pre-Intermediate kabi yozilsa ham bir xil taniladi.
+- Agar gate-test bo'sh savollar qaytarsa ham frontend avtomatik mavzularga o'tkazadi.

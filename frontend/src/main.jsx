@@ -6007,6 +6007,32 @@ function StudentPlaceholderPanel({ title, text, icon }) {
 }
 
 
+
+function normalizeStudentLevelName(value) {
+  const raw = String(value || '').trim().toLowerCase().replace(/[–—_]+/g, '-').replace(/\s+/g, ' ');
+  const compact = raw.replace(/\s*-\s*/g, '-');
+  const aliases = {
+    'beginner': 'Beginner',
+    'elementary': 'Elementary',
+    'pre-intermediate': 'Pre-Intermediate',
+    'pre intermediate': 'Pre-Intermediate',
+    'preintermediate': 'Pre-Intermediate',
+    'intermediate': 'Intermediate'
+  };
+  return aliases[compact] || aliases[raw] || value;
+}
+function expandStudentUnlockedLevels(value = []) {
+  const order = ['Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate'];
+  const list = Array.isArray(value) ? value : String(value || '').split(',');
+  const opened = list.map(normalizeStudentLevelName).filter(level => order.includes(level));
+  const set = new Set(['Beginner']);
+  opened.forEach(level => {
+    const idx = order.indexOf(level);
+    for (let i = 0; i <= idx; i += 1) set.add(order[i]);
+  });
+  return set;
+}
+
 const STUDENT_NOT_READY_LEVELS = ['Intermediate'];
 const STUDENT_NOT_READY_MESSAGE = 'Bu daraja hali tayyor emas. Bu daraja ustida ishlanmoqda. Iltimos administratorga murojaat qiling.';
 
@@ -6055,18 +6081,20 @@ function StudentPanel({ user, onLogout }) {
     setFinalTest(null);
     setFinalResult(null);
 
-    // Admin darajani qo‘lda ochib bergan bo‘lsa, kirish testi so‘ralmaydi.
-    // Faqat daraja yopiq bo‘lsa Elementary / Pre-Intermediate uchun ruxsat testi chiqadi.
-    if (progress?.access?.[subject]?.[lv]) {
+    // Admin shu darajani yoki undan yuqori darajani ochgan bo‘lsa, hech qanday ruxsat testi chiqmaydi.
+    // Masalan Pre-Intermediate ochilgan bo‘lsa: Beginner, Elementary, Pre-Intermediate barchasi testsiz ochiladi.
+    const adminOpened = expandStudentUnlockedLevels(user?.unlockedLevels || progress?.user?.unlockedLevels || []);
+    if (progress?.access?.[subject]?.[lv] || adminOpened.has(lv)) {
       setLevel(lv);
       setGate(null);
       await loadTopics(subject, lv);
+      await loadBase();
       return;
     }
 
     const test = await api(`/api/gate-test/${subject}/${lv}`);
     setLevel(lv);
-    if (test?.unlocked || test?.skipGate) {
+    if (test?.unlocked || test?.skipGate || !Array.isArray(test?.questions) || test.questions.length === 0) {
       setGate(null);
       await loadTopics(subject, lv);
       await loadBase();
