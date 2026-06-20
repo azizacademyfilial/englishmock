@@ -1,0 +1,5 @@
+Admin qo'lda daraja ochish real fix:
+- Backend /api/progress endi manualUnlockedLevels qaytaradi.
+- Frontend admin tomonidan ochilgan darajani manualUnlockedLevels orqali tekshiradi.
+- Admin Pre-Intermediate ochgan bo'lsa, Pre-Intermediate bosilganda ruxsat testi chiqmaydi va darhol mavzularga o'tadi.
+- Agar admin daraja ochmagan bo'lsa, eski ketma-ket test logikasi ishlaydi.

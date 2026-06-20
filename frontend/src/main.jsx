@@ -5,8 +5,34 @@ import './admin-mobile.css';
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
-const APP_VERSION = '2026-06-17-topic-mode-daily-toggle-v133';
+const APP_VERSION = '2026-06-20-admin-manual-unlock-direct-v134';
 const TOPIC_PASS_SCORE = 90;
+
+const LEVEL_ORDER = ['Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper-Intermediate', 'Advanced', 'IELTS'];
+function normalizeUiLevel(value = '') {
+  const raw = String(value || '').trim();
+  const key = raw.toLowerCase().replace(/[–—]/g, '-').replace(/[_\s-]+/g, '-').replace(/^-+|-+$/g, '');
+  return LEVEL_ORDER.find(level => level.toLowerCase().replace(/[–—]/g, '-').replace(/[_\s-]+/g, '-').replace(/^-+|-+$/g, '') === key) || raw;
+}
+function expandedManualLevels(list = []) {
+  const selected = (Array.isArray(list) ? list : String(list || '').split(','))
+    .map(normalizeUiLevel)
+    .filter(level => LEVEL_ORDER.includes(level));
+  const result = new Set();
+  selected.forEach(level => {
+    const idx = LEVEL_ORDER.indexOf(level);
+    for (let i = 0; i <= idx; i += 1) result.add(LEVEL_ORDER[i]);
+  });
+  return [...result];
+}
+function isManualLevelUnlocked(progress, levelName) {
+  const level = normalizeUiLevel(levelName);
+  const manual = expandedManualLevels([
+    ...(progress?.manualUnlockedLevels || []),
+    ...(progress?.user?.unlockedLevels || [])
+  ]);
+  return manual.includes(level);
+}
 
 const ADMIN_ROUTE_TABS = ['dashboard', 'centers', 'create', 'accounts', 'plans', 'enrollments', 'progress', 'certificates', 'shopOrders', 'content', 'logs', 'settings'];
 function readAdminRouteFromHash() {
@@ -6046,6 +6072,14 @@ function StudentPanel({ user, onLogout }) {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  useEffect(() => {
+    if (!gate || !progress) return;
+    if (isManualLevelUnlocked(progress, level) || progress?.access?.[subject]?.[level]) {
+      setGate(null);
+      loadTopics(subject, level).catch(() => {});
+    }
+  }, [gate, progress, subject, level]);
+
   async function selectLevel(lv) {
     if (STUDENT_NOT_READY_LEVELS.includes(lv)) {
       alert(STUDENT_NOT_READY_MESSAGE);
@@ -6060,10 +6094,17 @@ function StudentPanel({ user, onLogout }) {
     // foydalanuvchi darajani bosishi bilan mavzularga o'tadi. Ruxsat testi umuman chiqmaydi.
     const freshProgress = await api('/api/progress');
     setProgress(freshProgress);
-    if (freshProgress?.access?.[subject]?.[lv]) {
+    const manualOpen = isManualLevelUnlocked(freshProgress, lv);
+    const accessOpen = !!freshProgress?.access?.[subject]?.[lv];
+
+    // Admin panelidagi “Qo‘lda daraja ochish”dan shu daraja ochilgan bo‘lsa
+    // hech qanday ruxsat testi ko‘rsatilmaydi — darhol mavzularga kiradi.
+    if (manualOpen || accessOpen) {
       setGate(null);
       setLevel(lv);
       await loadTopics(subject, lv);
+      setActiveTab('lessons');
+      scrollPageToTop('smooth');
       return;
     }
 
@@ -6139,7 +6180,7 @@ function StudentPanel({ user, onLogout }) {
 
   if (!content || !progress) return <main className="page"><div className="card">Yuklanmoqda...</div></main>;
   if (selectedTopic) return <main className="page"><TopicView topic={selectedTopic} onPracticeSubmit={submitTopicPractice} onGoNext={goNextTopic} onSpeakingSaved={handleSpeakingSaved} onBack={() => { setSelectedTopic(null); loadTopics(); loadBase(); }} /></main>;
-  if (gate) return <main className="page"><section className="hero"><span className="eyebrow">Ruxsat testi</span><h1>{level} darajasi uchun test</h1><p>Daraja testi oldingi daraja yakuniy testi 90%+ bo‘lganda ochiladi.</p></section><TestView test={gate} onSubmit={submitGate} onCancel={() => setGate(null)} submitText="Ruxsat testini tekshirish" /></main>;
+  if (gate && !(isManualLevelUnlocked(progress, level) || progress?.access?.[subject]?.[level])) return <main className="page"><section className="hero"><span className="eyebrow">Ruxsat testi</span><h1>{level} darajasi uchun test</h1><p>Daraja testi oldingi daraja yakuniy testi 90%+ bo‘lganda ochiladi.</p></section><TestView test={gate} onSubmit={submitGate} onCancel={() => setGate(null)} submitText="Ruxsat testini tekshirish" /></main>;
   if (finalTest) return <main className="page"><TestView test={finalTest} onSubmit={submitFinal} onCancel={() => setFinalTest(null)} submitText="Daraja testini yakunlash" />{finalResult?.certificate && <div className="card finalCertificateCard"><h2>Sertifikat tayyorlandi</h2><p className="muted">Daraja testi natijangiz sertifikatga yozildi. Sertifikatni ko‘rish yoki rasm qilib yuklab olish mumkin.</p><CertificatePreview certificate={finalResult.certificate} /></div>}</main>;
 
   if (isMobile) return (

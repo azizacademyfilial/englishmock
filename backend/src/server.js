@@ -1656,8 +1656,11 @@ const PLAN_DAYS = ['Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'S
 function normalizeLevelName(value = '') {
   const raw = String(value || '').trim();
   if (!raw) return '';
-  const compact = raw.toLowerCase().replace(/[–—]/g, '-').replace(/[_\s]+/g, '-');
-  return levels.find(level => level.toLowerCase().replace(/\s+/g, '-') === compact) || raw;
+  const compact = raw.toLowerCase().replace(/[–—]/g, '-').replace(/[_\s-]+/g, '-').replace(/^-+|-+$/g, '');
+  return levels.find(level => {
+    const levelKey = level.toLowerCase().replace(/[–—]/g, '-').replace(/[_\s-]+/g, '-').replace(/^-+|-+$/g, '');
+    return levelKey === compact || level.toLowerCase() === raw.toLowerCase();
+  }) || raw;
 }
 
 function normalizeUnlockedLevels(value = []) {
@@ -20921,7 +20924,14 @@ app.get('/api/progress', auth, (req, res) => {
     access[s.id] = {};
     for (const lvl of levels) access[s.id][lvl] = hasLevelAccess(db, req.user.id, s.id, lvl);
   }
-  res.json({ progress: p, access, speakingSummary: summarizeSpeakingForUser(db, req.user), certificates: db.certificates.filter(c => c.userId === req.user.id) });
+  res.json({
+    progress: p,
+    access,
+    manualUnlockedLevels: normalizeUnlockedLevels(req.user.unlockedLevels || []),
+    user: { unlockedLevels: normalizeUnlockedLevels(req.user.unlockedLevels || []) },
+    speakingSummary: summarizeSpeakingForUser(db, req.user),
+    certificates: db.certificates.filter(c => c.userId === req.user.id)
+  });
 });
 app.get('/api/topics/:language/:level', auth, requireSubject, (req, res) => {
   const { language, level } = req.params;
