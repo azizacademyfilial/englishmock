@@ -1,0 +1,7 @@
+ADMIN UNLOCK DIRECT FIX V2
+
+O'zgartirish:
+- O'quvchi daraja bosganda frontend har safar /api/progress ni yangilab oladi.
+- Agar progress.access[subject][level] true bo'lsa, hech qanday gate-test ochilmaydi.
+- Backend /api/gate-test/:language/:level ham agar daraja allaqachon ochiq bo'lsa alreadyUnlocked:true qaytaradi.
+- Natija: admin qaysi darajani ochib bersa, o'quvchi shu darajaga testsiz/shartsiz kiradi.

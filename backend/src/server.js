@@ -21073,11 +21073,21 @@ app.post('/api/speaking-progress/:language/:level/:topicNo', auth, requireSubjec
 
 app.get('/api/gate-test/:language/:level', auth, requireSubject, (req, res) => {
   const { language, level } = req.params;
-  if (level === FIRST_LEVEL) return res.status(400).json({ message: `${FIRST_LEVEL} darajasi ochiq` });
+  if (level === FIRST_LEVEL) return res.json({ alreadyUnlocked: true, level, message: `${FIRST_LEVEL} darajasi ochiq` });
+
+  // Agar admin shu darajani ochib bergan bo‘lsa yoki progress orqali ochilgan bo‘lsa,
+  // ruxsat testi qaytarilmaydi. Frontend to‘g‘ridan-to‘g‘ri mavzularga o‘tadi.
+  if (hasLevelAccess(req.db, req.user.id, language, level)) {
+    return res.json({ alreadyUnlocked: true, level, message: `${level} darajasi ochiq` });
+  }
+
   res.json(buildGateTest(language, level));
 });
 app.post('/api/gate-test/:language/:level', auth, requireSubject, async (req, res) => {
   const { language, level } = req.params;
+  if (hasLevelAccess(req.db, req.user.id, language, level)) {
+    return res.json({ passed: true, score: 100, alreadyUnlocked: true, message: `${level} darajasi ochiq` });
+  }
   const test = buildGateTest(language, level);
   const result = grade(test.questions, req.body.answers || {});
   const db = req.db;

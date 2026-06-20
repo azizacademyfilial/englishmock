@@ -6054,7 +6054,17 @@ function StudentPanel({ user, onLogout }) {
     // ENG MUHIM QOIDA:
     // Admin qaysi darajani qo‘lda ochib bergan bo‘lsa, o‘quvchi shu darajaga
     // hech qanday kirish testi, final testi yoki progress shartisiz kira oladi.
-    if (progress?.access?.[subject]?.[lv]) {
+    // Shuning uchun har bosganda progressni backenddan yangilab tekshiramiz.
+    let latestProgress = progress;
+    try {
+      latestProgress = await api('/api/progress');
+      setProgress(latestProgress);
+    } catch (err) {
+      latestProgress = progress;
+    }
+
+    const adminOrProgressOpened = latestProgress?.access?.[subject]?.[lv] === true;
+    if (adminOrProgressOpened) {
       setLevel(lv);
       setGate(null);
       await loadTopics(subject, lv);
@@ -6070,6 +6080,12 @@ function StudentPanel({ user, onLogout }) {
     // Admin ochmagan darajada odatiy kirish testi ishlaydi.
     const test = await api(`/api/gate-test/${subject}/${lv}`);
     setLevel(lv);
+    if (test?.alreadyUnlocked) {
+      setGate(null);
+      await loadBase();
+      await loadTopics(subject, lv);
+      return;
+    }
     setGate(test);
   }
   async function submitGate(answers) {
