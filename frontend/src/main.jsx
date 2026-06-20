@@ -6066,6 +6066,12 @@ function StudentPanel({ user, onLogout }) {
 
     const test = await api(`/api/gate-test/${subject}/${lv}`);
     setLevel(lv);
+    if (test?.unlocked || test?.skipGate) {
+      setGate(null);
+      await loadTopics(subject, lv);
+      await loadBase();
+      return;
+    }
     setGate(test);
   }
   async function submitGate(answers) {

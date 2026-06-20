@@ -11462,8 +11462,91 @@ function getTopicProfile(language, level, title, topicNo) {
   if (language === 'tarix') return historyProfile(title, level);
   return grammarSimpleProfile(title, title, `${title} mavzusini`, `${title} structure`, [`${title} example.`]);
 }
+
+const preIntermediateMixedLessons = {
+  'Present Simple, Present Continuous, Past Simple, Past Continuous': {
+    explanation: [
+      { heading: '4 ta zamonning farqi', text: 'Present Simple odat va doimiy holat uchun ishlatiladi: I study every day. Present Continuous ayni hozir davom etayotgan ish uchun: I am studying now. Past Simple o‘tgan va tugagan ish uchun: I studied yesterday. Past Continuous o‘tmishda ma’lum vaqtda davom etayotgan ish uchun: I was studying at 8 pm.' },
+      { heading: 'Signal so‘zlar', text: 'Present Simple: always, usually, every day. Present Continuous: now, at the moment, look. Past Simple: yesterday, last week, ago. Past Continuous: while, when, at 7 o’clock yesterday.' },
+      { heading: 'Aralashtirib ishlash', text: 'Savolda vaqt belgisi va gap ma’nosini tekshiring. now bo‘lsa am/is/are + V-ing; yesterday bo‘lsa V2; while bilan ko‘pincha was/were + V-ing keladi; every day bo‘lsa Present Simple keladi.' }
+    ],
+    questions: [
+      ['Look! They ______ football in the yard.', ['are playing', 'play', 'played', 'were playing'], 0, 'Look/now = Present Continuous.'],
+      ['She usually ______ tea in the morning.', ['drinks', 'is drinking', 'drank', 'was drinking'], 0, 'Usually = Present Simple.'],
+      ['I ______ my friend yesterday.', ['met', 'meet', 'am meeting', 'was meeting'], 0, 'Yesterday = Past Simple.'],
+      ['At 9 pm yesterday, we ______ dinner.', ['were having', 'had', 'have', 'are having'], 0, 'At 9 pm yesterday = Past Continuous.']
+    ]
+  },
+  'Past Perfect Simple, Past Perfect Continuous': {
+    explanation: [
+      { heading: 'Asosiy farq', text: 'Past Perfect Simple o‘tmishda bir ish ikkinchisidan oldin tugaganini bildiradi: I had finished before he came. Past Perfect Continuous esa o‘sha oldingi ish qancha vaqt davom etganini ko‘rsatadi: I had been studying for two hours before he came.' },
+      { heading: 'Formula', text: 'Past Perfect Simple: had + V3. Past Perfect Continuous: had been + V-ing. Simple natijaga, Continuous jarayonga va davomiylikka urg‘u beradi.' },
+      { heading: 'Aralashtirib ishlash', text: 'Agar gapda already, by the time, before va tugagan natija bo‘lsa had + V3 tanlanadi. Agar for/since bilan davomiy jarayon aytilsa had been + V-ing tanlanadi.' }
+    ],
+    questions: [
+      ['By the time I arrived, she ______ the report.', ['had finished', 'had been finishing', 'finished', 'was finishing'], 0, 'Natija tugagan = Past Perfect Simple.'],
+      ['They ______ for two hours before the teacher came.', ['had been waiting', 'had waited', 'waited', 'were waiting'], 0, 'For two hours + jarayon = Past Perfect Continuous.'],
+      ['He was tired because he ______ all day.', ['had been working', 'had worked', 'worked', 'was working'], 0, 'Sabab + davomiy jarayon = had been working.']
+    ]
+  },
+  'Modal Verbs 1, Modal Verbs 2': {
+    explanation: [
+      { heading: 'Modal fe’llar nimani bildiradi', text: 'Can qobiliyat yoki ruxsatni, could o‘tmishdagi qobiliyat yoki muloyim iltimosni, must kuchli majburiyatni, have to tashqi majburiyatni, should maslahatni, may/might ehtimolni bildiradi.' },
+      { heading: 'Formula', text: 'Modal + V1 ishlatiladi: She can swim. He must study. Modal fe’ldan keyin to qo‘yilmaydi, faqat have to alohida tuzilma: She has to work.' },
+      { heading: 'Farqlar', text: 'Must — gapiruvchi kuchli majbur qiladi. Have to — qoida yoki vaziyat majbur qiladi. Should — maslahat. Could/Would — muloyim so‘rovda ishlatiladi.' }
+    ],
+    questions: [
+      ['You ______ wear a seat belt. It is the law.', ['have to', 'should to', 'can to', 'would'], 0, 'Qonun/tashqi qoida = have to.'],
+      ['She ______ speak three languages.', ['can', 'must to', 'has', 'should to'], 0, 'Qobiliyat = can.'],
+      ['You look tired. You ______ rest.', ['should', 'must to', 'can to', 'have'], 0, 'Maslahat = should.']
+    ]
+  },
+  'Conditionals 2 & 3': {
+    explanation: [
+      { heading: 'Second Conditional', text: 'Hozirgi yoki kelajakdagi xayoliy holat uchun ishlatiladi: If I had money, I would travel. Formula: If + Past Simple, would + V1.' },
+      { heading: 'Third Conditional', text: 'O‘tmishda bo‘lmagan ish haqida afsus yoki natijani aytadi: If I had studied, I would have passed. Formula: If + Past Perfect, would have + V3.' },
+      { heading: 'Farqi', text: '2-conditional hozir/kelajak xayoliy vaziyat. 3-conditional o‘tgan vaqt, endi o‘zgarmaydigan vaziyat.' }
+    ],
+    questions: [
+      ['If I ______ rich, I would buy a big house.', ['were', 'had been', 'am', 'will be'], 0, 'Hozirgi xayoliy holat = Second Conditional.'],
+      ['If she had called me, I ______ helped her.', ['would have', 'will have', 'would', 'had'], 0, 'O‘tgan shart = Third Conditional.'],
+      ['If they ______ earlier, they would not have missed the bus.', ['had left', 'left', 'leave', 'would leave'], 0, 'O‘tgan vaziyat = had + V3.']
+    ]
+  },
+  'Passive Voice 1 (Present and Past Tenses)': {
+    explanation: [
+      { heading: 'Passive nima', text: 'Passive Voice ishni kim qilganidan ko‘ra ishning o‘ziga urg‘u beradi. Present Passive: am/is/are + V3. Past Passive: was/were + V3.' },
+      { heading: 'Active va Passive farqi', text: 'Active: People speak English. Passive: English is spoken. Active: They built the school. Passive: The school was built.' },
+      { heading: 'Qachon ishlatiladi', text: 'Ish bajaruvchisi noma’lum, muhim emas yoki natija muhim bo‘lsa passive ishlatiladi.' }
+    ],
+    questions: [
+      ['English ______ in many countries.', ['is spoken', 'speaks', 'was speaking', 'spoken'], 0, 'Present Passive = is + V3.'],
+      ['This bridge ______ in 1990.', ['was built', 'is built', 'built', 'was building'], 0, 'Past Passive = was + V3.'],
+      ['The room ______ every day.', ['is cleaned', 'cleans', 'was cleaned', 'cleaned'], 0, 'Every day + passive = is cleaned.']
+    ]
+  },
+  'Passive Voice 2 (All Tenses)': {
+    explanation: [
+      { heading: 'Passive barcha zamonlarda', text: 'Passive umumiy formula: be + V3. Zamon faqat be fe’lida ko‘rinadi: is done, was done, will be done, has been done, is being done.' },
+      { heading: 'Tuzilmalar', text: 'Present: is/are + V3. Past: was/were + V3. Future: will be + V3. Present Perfect: has/have been + V3. Continuous: is/are being + V3.' },
+      { heading: 'Farqlar', text: 'will be done — kelajakda qilinadi. has been done — hozirgacha bajarib bo‘lingan. is being done — hozir bajarilmoqda.' }
+    ],
+    questions: [
+      ['The work ______ tomorrow.', ['will be finished', 'has finished', 'is finishing', 'finished'], 0, 'Tomorrow + passive = will be + V3.'],
+      ['The car ______ now.', ['is being repaired', 'has repaired', 'repairs', 'was repairing'], 0, 'Now + passive continuous = is being repaired.'],
+      ['The documents ______ already.', ['have been sent', 'were sending', 'send', 'are sending'], 0, 'Already + passive perfect = have been + V3.']
+    ]
+  }
+};
+
+function getPreIntermediateMixedLesson(title) {
+  return preIntermediateMixedLessons[String(title || '').trim()] || null;
+}
+
 function buildExplanation(language, level, title, topicNo) {
   const profile = getTopicProfile(language, level, title, topicNo);
+  const mixedLesson = language === 'english' && level === 'Pre-Intermediate' ? getPreIntermediateMixedLesson(title) : null;
+  if (mixedLesson?.explanation) return mixedLesson.explanation;
   const isEssentialStyle = language === 'english' && Boolean(getEssentialStyleEnglishProfile(title));
   if (isEssentialStyle) {
     return [
@@ -19525,6 +19608,12 @@ function buildTopicQuestions(language, level, title, topicNo, vocabulary) {
     questions.push({ id: `q${questions.length + 1}`, question, options: packed.options, correctIndex: packed.correctIndex, note });
   }
 
+  const mixedLesson = language === 'english' && level === 'Pre-Intermediate' ? getPreIntermediateMixedLesson(title) : null;
+  for (const item of (mixedLesson?.questions || [])) {
+    if (questions.length >= maxQuestions) break;
+    addQuestion(item[0], item[1], item[2], item[3]);
+  }
+
   for (const item of buildWorkbookStyleChoiceQuestions(language, title)) {
     if (questions.length >= maxQuestions) break;
     addQuestion(item.question, item.options, item.correctIndex, item.note);
@@ -21067,6 +21156,14 @@ app.post('/api/speaking-progress/:language/:level/:topicNo', auth, requireSubjec
 app.get('/api/gate-test/:language/:level', auth, requireSubject, (req, res) => {
   const { language, level } = req.params;
   if (level === FIRST_LEVEL) return res.status(400).json({ message: `${FIRST_LEVEL} darajasi ochiq` });
+
+  // Admin darajani ochib bergan bo‘lsa yoki oldingi daraja allaqachon yakunlangan bo‘lsa,
+  // bu endpoint ham test qaytarmaydi. Shunda frontend progress kechikib yangilansa ham
+  // Elementary / Pre-Intermediate bosilganda test so‘ramasdan mavzularga o‘tadi.
+  if (hasLevelAccess(req.db, req.user.id, language, level)) {
+    return res.json({ unlocked: true, skipGate: true, message: `${level} darajasi ochiq` });
+  }
+
   res.json(buildGateTest(language, level));
 });
 app.post('/api/gate-test/:language/:level', auth, requireSubject, async (req, res) => {
