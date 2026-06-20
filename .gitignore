@@ -1,0 +1,12 @@
+node_modules
+dist
+.env
+.DS_Store
+
+# Deploy cleanup
+node_modules/
+backend/.env
+frontend/.env
+backend/backups/
+frontend/dist/
+backend/data/db.json

@@ -1,0 +1,10 @@
+UPDATE V50 — HAMMA TEST JAVOBLARI A VARIANT
+
+O'zgarish:
+- Barcha tanlash testlarida to'g'ri javob A variantga o'tkazildi.
+- Mavzu testlari, yakuniy testlar va darajaga kirish testlarida correctIndex = 0 bo'ladi.
+- Admin qo'shgan test savollari ham saqlanganda yoki chiqarilganda to'g'ri javob A variantga joylanadi.
+
+Eslatma:
+- Yozma mashqlar (bo'sh joyni to'ldirish) o'z javob tekshiruv tizimi bilan qoladi.
+- Speaking/vocabulary talaffuz tekshiruvlari A/B/C/D test emas, shuning uchun o'zgarmaydi.

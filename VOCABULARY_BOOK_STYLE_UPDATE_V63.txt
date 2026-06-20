@@ -1,0 +1,20 @@
+VOCABULARY BOOK-STYLE UPDATE V63
+
+- Grammar mavzularidagi Vocabulary bo'limi mavzuga mos qilib yangilandi.
+- Kitob matni so'zma-so'z ko'chirilmadi; mavzu uslubiga mos original so'zlar, tarjimalar va misol gaplar qo'shildi.
+- Quyidagi mavzularga alohida vocabulary to'plamlari qo'shildi:
+  * There is / There are
+  * Have / Has
+  * Present Continuous
+  * Present Simple
+  * Present Simple & Present Continuous
+  * Past Simple
+  * Past Continuous
+  * Future Simple / To be going to
+  * Present Perfect
+  * Preposition of Place
+  * Preposition of Time
+- Har bir vocabulary elementi: English word + Uzbek meaning + example sentence formatida beriladi.
+- Speaking va pronunciation bo'limlari shu vocabulary so'zlari bilan ishlashda davom etadi.
+- Backend syntax tekshirildi.
+- Frontend build OK.

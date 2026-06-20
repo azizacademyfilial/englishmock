@@ -1,0 +1,14 @@
+A / AN mavzusi chuqurlashtirildi.
+
+O'zgarishlar:
+- A / AN mavzusining tushuntirishi kitob uslubiga yaqin, lekin original matn bilan qayta yozildi.
+- A/an ma'nosi, qachon ishlatilishi, tovush bo'yicha tanlash, a/an ishlatilmaydigan holatlar batafsil tushuntirildi.
+- A, An va Artikl ishlatilmaydigan qoidalari alohida cardlarda berildi.
+- Har bir qoida uchun misollar qo'shildi: a dog, an elephant, a university, an hour, books, water.
+- Kalit so'zlar boyitildi.
+- Vocabulary A/AN mavzusiga mos qayta tartiblandi.
+- A/AN mashqlarida hayvonlar va oddiy predmetlar bilan inputli a/an mashqlari ko'paytirildi.
+
+Tekshiruv:
+- Backend syntax OK
+- Frontend build OK

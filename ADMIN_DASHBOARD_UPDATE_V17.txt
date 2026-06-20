@@ -1,0 +1,13 @@
+V17 - Admin dashboard redesign
+
+Admin panelning Dashboard bo'limi qayta ishlab chiqildi:
+- Katta hero monitoring card qo'shildi.
+- KPI cardlar: jami o'quvchi, active, non-active, progress, speaking, sertifikatlar.
+- Fanlar bo'yicha progress paneli qo'shildi.
+- Tezkor boshqaruv: account yaratish, arizalar, to'lov, speaking, Excel, backup.
+- Darajalar kesimi paneli qo'shildi.
+- Ogohlantirishlar paneli qo'shildi.
+- E'tibor kerak bo'lganlar, Speaking nazorati va Top o'quvchilar pastki cardlarga ajratildi.
+- Listlar ichki scroll bilan cheklangan, umumiy dashboard tartibli va ixcham ko'rinishga keltirildi.
+- Frontend build muvaffaqiyatli tekshirildi.
+- Backend syntax tekshirildi.

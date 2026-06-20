@@ -1,0 +1,11 @@
+V48 update:
+- Darajalar: Beginner, Elementary, Pre-Intermediate, Intermediate.
+- English Beginner uchun 14 ta yangi mavzu qo'shildi.
+- English Elementary uchun 13 ta yangi mavzu qo'shildi.
+- Har mavzuda 4 xil mashq turi ko'rsatiladi: variant, variantsiz/o'zi qo'yiladigan mashq, xato topish, tarjima/gap tuzish.
+- Admin Rejalar kunlari mavzu ochilishiga ta'sir qiladi:
+  * yangi mavzu faqat belgilangan kunlarda ochiladi;
+  * mavzudan 80%+ olinsa, keyingi mavzu faqat keyingi belgilangan kunda ochiladi;
+  * agar 80%dan past olsa, keyingi belgilangan kunda ham keyingi mavzu ochilmaydi;
+  * o'tilgan mavzular belgilangan kundan tashqari ham takrorlash uchun ochiq;
+  * kun belgilanmagan bo'lsa, platforma eski tartibda ishlaydi.

@@ -1,0 +1,18 @@
+V18 dashboard cleanup
+
+Admin Dashboarddan quyidagi bloklar olib tashlandi:
+- Darajalar kesimi
+- Ogohlantirishlar
+- Top o‘quvchilar
+- Speaking nazorati
+- E’tibor kerak bo‘lganlar
+
+Dashboardda faqat asosiy kerakli qismlar qoldi:
+- Bugungi nazorat hero card
+- Jami o‘quvchi / Active / Non-active / Progress / Speaking / Sertifikat KPI cardlari
+- Fanlar bo‘yicha holat
+- Tezkor boshqaruv
+- To‘lov nazorati
+
+Frontend build qilindi.
+Backend syntax tekshirildi.

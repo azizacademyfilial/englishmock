@@ -1,0 +1,9 @@
+V34 - Rejalar bo‘yicha mavzu ochilishi
+
+Qo‘shildi:
+- O‘quvchiga Rejalar bo‘limida kun biriktirilgan bo‘lsa, yangi mavzu faqat belgilangan kunlarda ochiladi.
+- Kun biriktirilmagan o‘quvchilarda eski tartib saqlanadi: oldingi mavzudan 80%+ olsa keyingi mavzu ochiladi.
+- Oldingi mavzu 80%+ bilan tugatilgan kunning o‘zida keyingi mavzu ochilmaydi; u keyingi belgilangan kunda ochiladi.
+- Agar o‘quvchi mavzuni 80%+ bilan tugatmasa, keyingi belgilangan kunda keyingi mavzu ochilmaydi; o‘sha mavzuni davom ettiradi.
+- Backend endpointlar ham shu qoidani majburiy tekshiradi.
+- Frontendda yopiq mavzu uchun sabab matni chiqadi.

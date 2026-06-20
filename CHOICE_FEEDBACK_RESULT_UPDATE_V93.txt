@@ -1,0 +1,7 @@
+Tanlash mashqi natijalari yangilandi.
+
+- Tanlash mashqi yakunida har bir savol bo‘yicha natija ko‘rinadi.
+- O‘quvchi tanlagan variant alohida ko‘rinadi.
+- Xato javoblarda kerakli to‘g‘ri javob ham ko‘rsatiladi.
+- To‘g‘ri javoblar yashil, xato javoblar qizil blok sifatida ajratiladi.
+- Topic practice, gate test, topic test va final test natijalarida ham tanlash javoblari ko‘rinadi.

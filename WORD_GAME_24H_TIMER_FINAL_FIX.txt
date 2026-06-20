@@ -1,0 +1,1 @@
+So‘z o‘yini 24 soatda 1 marta ochiladi. 15 sekund tugaganda avtomatik yangi so‘z/o‘yin boshlanmaydi. Qolgan vaqt HH:MM:SS formatda ko‘rinadi.

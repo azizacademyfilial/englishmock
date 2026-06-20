@@ -1,0 +1,31 @@
+V81 — Multi-center boshqaruv qo‘shildi
+
+1) Katta admin uchun "Markazlar" bo‘limi qo‘shildi:
+   - Yangi markaz yaratish
+   - Markaz nomi kiritish
+   - Markaz logosi yuklash
+   - Shu markaz uchun bosh admin login/parol yaratish
+
+2) Backendda multi-center data isolation qo‘shildi:
+   - centers modeli
+   - har bir userda centerId
+   - super admin barcha markazlarni ko‘radi
+   - markaz admini faqat o‘z markazidagi o‘quvchi/o‘qituvchilarni ko‘radi
+   - boshqa markaz ma’lumotlari markaz adminiga ko‘rinmaydi
+
+3) Markaz tahlili:
+   - nechta o‘quvchi
+   - nechta o‘qituvchi
+   - nechta admin
+   - o‘rtacha progress
+   - o‘rtacha speaking
+   - darajalar bo‘yicha statistika
+   - markaz ichidagi accountlar jadvali
+
+4) Account yaratishda:
+   - katta admin markaz tanlab user yaratadi
+   - markaz admini faqat o‘z markaziga student/teacher yaratadi
+   - markaz adminiga boshqa markazlar ko‘rinmaydi
+
+Build tekshirildi: frontend npm run build muvaffaqiyatli.
+Backend sintaksis va test API ishlashi tekshirildi.

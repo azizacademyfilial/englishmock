@@ -1,0 +1,21 @@
+UPDATE V57 — SELECTED GRAMMAR TOPICS WORKBOOK STYLE
+
+So‘ralgan mavzular yangilandi:
+- zamonlar: Present Continuous, Present Simple, Present Simple vs Present Continuous, Past Simple, Past Continuous, Future Simple / To be going to, Present Perfect
+- There is / There are
+- Have / Has
+- Preposition of Place
+- Preposition of Time
+
+Har bir mavzuda:
+1) kitobga o‘xshash sodda tushuntirish uslubi,
+2) ko‘proq oddiy misollar,
+3) 10 ta tanlanadigan test,
+4) inputli yoziladigan mashqlar,
+5) gap tuzish testi bor.
+
+Eslatma: matn va misollar copyright sababli kitobdan aynan ko‘chirilmadi. Platforma uchun shu uslubga yaqin, original tushuntirish va original misollar yozildi.
+
+Tekshiruv:
+- backend/src/server.js node --check OK
+- frontend npm run build OK

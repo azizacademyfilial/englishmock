@@ -1,0 +1,4 @@
+V59 update:
+- Grammar mavzularidagi “Shakl” bo'limida formula matni bitta qatorga tiqilmaydi.
+- Am/is/are + verb-ing, inkor va savol shakllari endi tagma-tag chiqadi.
+- Bu o'zgarish barcha Shakl/formula kartalariga umumiy qo'llandi.

@@ -1,0 +1,21 @@
+OPENAI AI ULANDI
+
+Bu versiyada OpenAI backendga ulandi. AI quyidagi joylarda feedback beradi:
+- Vocabulary / Speaking tekshirish feedbacki
+- Topic test feedbacki
+- Writing mashq feedbacki
+- Final test feedbacki
+
+Railway Variables ichiga quyidagilarni qo‘shing:
+OPENAI_API_KEY=sk-...
+OPENAI_MODEL=gpt-5.5
+
+Muhim:
+- OPENAI_API_KEY hech qachon GitHubga push qilinmaydi.
+- API key faqat Railway Variables ichida turadi.
+- API key bo‘lmasa ham loyiha ishlaydi, lekin oddiy fallback feedback chiqadi.
+
+Tekshirish:
+https://YOUR-RAILWAY-DOMAIN/api/health
+
+Javobda openaiEnabled: true bo‘lsa AI ulangan.

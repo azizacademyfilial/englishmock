@@ -1,0 +1,38 @@
+ENGLISH Mock deploy qilish tartibi (GitHub + Netlify + Railway)
+
+1) GitHubga push qiling:
+   git init
+   git add .
+   git commit -m "prepare netlify railway deploy"
+   git branch -M main
+   git remote add origin https://github.com/USERNAME/REPO.git
+   git push -u origin main
+
+2) Railway backend:
+   - New Project -> Deploy from GitHub repo
+   - railway.json avtomatik backend papkani ishga tushiradi
+   - PostgreSQL plugin qo'shing
+   - Variables:
+     DATABASE_URL = Railway PostgreSQL URL
+     PGSSLMODE = require
+     JWT_SECRET = uzun maxfiy kalit
+     CLIENT_URL = Netlify sayt URL manzili
+     REQUIRE_POSTGRES = true
+   - Deploy bo'lgandan keyin backend URL ni oling. Masalan:
+     https://english-mock-backend.up.railway.app
+
+3) Netlify frontend:
+   - Add new site -> Import from GitHub
+   - Base directory: frontend
+   - Build command: npm ci && npm run build
+   - Publish directory: frontend/dist
+   - Environment variable:
+     VITE_API_URL = Railway backend URL
+   - Deploy qiling
+
+4) Railwayga qaytib CLIENT_URL ni Netlify URL bilan yangilang:
+   CLIENT_URL=https://your-site.netlify.app
+
+5) Tekshirish:
+   Railway: /api/health ochilishi kerak
+   Netlify: login ishlashi kerak

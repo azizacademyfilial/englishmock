@@ -1,0 +1,10 @@
+V78 update: barcha account sidebars professional enterprise uslubga keltirildi.
+
+Qilingan ishlar:
+1) Admin sidebar ranglari va iconlari yaxshilandi.
+2) Student desktop sidebar katta loyiha dashboard ko'rinishiga o'tkazildi.
+3) Teacher account uchun alohida professional sidebar qo'shildi.
+4) Sidebar brand, profile card, metric card, menu, status card va logout tugmalari bitta dizayn tizimiga moslandi.
+5) Mobile student bottom-nav ranglari ham yangi blue/cyan enterprise palette bilan yaxshilandi.
+6) Responsive holatlar sozlandi: desktop fixed sidebar, tablet/mobile esa moslashuvchan layout.
+7) Frontend build tekshirildi: npm run build muvaffaqiyatli bajarildi.

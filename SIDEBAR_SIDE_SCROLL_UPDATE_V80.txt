@@ -1,0 +1,6 @@
+V80 update:
+- Desktopda sidebar fixed/qotib turadi.
+- Admin, teacher va student panelida yonidagi asosiy content body orqali scroll bo'ladi.
+- Sidebar ichidagi menu uzun bo'lsa faqat menu ichki scroll bo'ladi.
+- Mobile/tablet versiyada sidebar responsive holatda qoladi.
+- npm run build muvaffaqiyatli tekshirildi.

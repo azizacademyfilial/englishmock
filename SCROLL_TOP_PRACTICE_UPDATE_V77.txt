@@ -1,0 +1,10 @@
+UPDATE V77 - Practice scroll top
+
+- Mashq bajarish tugmasi bosilganda sahifa avtomatik tepaga chiqadi.
+- 1-bosqichdan 2-bosqichga o'tilganda tepaga chiqadi.
+- Mobil versiyada keyingi savol / keyingi yozma mashqqa o'tilganda ham tepaga chiqadi.
+- Natija chiqqanda ham sahifa boshiga qaytadi.
+
+Tekshirildi:
+- frontend build OK
+- backend syntax OK

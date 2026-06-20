@@ -1,0 +1,15 @@
+Cheklovsiz mavzu huquqi tuzatildi (V132)
+
+Muammo:
+Admin panelda o‘quvchida 'Cheklovsiz' ko‘rinardi, lekin student kirganda faqat 1 ta mavzu ochiq turardi.
+
+Sabab:
+Backenddagi topicScheduleStatus funksiyasida allowUnlimitedTopics true bo‘lsa ham oldingi mavzudan 90% olish sharti qolib ketgan edi.
+
+Tuzatildi:
+allowUnlimitedTopics=true bo‘lgan o‘quvchiga tanlangan darajadagi barcha mavzular unlocked=true qaytadi.
+Endi u 1 kunda hamma mavzularni ishlay oladi.
+
+O‘zgargan fayllar:
+- backend/src/server.js
+- frontend/src/main.jsx (APP_VERSION yangilandi)

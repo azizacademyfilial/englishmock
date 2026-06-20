@@ -1,0 +1,6 @@
+Update V88:
+- Plural mashqlaridagi book + s = books kabi ko‘rsatkich/formula yozuvlari olib tashlandi.
+- Plural yozma mashqlarida xato javob tahlili soddalashtirildi: endi Present Simple bilan aralashtirmaydi.
+- Noto‘g‘ri javobda bola yozgan javob, to‘g‘ri javob va qisqa tushuntirish ko‘rinadi.
+- To‘g‘ri javobda ortiqcha Qoida/formula chiqmaydi.
+- Frontend qayta build qilindi.

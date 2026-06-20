@@ -1,0 +1,5 @@
+V64 update:
+- English grammar mavzularidagi vocabularylar bir xil chiqmasligi uchun qayta ajratildi.
+- Har bir asosiy mavzu uchun alohida 30 tagacha so'z/ibora, tarjima va misol gap berildi.
+- Oldingi umumiy takroriy so'zlar (meaning, rule, form, topic va shunga o'xshashlar) asosiy vocabularyni to'ldirib yubormaydi.
+- Speaking bo'limi vocabulary bilan ishlashda davom etadi.

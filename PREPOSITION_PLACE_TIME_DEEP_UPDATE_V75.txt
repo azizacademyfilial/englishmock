@@ -1,0 +1,5 @@
+V75 update:
+- PREPOSITION OF PLACE mavzusi chuqur tushuntirildi: in/on/under/behind/next to/between/in front of.
+- PREPOSITION OF TIME mavzusi chuqur tushuntirildi: at/on/in/before/after/from...to.
+- Har ikki mavzuga tarjimali misollar, 10 ta tanlanadigan test, inputli mashq va gap tuzish testi qo‘shildi.
+- Frontenddagi formula cardlar ijobiy/salbiy/savol emas, mavzuga mos predlog cardlari ko‘rinishida qilindi.

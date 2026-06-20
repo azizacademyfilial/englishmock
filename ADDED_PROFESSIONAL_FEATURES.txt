@@ -1,0 +1,53 @@
+ENGLISH Mock PLATFORM — PROFESSIONAL FEATURES ADDED
+
+Qo‘shilgan bo‘limlar:
+1. Backup tizimi
+   - Admin paneldan backup yaratish
+   - Backuplar ro‘yxati
+   - Backup JSON faylini yuklab olish
+   - Server ishga tushganda kunlik avtomatik backup
+
+2. Admin action log
+   - Login, user yaratish, user tahrirlash, ariza statusi, backup, CSV import, topic editor actionlari yoziladi
+
+3. Error/system log
+   - Backenddagi muhim texnik xatolar system logga tushadi
+   - Admin paneldan ko‘rish mumkin
+
+4. Teacher panel
+   - O‘qituvchi account roli qo‘shildi
+   - O‘qituvchi faqat o‘z fanidagi o‘quvchilarni ko‘radi
+   - O‘quvchi progressi, reyting va past progress ko‘rinadi
+
+5. Excel/CSV import-export
+   - Accountlar export CSV
+   - Natijalar export CSV
+   - Sertifikatlar export CSV
+   - CSV orqali student import qilish
+
+6. To‘lov va muddat nazorati
+   - Userlarda to‘lov statusi: paid/unpaid
+   - Admin panelda tez o‘zgartirish
+   - Bildirishnomalarda unpaid chiqadi
+
+7. Notification / ogohlantirishlar
+   - Muddati tugaganlar
+   - To‘lov qilmaganlar
+   - Progressi pastlar
+   - Uzoq vaqt login qilmaganlar
+
+8. Certificate verification API
+   - /api/verify-certificate/:code
+   - QR sertifikat sahifasiga olib kiradi
+
+9. Student ranking
+   - Admin va teacher panelda yuqori progress qilgan o‘quvchilar reytingi
+
+10. Topic/Test editor
+   - Admin mavzuga qo‘shimcha izoh, YouTube link, vocabulary va test savollarini saqlashi mumkin
+   - Formatlar admin paneldagi placeholderlarda ko‘rsatilgan
+
+Xavfsizlik:
+- .env zipga kiritilmadi
+- PostgreSQL va JWT maxfiylari backend/.env ichida lokal saqlanadi
+- Admin ro‘yxatlar pagination bilan ishlaydi

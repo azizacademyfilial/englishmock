@@ -1,0 +1,24 @@
+UPDATE V68
+
+1) PLURALS (REGULAR) mavzusi chuqurroq tushuntirildi:
+- singular/plural farqi
+- -s qoidasi
+- -es qoidasi
+- consonant + y -> ies
+- vowel + y -> s
+- a/an ko'plikda ishlatilmasligi
+- ko'proq misollar va mashqlar
+
+2) Kalit so'zlar bloki faqat zamon mavzularida qoldirildi:
+- Present Simple
+- Present Continuous
+- Past Simple
+- Past Continuous
+- Future Simple / Going To
+- Present Perfect
+
+Boshqa mavzulardan Kalit so'zlar bloki olib tashlandi.
+
+Tekshirildi:
+- backend syntax OK
+- frontend build OK

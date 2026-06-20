@@ -1,0 +1,17 @@
+STRICT_WRITING_GRADING_UPDATE_V97
+
+Mashqlardagi yozma gap tuzish tekshiruvi qat'iylashtirildi.
+
+O'zgarishlar:
+1. sentence_generation mashqlarida talab buzilsa javob 0% qilinadi.
+2. Positive/darak gap so'ralsa inkor yoki savol gap qabul qilinmaydi.
+3. Negative/inkor gap so'ralsa darak yoki savol gap qabul qilinmaydi.
+4. Question/savol gap so'ralsa darak yoki inkor gap qabul qilinmaydi.
+5. Present Simple mashqlarida boshqa zamonlar, Present Continuous, TO BE va noto'g'ri Do/Does tartibi 0% bo'ladi.
+6. Present Continuous mashqlarida faqat am/is/are + V-ing shakli qabul qilinadi.
+7. TO BE, There is/There are, Have/Has, Can/Can't, Who/What, Preposition of Place/Time mashqlarida ham promptdagi aniq talab tekshiriladi.
+8. Promptda qo'shtirnoq ichida berilgan so'z/ibora javobda bo'lishi shart.
+9. Tinish belgisi va katta/kichik harf hali ham xato hisoblanmaydi, lekin grammatik forma qat'iy tekshiriladi.
+
+Asosiy o'zgargan fayl:
+backend/src/server.js

@@ -1,0 +1,6 @@
+Yangilanish V92:
+- Natijalardan “Bola yozgani:” va “Bola yozgan gap:” yozuvlari olib tashlandi.
+- Gap tuzish natijasida “To‘g‘ri javob:” namunasi ko‘rsatilmaydi.
+- HAVE / HAS mashqlari faqat have/has tanloviga moslandi; do/does, have got, negative/question aralashmalari olib tashlandi.
+- “Write one sentence with has” topshirig‘ida have bilan yozilgan gap 100% bo‘lmaydi; topshiriqdagi so‘z majburiy tekshiriladi.
+- A/AN va HAVE/HAS kabi 2 variantli mashqlar 2 variant bo‘lib qoladi, sun’iy 3-4 variant qo‘shilmaydi.

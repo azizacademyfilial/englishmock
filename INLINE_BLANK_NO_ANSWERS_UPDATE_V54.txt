@@ -1,0 +1,7 @@
+V54 update:
+- Fill blank mashqlarda ___ joyining o‘zida input chiqadi.
+- Masalan: Complete: one car — five [input]
+- Yozma natijada “Siz yozdingiz” va “Namuna javob” ko‘rsatilmaydi.
+- car + s = cars kabi javobni oldindan ko‘rsatadigan hintlar olib tashlandi.
+- Feedbacklarda to‘g‘ri javoblar oshkor qilinmasligi uchun xato tafsilotlari qisqartirildi.
+- Katta/kichik harf va tinish belgisi avvalgidek qattiq xato hisoblanmaydi.

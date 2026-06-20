@@ -1,0 +1,6 @@
+Yangilanish V85
+
+- Mashqlarda ko‘rinib qolgan sun’iy 4-variant yozuvlari olib tashlandi.
+- Agar 4 ta javob varianti to‘lmay qolsa, endi oddiy va mazmunli noto‘g‘ri javob qo‘yiladi.
+- A / AN mashqlaridagi “artiklsiz javob” yozuvlari olib tashlandi.
+- 4-variant ham bo‘sh yoki sun’iy matn emas, mavzuga mos noto‘g‘ri variant bo‘lib chiqadi.

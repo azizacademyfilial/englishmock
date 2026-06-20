@@ -1,0 +1,9 @@
+V38 AI batch vocabulary update
+
+- Vocabulary speaking AI check now supports batch mode: up to 30 vocabulary words are sent in one AI request.
+- Per-word microphone check uses local similarity first so the UI is fast and cheap.
+- Student can press “Vocabularyni bitta AI request bilan tekshirish” to send checked words together.
+- Backend endpoint added: POST /api/speaking-batch-check.
+- Backend endpoint added: POST /api/speaking-progress-batch/:language/:level/:topicNo for batch saving if needed.
+- OPENAI_API_KEY in backend/.env is replaced with a placeholder for security. Put your real key only on the server/Railway environment variables.
+- Recommended model for cost control: gpt-4o-mini or another low-cost mini model.

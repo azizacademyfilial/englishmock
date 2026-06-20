@@ -1,0 +1,11 @@
+ENGLISH Mock PLATFORM — V51 vaqtinchalik ochiq test rejimi
+
+Qilingan o'zgarishlar:
+1) Barcha darajalar hozircha ochiq qilindi.
+2) Barcha mavzu testlari hozircha ochiq qilindi.
+3) Keyingi mavzu oldingi mavzudan 80%+ olgandan keyin ochilishi sharti vaqtincha o'chirildi.
+4) Reja kuni bo'yicha yopilish hozircha foydalanuvchiga blok qilmaydi.
+5) Yakuniy testlar ham hozircha ochiq qilindi.
+
+Eslatma:
+Bu demo/tekshiruv uchun vaqtinchalik rejim. Keyin eski ketma-ket ochilish qoidasini qaytarish uchun backend/src/server.js ichidagi hasLevelAccess, isTopicUnlocked va isFinalUnlocked funksiyalarini eski holatga qaytarish kerak.

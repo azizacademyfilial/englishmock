@@ -1,0 +1,5 @@
+V60 update:
+- Shakl bitta hunuk cardda chiqmaydi.
+- Grammar mavzularida Positive, Negative, Question alohida card bo‘ldi.
+- Har bir cardda formula va 2 tadan misol bor.
+- Formula card dizayni oqroq, toza va tartibli qilindi.

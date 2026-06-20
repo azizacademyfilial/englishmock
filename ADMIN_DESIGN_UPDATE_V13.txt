@@ -1,0 +1,16 @@
+V13 admin design update
+
+Qilingan ishlar:
+- Admin panel katta bo‘sh hero-carddan tozalandi va ixcham top header qilindi.
+- Yuqoriga 4 ta aniq statistika card qo‘shildi: Yangi ariza, O‘quvchilar, Speaking, Sertifikatlar.
+- Sidebar qayta tartiblandi va keraksiz maslahat bloki olib tashlandi.
+- Accountlar bo‘limi birinchi ochiladigan qilib qo‘yildi.
+- Accountlar jadvalidan keraksiz "Kelgan mavzu" ustuni olib tashlandi.
+- Jadval ustunlari tekislandi: Ism familya, Login, Rol/Fan, Daraja, Speaking, Status, To‘lov, Muddat, Action.
+- Action tugmalari, to‘lov selecti va muddat date inputi tartibli grid ko‘rinishga keltirildi.
+- To‘langan / To‘lanmagan statuslari uchun pill ranglari yaxshilandi.
+- Non-active, Active, Expired statuslari tushunarli ranglarda ajratildi.
+- Admin bo‘limlarining umumiy CSS dizayni modern SaaS dashboard uslubiga keltirildi.
+- Mobil va planshet responsive ko‘rinishlar ham tuzatildi.
+- Frontend build muvaffaqiyatli tekshirildi.
+- Backend syntax tekshirildi.

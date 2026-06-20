@@ -1,0 +1,12 @@
+V15 admin design update
+
+- Har bir admin bo'limi uchun ixcham va bir xil dashboard dizayni qilindi.
+- Dashboard, Accountlar, Arizalar, Progress, Sertifikatlar, Kontent & Excel, Loglar, Sozlamalar bo'limlari alohida tartiblandi.
+- Jadval va cardlarda horizontal overflow kamaytirildi, ustunlar ekranga sig'adigan qilib compact qilindi.
+- Accountlar sahifasida pagination 8 tadan qilib qo'yildi, jadval juda uzun bo'lib ketmasligi uchun.
+- Sertifikatlar ham 8 tadan ko'rsatiladigan qilindi.
+- Arizalar 9 tadan olinadigan qilindi.
+- Create account formasi ixcham 2 qatorli grid ko'rinishga o'tkazildi.
+- Progress, certificate, content, logs va settings sahifalari ham bir xil stylega moslandi.
+- Frontend build muvaffaqiyatli bajarildi.
+- Backend syntax tekshirildi.

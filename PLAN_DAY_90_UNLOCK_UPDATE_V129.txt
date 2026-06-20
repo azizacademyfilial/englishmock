@@ -1,0 +1,15 @@
+PLAN_DAY_90_UNLOCK_UPDATE_V129
+
+Qo‘shilgan qoida:
+- Barcha mavzular default yopiq turadi.
+- Admin o‘quvchiga Rejalar bo‘limidan dars kunlarini biriktiradi.
+- O‘quvchida faqat belgilangan kunlarda 1 ta yangi mavzu ochiladi.
+- Keyingi mavzu ochilishi uchun oldingi mavzudan kamida 90% olish shart.
+- Agar o‘quvchi 90% dan past olsa, keyingi biriktirilgan kunda ham yangi mavzu ochilmaydi.
+- O‘sha mavzuni qayta ishlab 90%+ olgandan keyingina keyingi mavzu keyingi belgilangan kunda ochiladi.
+- Daraja yakuniy testi ham barcha mavzular 90%+ bo‘lganda ochiladi.
+- Sertifikat faqat yakuniy testdan 90%+ olinganda beriladi.
+
+O‘zgartirilgan asosiy fayllar:
+- backend/src/server.js
+- frontend/src/main.jsx

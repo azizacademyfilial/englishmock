@@ -1,0 +1,5 @@
+V79 update:
+- Hamma account sidebarlari desktopda fixed qilindi.
+- Scroll bo'lganda admin, teacher va student sidebar joyida turadi.
+- Asosiy content alohida scroll bo'ladi.
+- Mobile/tablet versiyada sidebar static qoladi.

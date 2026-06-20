@@ -1,0 +1,13 @@
+{
+  "name": "alaziz-work-ready",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix backend install --no-audit --no-fund && npm --prefix frontend install --no-audit --no-fund",
+    "frontend": "npm --prefix frontend run dev",
+    "backend": "npm --prefix backend run dev",
+    "build": "npm --prefix frontend run build"
+  },
+  "engines": {
+    "node": ">=20 <23"
+  }
+}

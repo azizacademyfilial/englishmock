@@ -1,0 +1,45 @@
+WORKBOOK EXERCISES UPDATE V49
+
+Bu update ichida ingliz tili grammatika mavzulariga kitobdagi mashqlarga o'xshagan topshiriqlar qo'shildi.
+
+Qo'shilgan mashq turlari:
+1) Bo'sh joyni to'ldirish:
+   Complete: Gordon? I think he ___ a letter at the moment. (write)
+   Javob: is writing
+
+2) To'g'ri variantni tanlash:
+   I work / am working at the local library for the summer.
+   To'g'ri javob: am working
+
+Qaysi mavzularga tushadi:
+- TO BE
+- A / AN
+- PLURALS
+- SUBJECT PRONOUN
+- THERE IS / THERE ARE
+- HAVE / HAS
+- CAN / CAN'T
+- WHO / WHAT
+- PRESENT CONTINUOUS
+- PRESENT SIMPLE
+- PRESENT SIMPLE & PRESENT CONTINUOUS
+- PREPOSITION mavzulari
+- ADVERB AND ADJECTIVE
+- PAST CONTINUOUS
+- PAST SIMPLE
+- FUTURE SIMPLE / TO BE GOING TO
+- CONDITIONAL mavzulari
+- HAVE TO / MUST / SHOULD / MODALS
+- USED TO / WOULD
+- GERUND / INFINITIVE
+- PRESENT PERFECT
+- PASSIVE VOICE
+- RELATIVE CLAUSES
+- REPORTED SPEECH
+
+O'zgargan fayllar:
+- backend/src/server.js
+- frontend/src/main.jsx
+
+Eslatma:
+Mavzuda bunday mashq mos kelmasa, eski vocabulary/translation savollari ishlaydi.

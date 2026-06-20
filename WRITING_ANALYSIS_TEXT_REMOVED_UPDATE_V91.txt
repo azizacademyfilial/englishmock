@@ -1,0 +1,6 @@
+Update V91 — Yozma mashq natijasidagi ortiqcha tahlil olib tashlandi
+
+1) Natija kartalaridan "Tahlil:" qatori olib tashlandi.
+2) "Katta-kichik harf, apostrof va tinish belgisi..." degan eslatma olib tashlandi.
+3) Yozma mashq natijasida faqat savol, bola yozgan javob, to'g'ri javob va foiz ko'rinadi.
+4) Frontend qayta build qilindi.

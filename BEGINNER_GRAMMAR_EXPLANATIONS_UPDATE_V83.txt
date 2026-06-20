@@ -1,0 +1,16 @@
+BEGINNER_GRAMMAR_EXPLANATIONS_UPDATE_V83
+
+Yangilandi:
+1) PLURALS (REGULAR)
+2) PLURAL (IRREGULAR)
+3) TO BE
+4) THERE IS / THERE ARE
+
+Nimalar yaxshilandi:
+- Mavzuning ma’nosi oddiyroq va qiziqarliroq qilib yozildi.
+- Uzbekcha tushuntirishlar chuqurlashtirildi.
+- Ko‘proq real misollar va tarjimalar qo‘shildi.
+- Eng ko‘p xato qilinadigan joylar aniq ko‘rsatildi.
+- Frontenddagi dars kartalari ham yangilandi.
+- PLURAL (IRREGULAR) mavzusi ham clean workbook uslubida ko‘rinadigan qilindi.
+- frontend/dist qayta build qilindi.

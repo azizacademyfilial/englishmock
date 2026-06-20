@@ -1,0 +1,28 @@
+PAYMENT STATUS UPDATE
+=====================
+
+Qo'shildi:
+1. To'lov statusida faqat 2 ta holat qoldi:
+   - paid = To'langan
+   - unpaid = To'lanmagan
+
+2. Qisman va Sinov optionlari frontenddan olib tashlandi.
+
+3. Agar o'quvchi To'lanmagan qilinsa:
+   - isActive avtomatik false bo'ladi
+   - status non-active bo'lib ko'rinadi
+   - o'quvchi saytga login qila olmaydi
+   - ochiq sessiyasi bo'lsa yopiladi
+
+4. Agar API/import orqali eski partial/trial/qisman/sinov qiymatlari kelsa:
+   - ular unpaid sifatida qabul qilinadi
+   - o'quvchi avtomatik non-active bo'ladi
+
+5. Admin panelda to'lov selecti faqat:
+   - To'langan
+   - To'lanmagan
+   ko'rinishida chiqadi.
+
+Build tekshirildi:
+- backend: node --check backend/src/server.js
+- frontend: npm run build

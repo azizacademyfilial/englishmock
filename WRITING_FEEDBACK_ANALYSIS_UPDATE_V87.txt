@@ -1,0 +1,6 @@
+V87 writing feedback update:
+- Har bir yozma mashq natijasida bola yozgan javob ko‘rinadi.
+- To‘g‘ri javob alohida ko‘rsatiladi.
+- Xato javoblarda qaysi joyda xato qilingani mavzu qoidasiga qarab tushuntiriladi.
+- Fill-blank mashqlarda prompt talabiga mos aniq tahlil beriladi.
+- TO BE, SUBJECT PRONOUN, THERE IS/ARE, ARTICLE kabi sentence-generation mashqlar ham mavzu talabi bo‘yicha tekshiriladi.
