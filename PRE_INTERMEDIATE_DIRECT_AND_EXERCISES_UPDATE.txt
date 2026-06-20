@@ -1,6 +1,0 @@
-Update:
-- Admin tomonidan ochilgan Elementary / Pre-Intermediate bosilganda ruxsat testi chiqmaydi, to'g'ridan-to'g'ri shu daraja mavzulariga o'tadi.
-- Backend /api/gate-test ham admin ochgan daraja uchun skipTest qaytaradi.
-- Pre-Intermediate 14 ta mavzu qilib tartiblandi.
-- Pre-Intermediate mavzularida tushuntirishda bir-biridan farqlari yozildi.
-- Har bir Pre-Intermediate mavzusida: 1-mashq 10 ta test, 2-mashq 8 ta yozish mashqi, 3-mashq 7 ta gap tuzish mashqi.

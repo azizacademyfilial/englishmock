@@ -6007,46 +6007,6 @@ function StudentPlaceholderPanel({ title, text, icon }) {
 }
 
 
-
-function normalizeStudentLevelName(value = '') {
-  const raw = String(value || '').trim();
-  const key = raw
-    .toLowerCase()
-    .replace(/[–—_]/g, '-')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
-  const map = {
-    beginner: 'Beginner',
-    elementary: 'Elementary',
-    'pre-intermediate': 'Pre-Intermediate',
-    preintermediate: 'Pre-Intermediate',
-    pre: 'Pre-Intermediate',
-    intermediate: 'Intermediate'
-  };
-  const base = ['Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate'];
-  return map[key] || base.find(level => level.toLowerCase() === raw.toLowerCase()) || '';
-}
-
-function levelNameListForStudentAccess(value = []) {
-  const base = ['Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate'];
-  const list = Array.isArray(value) ? value : String(value || '').split(',');
-  const selected = list
-    .map(v => typeof v === 'object' && v ? (v.level || v.name || v.title || v.value) : v)
-    .map(normalizeStudentLevelName)
-    .filter(v => base.includes(v));
-  const out = new Set(['Beginner']);
-  selected.forEach(lv => {
-    const idx = base.indexOf(lv);
-    for (let i = 0; i <= idx; i += 1) out.add(base[i]);
-  });
-  return [...out];
-}
-function isLevelOpenedByAdminOrProgress(user, progress, subject, lv) {
-  if (lv === 'Beginner') return true;
-  if (progress?.access?.[subject]?.[lv]) return true;
-  return levelNameListForStudentAccess(user?.unlockedLevels || []).includes(lv);
-}
-
 const STUDENT_NOT_READY_LEVELS = ['Intermediate'];
 const STUDENT_NOT_READY_MESSAGE = 'Bu daraja hali tayyor emas. Bu daraja ustida ishlanmoqda. Iltimos administratorga murojaat qiling.';
 
@@ -6091,21 +6051,27 @@ function StudentPanel({ user, onLogout }) {
       alert(STUDENT_NOT_READY_MESSAGE);
       return;
     }
-
     setSelectedTopic(null);
     setFinalTest(null);
     setFinalResult(null);
-    setGate(null);
 
-    // Eng avval backenddan tekshiramiz. Admin shu darajani ochib bergan bo‘lsa
-    // backend { allowed:true, skipTest:true } qaytaradi va hech qanday ruxsat testi ko‘rinmaydi.
-    const test = await api(`/api/gate-test/${subject}/${lv}`);
-    if (test?.skipTest || test?.allowed || isLevelOpenedByAdminOrProgress(user, progress, subject, lv)) {
-      setLevel(lv);
+    // Eng muhim qoida:
+    // Admin panelidagi “Qo‘lda daraja ochish” orqali daraja ochilgan bo‘lsa
+    // foydalanuvchi darajani bosishi bilan mavzularga o'tadi. Ruxsat testi umuman chiqmaydi.
+    const freshProgress = await api('/api/progress');
+    setProgress(freshProgress);
+    if (freshProgress?.access?.[subject]?.[lv]) {
       setGate(null);
-      await loadBase();
+      setLevel(lv);
       await loadTopics(subject, lv);
-      setActiveTab('lessons');
+      return;
+    }
+
+    const test = await api(`/api/gate-test/${subject}/${lv}`);
+    if (test?.skipGate || test?.unlocked) {
+      setGate(null);
+      setLevel(lv);
+      await loadTopics(subject, lv);
       return;
     }
 
