@@ -866,14 +866,21 @@ const requestedEnglishTopics = {
     'USED TO / WOULD'
   ],
   'Pre-Intermediate': [
-    'Present Simple, Present Continuous, Past Simple, Past Continuous',
+    'Present Simple',
+    'Present Continuous',
+    'Past Simple',
+    'Past Continuous',
     'Relative Clauses (who, which, where, whose, that)',
-    'Present Perfect Simple, Present Perfect Continuous',
+    'Present Perfect Simple',
+    'Present Perfect Continuous',
     'Articles (a, an, the, no article)',
     'Past Simple and Present Perfect',
-    'Comparative, Superlative',
-    'Past Perfect Simple, Past Perfect Continuous',
-    'Modal Verbs 1, Modal Verbs 2',
+    'Comparative',
+    'Superlative',
+    'Past Perfect Simple',
+    'Past Perfect Continuous',
+    'Modal Verbs 1',
+    'Modal Verbs 2',
     'Conditionals 2 & 3',
     'Passive Voice 1 (Present and Past Tenses)',
     'Passive Voice 2 (All Tenses)',
@@ -1653,28 +1660,18 @@ const TOPIC_PASS_SCORE = 90;
 const LEVEL_PASS_SCORE = 90;
 const PLAN_DAYS = ['Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'Shanba', 'Yakshanba'];
 
-function normalizeLevelName(value = '') {
-  const raw = String(value || '').trim();
-  if (!raw) return '';
-  const compact = raw.toLowerCase().replace(/[–—]/g, '-').replace(/[_\s-]+/g, '-').replace(/^-+|-+$/g, '');
-  return levels.find(level => {
-    const levelKey = level.toLowerCase().replace(/[–—]/g, '-').replace(/[_\s-]+/g, '-').replace(/^-+|-+$/g, '');
-    return levelKey === compact || level.toLowerCase() === raw.toLowerCase();
-  }) || raw;
-}
-
 function normalizeUnlockedLevels(value = []) {
   const list = Array.isArray(value) ? value : String(value || '').split(',');
   const selected = list
-    .map(item => normalizeLevelName(item))
+    .map(item => String(item || '').trim())
     .filter(level => levels.includes(level));
 
-  // Admin yuqori darajani qo'lda ochsa, undan oldingi darajalar ham avtomatik ochiq hisoblanadi.
-  // Masalan: Pre-Intermediate ochilsa, Beginner + Elementary + Pre-Intermediate ochiladi.
+  // Admin yuqori darajani ochsa, undan oldingi darajalar ham avtomatik ochiq hisoblanadi.
+  // Masalan: Pre-Intermediate ochilsa, Elementary ham ochiladi.
   const expanded = [];
   selected.forEach(level => {
     const idx = levelIndex[level];
-    for (let i = 0; i <= idx; i += 1) expanded.push(levels[i]);
+    for (let i = 1; i <= idx; i += 1) expanded.push(levels[i]);
   });
 
   const seen = new Set();
@@ -18889,9 +18886,6 @@ function workbookExerciseKey(language, title = '') {
 }
 
 function isThreePartWorkbookTopic(language, title = '') {
-  // Ingliz tili mavzularining hammasi oldingi darajalardagidek 3 qismli bo'ladi:
-  // 1-mashq: 10 ta test, 2-mashq: 8 ta yozish, 3-mashq: 7 ta gap tuzish.
-  if (language === 'english') return true;
   return Boolean(workbookExerciseKey(language, title));
 }
 
@@ -19153,30 +19147,11 @@ function getDifferentWorkbookBlanks(language, title, pack, limit = WRITING_FILL_
     unique.push(item);
     seen.add(promptKey);
   }
-
-  // Pack bo'lmagan Pre-Intermediate kabi mavzularda ham 8 ta yozish mashqi bo'lishi uchun fallback.
-  const fallbackBlanks = [
-    [`Use the correct form for ${title}: I ___ English every day.`, ['study'], `${title} mavzusiga mos fe'l shaklini yozing.`],
-    [`Use the correct form for ${title}: She ___ at the moment.`, ['is studying'], 'Hozir davom etayotgan ish uchun mos shakl yozing.'],
-    [`Use the correct form for ${title}: They ___ yesterday.`, ['worked'], "O\'tgan zamon uchun mos shakl yozing."],
-    [`Complete the sentence for ${title}: This is the person ___ helped me.`, ['who'], 'Odam uchun who ishlatiladi.'],
-    [`Complete the sentence for ${title}: I have ___ my homework.`, ['finished'], 'Present Perfectda have/has + V3 ishlatiladi.'],
-    [`Complete the sentence for ${title}: The letter was ___.`, ['written'], 'Passive Voice uchun V3 kerak.'],
-    [`Complete the sentence for ${title}: If I had time, I ___ help you.`, ['would'], 'Second Conditional natija qismida would ishlatiladi.'],
-    [`Complete the connector for ${title}: ___ it was raining, we went out.`, ['although'], 'Qarama-qarshilik uchun although ishlatiladi.']
-  ];
-  for (const item of fallbackBlanks) {
-    if (unique.length >= limit) break;
-    const promptKey = normalizeTopicName(item[0]);
-    if (seen.has(promptKey) || choicePrompts.has(promptKey)) continue;
-    unique.push(item);
-    seen.add(promptKey);
-  }
   return unique.slice(0, limit);
 }
 
-const WRITING_FILL_BLANK_COUNT = 8;
-const WRITING_SENTENCE_COUNT = 7;
+const WRITING_FILL_BLANK_COUNT = 7;
+const WRITING_SENTENCE_COUNT = 8;
 
 function defaultSentenceItemsForTopic(title = '') {
   const key = normalizeTopicName(title);
@@ -20924,14 +20899,7 @@ app.get('/api/progress', auth, (req, res) => {
     access[s.id] = {};
     for (const lvl of levels) access[s.id][lvl] = hasLevelAccess(db, req.user.id, s.id, lvl);
   }
-  res.json({
-    progress: p,
-    access,
-    manualUnlockedLevels: normalizeUnlockedLevels(req.user.unlockedLevels || []),
-    user: { unlockedLevels: normalizeUnlockedLevels(req.user.unlockedLevels || []) },
-    speakingSummary: summarizeSpeakingForUser(db, req.user),
-    certificates: db.certificates.filter(c => c.userId === req.user.id)
-  });
+  res.json({ progress: p, access, speakingSummary: summarizeSpeakingForUser(db, req.user), certificates: db.certificates.filter(c => c.userId === req.user.id) });
 });
 app.get('/api/topics/:language/:level', auth, requireSubject, (req, res) => {
   const { language, level } = req.params;
@@ -21104,15 +21072,8 @@ app.post('/api/speaking-progress/:language/:level/:topicNo', auth, requireSubjec
 });
 
 app.get('/api/gate-test/:language/:level', auth, requireSubject, (req, res) => {
-  const { language } = req.params;
-  const level = normalizeLevelName(req.params.level);
+  const { language, level } = req.params;
   if (level === FIRST_LEVEL) return res.status(400).json({ message: `${FIRST_LEVEL} darajasi ochiq` });
-
-  // Qo'lda daraja ochilgan bo'lsa gate test qaytarmaymiz. Frontend to'g'ridan-to'g'ri mavzularga o'tadi.
-  if (hasAdminLevelUnlock(req.user, level) || hasLevelAccess(req.db, req.user.id, language, level)) {
-    return res.json({ skipGate: true, unlocked: true, level, questions: [] });
-  }
-
   res.json(buildGateTest(language, level));
 });
 app.post('/api/gate-test/:language/:level', auth, requireSubject, async (req, res) => {
