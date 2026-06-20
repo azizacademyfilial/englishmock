@@ -1653,15 +1653,34 @@ const TOPIC_PASS_SCORE = 90;
 const LEVEL_PASS_SCORE = 90;
 const PLAN_DAYS = ['Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'Shanba', 'Yakshanba'];
 
+function normalizeLevelName(value = '') {
+  const raw = String(value || '').trim();
+  const key = raw
+    .toLowerCase()
+    .replace(/[–—_]/g, '-')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+  const map = {
+    beginner: 'Beginner',
+    elementary: 'Elementary',
+    'pre-intermediate': 'Pre-Intermediate',
+    preintermediate: 'Pre-Intermediate',
+    pre: 'Pre-Intermediate',
+    intermediate: 'Intermediate'
+  };
+  return map[key] || levels.find(level => level.toLowerCase() === raw.toLowerCase()) || '';
+}
+
 function normalizeUnlockedLevels(value = []) {
   const list = Array.isArray(value) ? value : String(value || '').split(',');
   const selected = list
-    .map(item => String(item || '').trim())
+    .map(item => typeof item === 'object' && item ? (item.level || item.name || item.title || item.value) : item)
+    .map(normalizeLevelName)
     .filter(level => levels.includes(level));
 
   // Admin yuqori darajani ochsa, undan oldingi darajalar ham avtomatik ochiq hisoblanadi.
-  // Masalan: Pre-Intermediate ochilsa, Elementary ham ochiladi.
-  const expanded = [];
+  // Masalan: Pre-Intermediate ochilsa, Beginner + Elementary + Pre-Intermediate ochiq bo‘ladi.
+  const expanded = [FIRST_LEVEL];
   selected.forEach(level => {
     const idx = levelIndex[level];
     for (let i = 1; i <= idx; i += 1) expanded.push(levels[i]);
