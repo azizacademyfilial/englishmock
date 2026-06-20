@@ -864,6 +864,29 @@ const requestedEnglishTopics = {
     'CONDITIONAL 1',
     'GERUND INFINITIVE',
     'USED TO / WOULD'
+  ],
+  'Pre-Intermediate': [
+    'Present Simple',
+    'Present Continuous',
+    'Past Simple',
+    'Past Continuous',
+    'Relative Clauses (who, which, where, whose, that)',
+    'Present Perfect Simple',
+    'Present Perfect Continuous',
+    'Articles (a, an, the, no article)',
+    'Past Simple and Present Perfect',
+    'Comparative',
+    'Superlative',
+    'Past Perfect Simple',
+    'Past Perfect Continuous',
+    'Modal Verbs 1',
+    'Modal Verbs 2',
+    'Conditionals 2 & 3',
+    'Passive Voice 1 (Present and Past Tenses)',
+    'Passive Voice 2 (All Tenses)',
+    'Reported Speech',
+    'Connectives',
+    'Despite, In Spite of, Although, While'
   ]
 };
 const legacyLevelTopicMap = { Beginner: 'A1', Elementary: 'A2', 'Pre-Intermediate': 'B1', Intermediate: 'B2' };
@@ -1639,15 +1662,24 @@ const PLAN_DAYS = ['Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'S
 
 function normalizeUnlockedLevels(value = []) {
   const list = Array.isArray(value) ? value : String(value || '').split(',');
-  const seen = new Set();
-  return list
+  const selected = list
     .map(item => String(item || '').trim())
-    .filter(level => levels.includes(level))
-    .filter(level => {
-      if (seen.has(level)) return false;
-      seen.add(level);
-      return true;
-    });
+    .filter(level => levels.includes(level));
+
+  // Admin yuqori darajani ochsa, undan oldingi darajalar ham avtomatik ochiq hisoblanadi.
+  // Masalan: Pre-Intermediate ochilsa, Elementary ham ochiladi.
+  const expanded = [];
+  selected.forEach(level => {
+    const idx = levelIndex[level];
+    for (let i = 1; i <= idx; i += 1) expanded.push(levels[i]);
+  });
+
+  const seen = new Set();
+  return expanded.filter(level => {
+    if (seen.has(level)) return false;
+    seen.add(level);
+    return true;
+  });
 }
 
 function hasAdminLevelUnlock(user, level) {
@@ -20348,6 +20380,8 @@ function hasLevelAccess(db, userId, language, level) {
   return (p[gateKey(language, level)]?.bestScore || 0) >= LEVEL_PASS_SCORE || (p[finalKey(language, previous)]?.bestScore || 0) >= LEVEL_PASS_SCORE;
 }
 function isTopicUnlocked(db, userId, language, level, topicNo) {
+  const user = db.users.find(u => u.id === userId);
+  if (hasAdminLevelUnlock(user, level)) return true;
   if (!hasLevelAccess(db, userId, language, level)) return false;
   return topicScheduleStatus(db, userId, language, level, Number(topicNo)).allowed;
 }
