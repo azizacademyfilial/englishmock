@@ -19622,12 +19622,87 @@ function buildEnglishGrammarWritingTasks(profile, title) {
   return tasks.slice(0, 5).map((task, index) => ({ ...task, id: `w${index + 1}` }));
 }
 
-function buildWritingTasks(language, level, title, topicNo, vocabulary) {
+function normalizeExerciseText(value = '') {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[“”‘’'`´]/g, '')
+    .replace(/___+/g, ' ')
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function writingTaskText(task = {}) {
+  return [task.prompt, task.title, ...(Array.isArray(task.expected) ? task.expected : [])]
+    .map(normalizeExerciseText)
+    .filter(Boolean)
+    .join(' ');
+}
+
+function taskLooksSameAsChoice(task = {}, choiceQuestions = []) {
+  const taskText = writingTaskText(task);
+  if (!taskText) return false;
+  return (choiceQuestions || []).some(q => {
+    const questionText = normalizeExerciseText(q?.question || '');
+    const optionText = Array.isArray(q?.options) ? q.options.map(normalizeExerciseText).filter(Boolean).join(' ') : '';
+    const combined = `${questionText} ${optionText}`.trim();
+    if (!combined) return false;
+    if (taskText === combined || questionText === taskText) return true;
+    return taskText.length > 18 && questionText.length > 18 && (combined.includes(taskText) || taskText.includes(questionText));
+  });
+}
+
+function distinctFallbackWritingTasks(title = '', count = WRITING_SENTENCE_COUNT) {
+  const tense = tenseKeyFromText(title);
+  const templates = [
+    [`Write a new sentence about your class for ${title}.`, tense, [], '1-mashqdagi gaplarni ko‘chirmang, yangi gap yozing.'],
+    [`Write a new sentence about your family for ${title}.`, tense, [], 'Oilaga oid yangi gap yozing.'],
+    [`Write a new sentence about today for ${title}.`, tense, [], 'Bugungi kun haqida yangi gap yozing.'],
+    [`Write a new sentence about your friend for ${title}.`, tense, [], 'Do‘stingiz haqida yangi gap yozing.'],
+    [`Write a new sentence about school for ${title}.`, tense, [], 'Maktab yoki dars haqida yangi gap yozing.'],
+    [`Write a new question for ${title}.`, tense, [], 'Mavzuga mos yangi savol gap yozing.'],
+    [`Write a new negative sentence for ${title}.`, tense, [], 'Mavzuga mos yangi inkor gap yozing.'],
+    [`Write one more original sentence for ${title}.`, tense, [], 'O‘zingiz mustaqil yangi gap tuzing.']
+  ];
+  return templates.slice(0, count).map((item, index) => ({
+    id: `fallback_w${index + 1}`,
+    type: 'sentence_generation',
+    section: 'Gap tuzish testi',
+    title: 'Yangi gap tuzing',
+    prompt: item[0],
+    tense: item[1] || '',
+    expected: item[2] || [],
+    hint: item[3]
+  }));
+}
+
+function makeWritingTasksDistinctFromChoice(tasks = [], choiceQuestions = [], title = '') {
+  const result = [];
+  const seen = new Set();
+  for (const task of tasks || []) {
+    const key = writingTaskText(task);
+    if (!key || seen.has(key) || taskLooksSameAsChoice(task, choiceQuestions)) continue;
+    result.push(task);
+    seen.add(key);
+  }
+  for (const task of distinctFallbackWritingTasks(title)) {
+    if (result.length >= tasks.length) break;
+    const key = writingTaskText(task);
+    if (!key || seen.has(key) || taskLooksSameAsChoice(task, choiceQuestions)) continue;
+    result.push(task);
+    seen.add(key);
+  }
+  return result.slice(0, tasks.length);
+}
+
+function buildWritingTasks(language, level, title, topicNo, vocabulary, choiceQuestions = []) {
   // Yoziladigan test + gap tuzish workbook pack mavjud bo‘lgan ingliz tili mavzularida chiqadi.
-  // Bu yerda tenses, there is/are, have/has va preposition mavzulari ham qo‘shilgan.
+  // 1-mashq (tanlash) va 2-mashq (yozma) gaplari bir xil bo‘lib qolmasligi uchun yozma topshiriqlar filtrlanadi.
   if (!isThreePartWorkbookTopic(language, title)) return [];
   const workbookWritingTasks = buildWorkbookStyleWritingTasks(language, title);
-  return workbookWritingTasks.map((task, index) => ({ ...task, id: `w${index + 1}` }));
+  const distinctTasks = makeWritingTasksDistinctFromChoice(workbookWritingTasks, choiceQuestions, title);
+  return distinctTasks.map((task, index) => ({ ...task, id: `w${index + 1}` }));
 }
 
 
@@ -20251,7 +20326,7 @@ function buildTopic(language, level, topicNo) {
   const profile = getTopicProfile(language, level, title, topicNo);
   const vocabulary = normalizeTerms(profile, language, title).map((item, index) => ({ id: index + 1, ...item }));
   const questions = buildTopicQuestions(language, level, title, topicNo, vocabulary);
-  const writingTasks = buildWritingTasks(language, level, title, topicNo, vocabulary);
+  const writingTasks = buildWritingTasks(language, level, title, topicNo, vocabulary, questions);
   const exerciseTypes = isThreePartWorkbookTopic(language, title)
     ? ['10 ta tanlanadigan test', 'Inputli yozma mashq', 'Gap tuzish testi']
     : ['Oddiy test'];

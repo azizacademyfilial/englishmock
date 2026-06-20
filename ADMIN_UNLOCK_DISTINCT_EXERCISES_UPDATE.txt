@@ -1,0 +1,9 @@
+ADMIN_UNLOCK_DISTINCT_EXERCISES_UPDATE
+
+1) Student panelda admin tomonidan qo'lda ochilgan daraja uchun kirish testi so'ralmaydi.
+   - progress.access[subject][level] true bo'lsa daraja to'g'ridan-to'g'ri ochiladi.
+   - Daraja yopiq bo'lsa gate-test chiqadi.
+
+2) 1-mashq va 2-mashq gaplari takrorlanmasligi kuchaytirildi.
+   - Backend 2-mashq yozma topshiriqlarini 1-mashq tanlash savollaridan farqli qiladi.
+   - Takror topshiriqlar filtrlanadi va yetmay qolsa yangi original gap tuzish topshiriqlari qo'shiladi.

@@ -6055,23 +6055,18 @@ function StudentPanel({ user, onLogout }) {
     setFinalTest(null);
     setFinalResult(null);
 
-    // Elementary bosilganda Beginner yakuniy test, Pre-Intermediate bosilganda Elementary yakuniy test chiqadi.
-    // Testdan 90%+ olsa keyingi daraja access ochiladi.
-    if (subject === 'english' && (lv === 'Elementary' || lv === 'Pre-Intermediate')) {
-      const test = await api(`/api/gate-test/${subject}/${lv}`);
-      setLevel(lv);
-      setGate(test);
-      return;
-    }
-
+    // Admin darajani qo‘lda ochib bergan bo‘lsa, kirish testi so‘ralmaydi.
+    // Faqat daraja yopiq bo‘lsa Elementary / Pre-Intermediate uchun ruxsat testi chiqadi.
     if (progress?.access?.[subject]?.[lv]) {
       setLevel(lv);
       setGate(null);
-    } else {
-      const test = await api(`/api/gate-test/${subject}/${lv}`);
-      setLevel(lv);
-      setGate(test);
+      await loadTopics(subject, lv);
+      return;
     }
+
+    const test = await api(`/api/gate-test/${subject}/${lv}`);
+    setLevel(lv);
+    setGate(test);
   }
   async function submitGate(answers) {
     const result = await api(`/api/gate-test/${subject}/${level}`, { method: 'POST', body: JSON.stringify({ answers }) });
