@@ -866,21 +866,14 @@ const requestedEnglishTopics = {
     'USED TO / WOULD'
   ],
   'Pre-Intermediate': [
-    'Present Simple',
-    'Present Continuous',
-    'Past Simple',
-    'Past Continuous',
+    'Present Simple, Present Continuous, Past Simple, Past Continuous',
     'Relative Clauses (who, which, where, whose, that)',
-    'Present Perfect Simple',
-    'Present Perfect Continuous',
+    'Present Perfect Simple, Present Perfect Continuous',
     'Articles (a, an, the, no article)',
     'Past Simple and Present Perfect',
-    'Comparative',
-    'Superlative',
-    'Past Perfect Simple',
-    'Past Perfect Continuous',
-    'Modal Verbs 1',
-    'Modal Verbs 2',
+    'Comparative, Superlative',
+    'Past Perfect Simple, Past Perfect Continuous',
+    'Modal Verbs 1, Modal Verbs 2',
     'Conditionals 2 & 3',
     'Passive Voice 1 (Present and Past Tenses)',
     'Passive Voice 2 (All Tenses)',
@@ -11479,6 +11472,9 @@ function getTopicProfile(language, level, title, topicNo) {
 }
 function buildExplanation(language, level, title, topicNo) {
   const profile = getTopicProfile(language, level, title, topicNo);
+  if (language === 'english' && level === 'Pre-Intermediate' && PRE_INTERMEDIATE_DEEP_EXPLANATIONS[title]) {
+    return PRE_INTERMEDIATE_DEEP_EXPLANATIONS[title];
+  }
   const isEssentialStyle = language === 'english' && Boolean(getEssentialStyleEnglishProfile(title));
   if (isEssentialStyle) {
     return [
@@ -18887,6 +18883,3394 @@ Object.assign(ESSENTIAL_STYLE_EXERCISE_PACKS, {
   }
 });
 
+
+
+// Pre-Intermediate 14 ta mavzu: qiyinroq aralash testlar, 8 ta yozma va 7 ta gap tuzish.
+Object.assign(ESSENTIAL_STYLE_EXERCISE_PACKS, {
+  "PRESENT SIMPLE, PRESENT CONTINUOUS, PAST SIMPLE, PAST CONTINUOUS": {
+    "choice": [
+      [
+        "Every Friday, our teacher ___ us a short quiz, but today she ___ us a project instead.",
+        [
+          "gives / is giving",
+          "is giving / gives",
+          "gave / gives",
+          "was giving / is giving"
+        ],
+        0,
+        "Odat uchun Present Simple, hozirgi vaqt uchun Present Continuous."
+      ],
+      [
+        "While I ___ my homework last night, my brother ___ me three times.",
+        [
+          "was doing / called",
+          "did / was calling",
+          "am doing / called",
+          "was doing / was calling"
+        ],
+        0,
+        "Davom etayotgan ish Past Continuous, qisqa voqea Past Simple."
+      ],
+      [
+        "My father usually ___ coffee in the morning, but this week he ___ tea because of his health.",
+        [
+          "drinks / is drinking",
+          "is drinking / drinks",
+          "drank / drinks",
+          "drink / drank"
+        ],
+        0,
+        "Usually — Present Simple; this week vaqtinchalik holat — Present Continuous."
+      ],
+      [
+        "At 8 p.m. yesterday, the students ___ for the exam while the rain ___ heavily.",
+        [
+          "were revising / was falling",
+          "revised / fell",
+          "revise / is falling",
+          "were revising / fell"
+        ],
+        0,
+        "Bir vaqtda davom etgan ikki ish: Past Continuous."
+      ],
+      [
+        "Choose the correct sentence.",
+        [
+          "She does not understand the rule now.",
+          "She is not understand the rule now.",
+          "She do not understands the rule now.",
+          "She did not understands the rule now."
+        ],
+        0,
+        "Understand stative verb bo‘lgani uchun ko‘pincha Simple ishlatiladi."
+      ],
+      [
+        "I ___ the answer when the teacher ___ the second question.",
+        [
+          "was writing / asked",
+          "wrote / was asking",
+          "am writing / asks",
+          "write / asked"
+        ],
+        0,
+        "Davom etayotgan yozish + qisqa savol berish."
+      ],
+      [
+        "Look! The children ___ quietly because the baby ___.",
+        [
+          "are playing / is sleeping",
+          "play / sleeps",
+          "played / was sleeping",
+          "were playing / slept"
+        ],
+        0,
+        "Look! — Present Continuous."
+      ],
+      [
+        "He ___ in Tashkent for ten years, but right now he ___ in Samarkand for a project.",
+        [
+          "lives / is working",
+          "is living / works",
+          "lived / works",
+          "was living / worked"
+        ],
+        0,
+        "Doimiy yashash + vaqtinchalik loyiha."
+      ],
+      [
+        "When I ___ the room, everyone ___ about the test results.",
+        [
+          "entered / was talking",
+          "was entering / talked",
+          "enter / talks",
+          "entered / talked"
+        ],
+        0,
+        "Entered qisqa voqea, talking davom etayotgan holat."
+      ],
+      [
+        "Which time marker usually belongs to Past Simple?",
+        [
+          "two days ago",
+          "at the moment",
+          "usually",
+          "while"
+        ],
+        0,
+        "Ago odatda Past Simple bilan ishlatiladi."
+      ]
+    ],
+    "blanks": [
+      [
+        "My sister usually ___ to school by bus, but today she ___ with her friend. (go / walk)",
+        [
+          "goes / is walking",
+          "goes, is walking"
+        ],
+        "Odat + hozirgi vaqtinchalik harakat."
+      ],
+      [
+        "While the manager ___ the report, the phone ___. (read / ring)",
+        [
+          "was reading / rang",
+          "was reading, rang"
+        ],
+        "Past Continuous + Past Simple."
+      ],
+      [
+        "They ___ football every weekend, but they ___ basketball now. (play / play)",
+        [
+          "play / are playing",
+          "play, are playing"
+        ],
+        "Every weekend — Simple; now — Continuous."
+      ],
+      [
+        "At 7 o'clock yesterday, I ___ dinner. (cook)",
+        [
+          "was cooking"
+        ],
+        "O‘tmishda aniq vaqtda davom etgan ish."
+      ],
+      [
+        "She rarely ___ mistakes, but she ___ a lot of mistakes in yesterday's test. (make / make)",
+        [
+          "makes / made",
+          "makes, made"
+        ],
+        "Rarely — Present Simple; yesterday — Past Simple."
+      ],
+      [
+        "Listen! Someone ___ outside the door. (knock)",
+        [
+          "is knocking"
+        ],
+        "Listen! — Present Continuous."
+      ],
+      [
+        "When we ___ at the station, the train ___. (arrive / leave)",
+        [
+          "arrived / was leaving",
+          "arrived, was leaving"
+        ],
+        "Arrive qisqa voqea, leaving jarayon."
+      ],
+      [
+        "My uncle ___ in a bank, but this month he ___ from home. (work / work)",
+        [
+          "works / is working",
+          "works, is working"
+        ],
+        "Doimiy ish + vaqtinchalik holat."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence comparing a habit and an action happening now.",
+        "present_simple_present_continuous",
+        [
+          "I usually study at night, but I am studying in the morning today."
+        ],
+        "Present Simple va Present Continuous bitta gapda bo‘lsin."
+      ],
+      [
+        "Write one sentence with Past Simple and Past Continuous using when.",
+        "past_simple_past_continuous",
+        [
+          "I was walking home when it started to rain."
+        ],
+        "when bilan qisqa voqea va davom etayotgan ishni yozing."
+      ],
+      [
+        "Write one negative Present Simple sentence with a stative verb.",
+        "present_simple",
+        [
+          "She does not know the answer."
+        ],
+        "know, understand, believe kabi fe’llardan foydalaning."
+      ],
+      [
+        "Write one Present Continuous sentence about a temporary situation.",
+        "present_continuous",
+        [
+          "I am staying with my cousin this week."
+        ],
+        "this week / these days ishlating."
+      ],
+      [
+        "Write one Past Continuous sentence with while.",
+        "past_continuous",
+        [
+          "While I was studying, my friends were playing outside."
+        ],
+        "while bilan davom etayotgan ishni yozing."
+      ],
+      [
+        "Write one Past Simple sentence with yesterday or last week.",
+        "past_simple",
+        [
+          "We visited the museum last week."
+        ],
+        "O‘tmishda tugagan ish bo‘lsin."
+      ],
+      [
+        "Write one sentence using usually and today.",
+        "mixed_tenses",
+        [
+          "He usually drives to work, but today he is taking the bus."
+        ],
+        "Odat va bugungi holatni solishtiring."
+      ]
+    ]
+  },
+  "RELATIVE CLAUSES (WHO, WHICH, WHERE, WHOSE, THAT)": {
+    "choice": [
+      [
+        "The woman ___ helped me yesterday is my neighbour.",
+        [
+          "who",
+          "which",
+          "where",
+          "whose"
+        ],
+        0,
+        "Odam uchun who."
+      ],
+      [
+        "This is the school ___ I learned English.",
+        [
+          "where",
+          "who",
+          "whose",
+          "which"
+        ],
+        0,
+        "Joy uchun where."
+      ],
+      [
+        "The book ___ cover is blue belongs to my brother.",
+        [
+          "whose",
+          "who",
+          "where",
+          "that"
+        ],
+        0,
+        "Egalik uchun whose."
+      ],
+      [
+        "The laptop ___ I bought last month has already stopped working.",
+        [
+          "which",
+          "where",
+          "who",
+          "whose"
+        ],
+        0,
+        "Narsa uchun which/that."
+      ],
+      [
+        "Choose the correct sentence.",
+        [
+          "The man who lives next door is a doctor.",
+          "The man which lives next door is a doctor.",
+          "The man where lives next door is a doctor.",
+          "The man whose lives next door is a doctor."
+        ],
+        0,
+        "Odam + subject relative pronoun = who."
+      ],
+      [
+        "The café ___ we met was very crowded.",
+        [
+          "where",
+          "which",
+          "who",
+          "whose"
+        ],
+        0,
+        "Joy haqida gapiryapti."
+      ],
+      [
+        "I know a student ___ father works at the airport.",
+        [
+          "whose",
+          "who",
+          "which",
+          "where"
+        ],
+        0,
+        "Father kimniki? whose."
+      ],
+      [
+        "The film ___ we watched was more interesting than I expected.",
+        [
+          "that",
+          "who",
+          "where",
+          "whose"
+        ],
+        0,
+        "Film — narsa; that mumkin."
+      ],
+      [
+        "The people ___ were waiting outside looked tired.",
+        [
+          "who",
+          "which",
+          "where",
+          "whose"
+        ],
+        0,
+        "People — odamlar."
+      ],
+      [
+        "Which relative pronoun shows possession?",
+        [
+          "whose",
+          "where",
+          "which",
+          "who"
+        ],
+        0,
+        "Whose egalikni bildiradi."
+      ]
+    ],
+    "blanks": [
+      [
+        "The teacher ___ explains grammar clearly is very popular.",
+        [
+          "who",
+          "that"
+        ],
+        "Odam uchun who/that."
+      ],
+      [
+        "This is the room ___ we usually have speaking lessons.",
+        [
+          "where"
+        ],
+        "Joy uchun where."
+      ],
+      [
+        "I have a friend ___ brother studies in London.",
+        [
+          "whose"
+        ],
+        "Egalik: whose brother."
+      ],
+      [
+        "The phone ___ she lost yesterday was very expensive.",
+        [
+          "which",
+          "that"
+        ],
+        "Narsa uchun which/that."
+      ],
+      [
+        "The village ___ my grandparents live is quiet.",
+        [
+          "where"
+        ],
+        "Joy uchun where."
+      ],
+      [
+        "The boy ___ won the competition is only twelve.",
+        [
+          "who",
+          "that"
+        ],
+        "Odam uchun who/that."
+      ],
+      [
+        "The car ___ windows were broken was taken to the garage.",
+        [
+          "whose"
+        ],
+        "Egalik: whose windows."
+      ],
+      [
+        "The article ___ you sent me was useful.",
+        [
+          "which",
+          "that"
+        ],
+        "Narsa uchun which/that."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence with who.",
+        "relative_who",
+        [
+          "I know a teacher who speaks three languages."
+        ],
+        "Odam haqida qo‘shimcha ma’lumot bering."
+      ],
+      [
+        "Write one sentence with which.",
+        "relative_which",
+        [
+          "This is the book which changed my opinion."
+        ],
+        "Narsa haqida yozing."
+      ],
+      [
+        "Write one sentence with where.",
+        "relative_where",
+        [
+          "This is the city where I was born."
+        ],
+        "Joy haqida yozing."
+      ],
+      [
+        "Write one sentence with whose.",
+        "relative_whose",
+        [
+          "She is the student whose project won first prize."
+        ],
+        "Egalikni ko‘rsating."
+      ],
+      [
+        "Write one sentence with that.",
+        "relative_that",
+        [
+          "The movie that we watched was exciting."
+        ],
+        "Odam yoki narsa uchun that ishlating."
+      ],
+      [
+        "Combine two short ideas using a relative clause.",
+        "relative_clause",
+        [
+          "The man who called you is my uncle."
+        ],
+        "Ikki fikrni bitta gapga birlashtiring."
+      ],
+      [
+        "Write one sentence about a place using where.",
+        "relative_where",
+        [
+          "A library is a place where people read quietly."
+        ],
+        "Place + where tuzilmasini ishlating."
+      ]
+    ]
+  },
+  "PRESENT PERFECT SIMPLE, PRESENT PERFECT CONTINUOUS": {
+    "choice": [
+      [
+        "She ___ three articles today, and she ___ on the fourth one since lunch.",
+        [
+          "has written / has been working",
+          "wrote / worked",
+          "has been writing / has worked",
+          "writes / is working"
+        ],
+        0,
+        "Natija + davomiy jarayon."
+      ],
+      [
+        "I ___ this film before, but I ___ the book for only two days.",
+        [
+          "have seen / have been reading",
+          "saw / read",
+          "have been seeing / have read",
+          "see / am reading"
+        ],
+        0,
+        "Tajriba + davom etayotgan o‘qish."
+      ],
+      [
+        "They ___ the house; that is why their clothes are dirty.",
+        [
+          "have been painting",
+          "have painted",
+          "painted",
+          "paint"
+        ],
+        0,
+        "Natijasi ko‘rinib turgan davomiy ish."
+      ],
+      [
+        "We ___ all the tasks, so we can go home now.",
+        [
+          "have finished",
+          "have been finishing",
+          "finished yesterday",
+          "finish"
+        ],
+        0,
+        "Tugallangan natija."
+      ],
+      [
+        "How long ___ English?",
+        [
+          "have you been learning",
+          "have you learned",
+          "did you learn",
+          "are you learn"
+        ],
+        0,
+        "How long + davomiylik."
+      ],
+      [
+        "He ___ five emails since morning.",
+        [
+          "has sent",
+          "has been sending",
+          "sent",
+          "sends"
+        ],
+        0,
+        "Sanash mumkin bo‘lgan natija."
+      ],
+      [
+        "My hands are cold because I ___ outside.",
+        [
+          "have been waiting",
+          "have waited",
+          "waited",
+          "wait"
+        ],
+        0,
+        "Sababi hozir sezilyapti."
+      ],
+      [
+        "Choose the best sentence.",
+        [
+          "She has known him for years.",
+          "She has been knowing him for years.",
+          "She knows him since years.",
+          "She knew him for years now."
+        ],
+        0,
+        "Know stative verb."
+      ],
+      [
+        "The team ___ the problem, but they still have not found the solution.",
+        [
+          "has been discussing",
+          "has discussed",
+          "discussed",
+          "discusses"
+        ],
+        0,
+        "Jarayon davom etgan."
+      ],
+      [
+        "Which phrase often goes with Present Perfect Continuous?",
+        [
+          "since morning",
+          "yesterday",
+          "last year",
+          "in 2010"
+        ],
+        0,
+        "Since/for davomiylik beradi."
+      ]
+    ],
+    "blanks": [
+      [
+        "I ___ already ___ the report. (finish)",
+        [
+          "have finished"
+        ],
+        "Already + present perfect simple."
+      ],
+      [
+        "She ___ for the bus for twenty minutes. (wait)",
+        [
+          "has been waiting"
+        ],
+        "For twenty minutes + continuous."
+      ],
+      [
+        "They ___ three matches this month. (win)",
+        [
+          "have won"
+        ],
+        "Natija son bilan."
+      ],
+      [
+        "We ___ this topic since Monday. (study)",
+        [
+          "have been studying"
+        ],
+        "Since Monday + davomiy jarayon."
+      ],
+      [
+        "He ___ never ___ abroad. (travel)",
+        [
+          "has traveled",
+          "has travelled"
+        ],
+        "Never + tajriba."
+      ],
+      [
+        "The children are tired because they ___. (run)",
+        [
+          "have been running"
+        ],
+        "Natijasi hozir bilinadi."
+      ],
+      [
+        "I ___ my keys, so I cannot open the door. (lose)",
+        [
+          "have lost"
+        ],
+        "Tugallangan natija."
+      ],
+      [
+        "How long ___ you ___ here? (work)",
+        [
+          "have been working"
+        ],
+        "How long + continuous."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one Present Perfect Simple sentence about experience.",
+        "present_perfect_simple",
+        [
+          "I have visited Bukhara twice."
+        ],
+        "Have/has + V3 ishlating."
+      ],
+      [
+        "Write one Present Perfect Continuous sentence with since.",
+        "present_perfect_continuous",
+        [
+          "She has been studying since morning."
+        ],
+        "has/have been + V-ing."
+      ],
+      [
+        "Write one sentence with already.",
+        "present_perfect_simple",
+        [
+          "We have already finished the project."
+        ],
+        "Already natijani ko‘rsatadi."
+      ],
+      [
+        "Write one sentence with for.",
+        "present_perfect_continuous",
+        [
+          "They have been waiting for an hour."
+        ],
+        "For + vaqt oralig‘i."
+      ],
+      [
+        "Write one question with how long.",
+        "present_perfect_continuous",
+        [
+          "How long have you been learning English?"
+        ],
+        "Savol tuzing."
+      ],
+      [
+        "Write one sentence with never.",
+        "present_perfect_simple",
+        [
+          "I have never tried sushi."
+        ],
+        "Tajriba haqida yozing."
+      ],
+      [
+        "Write one sentence showing a visible result now.",
+        "present_perfect_continuous",
+        [
+          "He has been painting, so his hands are dirty."
+        ],
+        "Natijasi hozir ko‘rinsin."
+      ]
+    ]
+  },
+  "ARTICLES (A, AN, THE, NO ARTICLE)": {
+    "choice": [
+      [
+        "I saw ___ interesting documentary about ___ Amazon last night.",
+        [
+          "an / the",
+          "a / no article",
+          "the / an",
+          "no article / the"
+        ],
+        0,
+        "Interesting unli tovush, Amazon daryosi nomi the bilan."
+      ],
+      [
+        "She is ___ honest person and ___ best student in our group.",
+        [
+          "an / the",
+          "a / a",
+          "the / the",
+          "no article / a"
+        ],
+        0,
+        "honest h talaffuz qilinmaydi, superlative oldidan the."
+      ],
+      [
+        "___ children usually learn languages faster than adults.",
+        [
+          "No article",
+          "The",
+          "A",
+          "An"
+        ],
+        0,
+        "Umumiy ko‘plik ot oldidan article kerak emas."
+      ],
+      [
+        "We had lunch at ___ small café near ___ station.",
+        [
+          "a / the",
+          "the / a",
+          "an / no article",
+          "no article / a"
+        ],
+        0,
+        "Birinchi marta: a; aniq joy: the station."
+      ],
+      [
+        "He plays ___ piano, but he does not play ___ football.",
+        [
+          "the / no article",
+          "a / the",
+          "no article / the",
+          "the / a"
+        ],
+        0,
+        "Instrument the bilan, sport no article."
+      ],
+      [
+        "___ moon looks bright tonight.",
+        [
+          "The",
+          "A",
+          "An",
+          "No article"
+        ],
+        0,
+        "Yagona obyekt: the moon."
+      ],
+      [
+        "My brother wants to become ___ engineer.",
+        [
+          "an",
+          "a",
+          "the",
+          "no article"
+        ],
+        0,
+        "Kasb birlikda a/an."
+      ],
+      [
+        "I need ___ information you promised to send me.",
+        [
+          "the",
+          "an",
+          "a",
+          "no article"
+        ],
+        0,
+        "Aniq information."
+      ],
+      [
+        "Which sentence is correct?",
+        [
+          "Water is essential for life.",
+          "The water is essential for life.",
+          "A water is essential for life.",
+          "An water is essential for life."
+        ],
+        0,
+        "Umumiy uncountable noun no article."
+      ],
+      [
+        "She lives in ___ United Kingdom.",
+        [
+          "the",
+          "a",
+          "an",
+          "no article"
+        ],
+        0,
+        "The United Kingdom."
+      ]
+    ],
+    "blanks": [
+      [
+        "He is ___ university student.",
+        [
+          "a"
+        ],
+        "University /juː/ tovushi bilan."
+      ],
+      [
+        "We waited for ___ hour.",
+        [
+          "an"
+        ],
+        "Hour: h talaffuz qilinmaydi."
+      ],
+      [
+        "___ sun rises in the east.",
+        [
+          "the"
+        ],
+        "Yagona obyekt."
+      ],
+      [
+        "I like ___ classical music.",
+        [
+          "",
+          "no article"
+        ],
+        "Umumiy music oldidan article yo‘q."
+      ],
+      [
+        "She bought ___ new laptop yesterday.",
+        [
+          "a"
+        ],
+        "Birinchi marta aytilgan birlik noun."
+      ],
+      [
+        "___ laptop she bought is expensive.",
+        [
+          "the"
+        ],
+        "Oldin aytilgan aniq laptop."
+      ],
+      [
+        "They went to ___ school to meet the principal.",
+        [
+          "the"
+        ],
+        "Binoga borish ma’nosida aniq school."
+      ],
+      [
+        "Children should drink ___ milk.",
+        [
+          "",
+          "no article"
+        ],
+        "Umumiy uncountable noun."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence with a.",
+        "article",
+        [
+          "I saw a bird in the garden."
+        ],
+        "Noaniq birlik ot."
+      ],
+      [
+        "Write one sentence with an.",
+        "article",
+        [
+          "She is an excellent teacher."
+        ],
+        "Unli tovushdan oldin an."
+      ],
+      [
+        "Write one sentence with the.",
+        "article",
+        [
+          "The book on the table is mine."
+        ],
+        "Aniq narsani yozing."
+      ],
+      [
+        "Write one sentence with no article before a plural noun.",
+        "article",
+        [
+          "Students need regular practice."
+        ],
+        "Umumiy ko‘plik ot."
+      ],
+      [
+        "Write one sentence with a superlative and the.",
+        "article",
+        [
+          "This is the most difficult question."
+        ],
+        "The + superlative."
+      ],
+      [
+        "Write one sentence about a sport with no article.",
+        "article",
+        [
+          "I play football after school."
+        ],
+        "Sport nomi oldidan article ishlatmang."
+      ],
+      [
+        "Write one sentence with an instrument and the.",
+        "article",
+        [
+          "My sister plays the piano."
+        ],
+        "Instrument nomi oldidan the."
+      ]
+    ]
+  },
+  "PAST SIMPLE AND PRESENT PERFECT": {
+    "choice": [
+      [
+        "Choose the best answer for PAST SIMPLE AND PRESENT PERFECT: The manager said the task ___ before the meeting.",
+        [
+          "did you finish",
+          "have you finished",
+          "is finish",
+          "finishing"
+        ],
+        0,
+        "PAST SIMPLE AND PRESENT PERFECT mavzusiga mos murakkab forma."
+      ],
+      [
+        "Which sentence is grammatically correct in PAST SIMPLE AND PRESENT PERFECT?",
+        [
+          "This sentence uses did you finish correctly.",
+          "This sentence use grammar wrong.",
+          "This sentence using grammar.",
+          "This sentence has not correct."
+        ],
+        0,
+        "To‘g‘ri struktura tanlanadi."
+      ],
+      [
+        "The students were confused; ___, the teacher explained the rule again.",
+        [
+          "therefore",
+          "although",
+          "despite",
+          "while"
+        ],
+        0,
+        "Natija bog‘lovchisi."
+      ],
+      [
+        "If I had known about the change, I ___ earlier.",
+        [
+          "would have arrived",
+          "would arrive",
+          "will arrive",
+          "arrived"
+        ],
+        0,
+        "Third Conditional."
+      ],
+      [
+        "The report ___ by the director tomorrow.",
+        [
+          "will be reviewed",
+          "reviewed",
+          "will review",
+          "has reviewing"
+        ],
+        0,
+        "Future Passive."
+      ],
+      [
+        "She told me that she ___ the email the day before.",
+        [
+          "had sent",
+          "has sent",
+          "sent tomorrow",
+          "is sending"
+        ],
+        0,
+        "Reported speechda backshift."
+      ],
+      [
+        "___ the weather was bad, they continued the trip.",
+        [
+          "Although",
+          "Despite",
+          "However",
+          "Therefore"
+        ],
+        0,
+        "Although + clause."
+      ],
+      [
+        "This exercise is ___ than the previous one.",
+        [
+          "more challenging",
+          "the most challenging",
+          "challenginger",
+          "most challenging than"
+        ],
+        0,
+        "Comparative."
+      ],
+      [
+        "By the time we arrived, the lesson ___.",
+        [
+          "had already started",
+          "has already started",
+          "was starting now",
+          "starts"
+        ],
+        0,
+        "Past Perfect."
+      ],
+      [
+        "You ___ be exhausted after working all night.",
+        [
+          "must",
+          "should to",
+          "can to",
+          "have"
+        ],
+        0,
+        "Logical deduction with modal."
+      ]
+    ],
+    "blanks": [
+      [
+        "Complete with a correct PAST SIMPLE AND PRESENT PERFECT form: She ___ the answer before I helped her.",
+        [
+          "did you finish"
+        ],
+        "Mavzuga mos shakl yozing."
+      ],
+      [
+        "If he had studied harder, he ___ the exam.",
+        [
+          "would have passed"
+        ],
+        "Third Conditional natija qismi."
+      ],
+      [
+        "The documents ___ every Monday. (check)",
+        [
+          "are checked"
+        ],
+        "Present Simple Passive."
+      ],
+      [
+        "Ali said, 'I am busy.' → Ali said that he ___.",
+        [
+          "was busy"
+        ],
+        "Reported speech."
+      ],
+      [
+        "___ being tired, she finished the work.",
+        [
+          "Despite",
+          "In spite of"
+        ],
+        "Despite/In spite of + noun/gerund."
+      ],
+      [
+        "This is ___ test I have ever taken. (difficult)",
+        [
+          "the most difficult"
+        ],
+        "Superlative."
+      ],
+      [
+        "By 9 p.m., they ___ for two hours. (wait)",
+        [
+          "had been waiting"
+        ],
+        "Past Perfect Continuous."
+      ],
+      [
+        "He ___ be at home; the lights are on.",
+        [
+          "must"
+        ],
+        "Strong deduction."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence using did you finish.",
+        "past_vs_present_perfect",
+        [
+          "I think this grammar uses did you finish correctly."
+        ],
+        "Mavzuga mos to‘liq gap yozing."
+      ],
+      [
+        "Write one difficult sentence with a time marker.",
+        "past_vs_present_perfect",
+        [
+          "By the time we arrived, they had already left."
+        ],
+        "Time marker ishlating."
+      ],
+      [
+        "Write one negative sentence for this topic.",
+        "past_vs_present_perfect",
+        [
+          "The report was not completed on time."
+        ],
+        "Inkor shakl yozing."
+      ],
+      [
+        "Write one question for this topic.",
+        "past_vs_present_perfect",
+        [
+          "Had they finished the work before the meeting?"
+        ],
+        "Savol shaklini yozing."
+      ],
+      [
+        "Write one sentence about school or work.",
+        "past_vs_present_perfect",
+        [
+          "The new rules will be explained tomorrow."
+        ],
+        "Real hayotga bog‘lang."
+      ],
+      [
+        "Write one sentence with contrast or result.",
+        "past_vs_present_perfect",
+        [
+          "Although it was difficult, we finished it."
+        ],
+        "Bog‘lovchi ishlating."
+      ],
+      [
+        "Write one sentence with a complex grammar structure.",
+        "past_vs_present_perfect",
+        [
+          "If I had had more time, I would have checked every answer."
+        ],
+        "Qiyinroq gap tuzing."
+      ]
+    ]
+  },
+  "COMPARATIVE, SUPERLATIVE": {
+    "choice": [
+      [
+        "Choose the best answer for COMPARATIVE, SUPERLATIVE: The manager said the task ___ before the meeting.",
+        [
+          "more carefully",
+          "the most carefully",
+          "is finish",
+          "finishing"
+        ],
+        0,
+        "COMPARATIVE, SUPERLATIVE mavzusiga mos murakkab forma."
+      ],
+      [
+        "Which sentence is grammatically correct in COMPARATIVE, SUPERLATIVE?",
+        [
+          "This sentence uses more carefully correctly.",
+          "This sentence use grammar wrong.",
+          "This sentence using grammar.",
+          "This sentence has not correct."
+        ],
+        0,
+        "To‘g‘ri struktura tanlanadi."
+      ],
+      [
+        "The students were confused; ___, the teacher explained the rule again.",
+        [
+          "therefore",
+          "although",
+          "despite",
+          "while"
+        ],
+        0,
+        "Natija bog‘lovchisi."
+      ],
+      [
+        "If I had known about the change, I ___ earlier.",
+        [
+          "would have arrived",
+          "would arrive",
+          "will arrive",
+          "arrived"
+        ],
+        0,
+        "Third Conditional."
+      ],
+      [
+        "The report ___ by the director tomorrow.",
+        [
+          "will be reviewed",
+          "reviewed",
+          "will review",
+          "has reviewing"
+        ],
+        0,
+        "Future Passive."
+      ],
+      [
+        "She told me that she ___ the email the day before.",
+        [
+          "had sent",
+          "has sent",
+          "sent tomorrow",
+          "is sending"
+        ],
+        0,
+        "Reported speechda backshift."
+      ],
+      [
+        "___ the weather was bad, they continued the trip.",
+        [
+          "Although",
+          "Despite",
+          "However",
+          "Therefore"
+        ],
+        0,
+        "Although + clause."
+      ],
+      [
+        "This exercise is ___ than the previous one.",
+        [
+          "more challenging",
+          "the most challenging",
+          "challenginger",
+          "most challenging than"
+        ],
+        0,
+        "Comparative."
+      ],
+      [
+        "By the time we arrived, the lesson ___.",
+        [
+          "had already started",
+          "has already started",
+          "was starting now",
+          "starts"
+        ],
+        0,
+        "Past Perfect."
+      ],
+      [
+        "You ___ be exhausted after working all night.",
+        [
+          "must",
+          "should to",
+          "can to",
+          "have"
+        ],
+        0,
+        "Logical deduction with modal."
+      ]
+    ],
+    "blanks": [
+      [
+        "Complete with a correct COMPARATIVE, SUPERLATIVE form: She ___ the answer before I helped her.",
+        [
+          "more carefully"
+        ],
+        "Mavzuga mos shakl yozing."
+      ],
+      [
+        "If he had studied harder, he ___ the exam.",
+        [
+          "would have passed"
+        ],
+        "Third Conditional natija qismi."
+      ],
+      [
+        "The documents ___ every Monday. (check)",
+        [
+          "are checked"
+        ],
+        "Present Simple Passive."
+      ],
+      [
+        "Ali said, 'I am busy.' → Ali said that he ___.",
+        [
+          "was busy"
+        ],
+        "Reported speech."
+      ],
+      [
+        "___ being tired, she finished the work.",
+        [
+          "Despite",
+          "In spite of"
+        ],
+        "Despite/In spite of + noun/gerund."
+      ],
+      [
+        "This is ___ test I have ever taken. (difficult)",
+        [
+          "the most difficult"
+        ],
+        "Superlative."
+      ],
+      [
+        "By 9 p.m., they ___ for two hours. (wait)",
+        [
+          "had been waiting"
+        ],
+        "Past Perfect Continuous."
+      ],
+      [
+        "He ___ be at home; the lights are on.",
+        [
+          "must"
+        ],
+        "Strong deduction."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence using more carefully.",
+        "comparative_superlative",
+        [
+          "I think this grammar uses more carefully correctly."
+        ],
+        "Mavzuga mos to‘liq gap yozing."
+      ],
+      [
+        "Write one difficult sentence with a time marker.",
+        "comparative_superlative",
+        [
+          "By the time we arrived, they had already left."
+        ],
+        "Time marker ishlating."
+      ],
+      [
+        "Write one negative sentence for this topic.",
+        "comparative_superlative",
+        [
+          "The report was not completed on time."
+        ],
+        "Inkor shakl yozing."
+      ],
+      [
+        "Write one question for this topic.",
+        "comparative_superlative",
+        [
+          "Had they finished the work before the meeting?"
+        ],
+        "Savol shaklini yozing."
+      ],
+      [
+        "Write one sentence about school or work.",
+        "comparative_superlative",
+        [
+          "The new rules will be explained tomorrow."
+        ],
+        "Real hayotga bog‘lang."
+      ],
+      [
+        "Write one sentence with contrast or result.",
+        "comparative_superlative",
+        [
+          "Although it was difficult, we finished it."
+        ],
+        "Bog‘lovchi ishlating."
+      ],
+      [
+        "Write one sentence with a complex grammar structure.",
+        "comparative_superlative",
+        [
+          "If I had had more time, I would have checked every answer."
+        ],
+        "Qiyinroq gap tuzing."
+      ]
+    ]
+  },
+  "PAST PERFECT SIMPLE, PAST PERFECT CONTINUOUS": {
+    "choice": [
+      [
+        "Choose the best answer for PAST PERFECT SIMPLE, PAST PERFECT CONTINUOUS: The manager said the task ___ before the meeting.",
+        [
+          "had finished",
+          "had been waiting",
+          "is finish",
+          "finishing"
+        ],
+        0,
+        "PAST PERFECT SIMPLE, PAST PERFECT CONTINUOUS mavzusiga mos murakkab forma."
+      ],
+      [
+        "Which sentence is grammatically correct in PAST PERFECT SIMPLE, PAST PERFECT CONTINUOUS?",
+        [
+          "This sentence uses had finished correctly.",
+          "This sentence use grammar wrong.",
+          "This sentence using grammar.",
+          "This sentence has not correct."
+        ],
+        0,
+        "To‘g‘ri struktura tanlanadi."
+      ],
+      [
+        "The students were confused; ___, the teacher explained the rule again.",
+        [
+          "therefore",
+          "although",
+          "despite",
+          "while"
+        ],
+        0,
+        "Natija bog‘lovchisi."
+      ],
+      [
+        "If I had known about the change, I ___ earlier.",
+        [
+          "would have arrived",
+          "would arrive",
+          "will arrive",
+          "arrived"
+        ],
+        0,
+        "Third Conditional."
+      ],
+      [
+        "The report ___ by the director tomorrow.",
+        [
+          "will be reviewed",
+          "reviewed",
+          "will review",
+          "has reviewing"
+        ],
+        0,
+        "Future Passive."
+      ],
+      [
+        "She told me that she ___ the email the day before.",
+        [
+          "had sent",
+          "has sent",
+          "sent tomorrow",
+          "is sending"
+        ],
+        0,
+        "Reported speechda backshift."
+      ],
+      [
+        "___ the weather was bad, they continued the trip.",
+        [
+          "Although",
+          "Despite",
+          "However",
+          "Therefore"
+        ],
+        0,
+        "Although + clause."
+      ],
+      [
+        "This exercise is ___ than the previous one.",
+        [
+          "more challenging",
+          "the most challenging",
+          "challenginger",
+          "most challenging than"
+        ],
+        0,
+        "Comparative."
+      ],
+      [
+        "By the time we arrived, the lesson ___.",
+        [
+          "had already started",
+          "has already started",
+          "was starting now",
+          "starts"
+        ],
+        0,
+        "Past Perfect."
+      ],
+      [
+        "You ___ be exhausted after working all night.",
+        [
+          "must",
+          "should to",
+          "can to",
+          "have"
+        ],
+        0,
+        "Logical deduction with modal."
+      ]
+    ],
+    "blanks": [
+      [
+        "Complete with a correct PAST PERFECT SIMPLE, PAST PERFECT CONTINUOUS form: She ___ the answer before I helped her.",
+        [
+          "had finished"
+        ],
+        "Mavzuga mos shakl yozing."
+      ],
+      [
+        "If he had studied harder, he ___ the exam.",
+        [
+          "would have passed"
+        ],
+        "Third Conditional natija qismi."
+      ],
+      [
+        "The documents ___ every Monday. (check)",
+        [
+          "are checked"
+        ],
+        "Present Simple Passive."
+      ],
+      [
+        "Ali said, 'I am busy.' → Ali said that he ___.",
+        [
+          "was busy"
+        ],
+        "Reported speech."
+      ],
+      [
+        "___ being tired, she finished the work.",
+        [
+          "Despite",
+          "In spite of"
+        ],
+        "Despite/In spite of + noun/gerund."
+      ],
+      [
+        "This is ___ test I have ever taken. (difficult)",
+        [
+          "the most difficult"
+        ],
+        "Superlative."
+      ],
+      [
+        "By 9 p.m., they ___ for two hours. (wait)",
+        [
+          "had been waiting"
+        ],
+        "Past Perfect Continuous."
+      ],
+      [
+        "He ___ be at home; the lights are on.",
+        [
+          "must"
+        ],
+        "Strong deduction."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence using had finished.",
+        "past_perfect",
+        [
+          "I think this grammar uses had finished correctly."
+        ],
+        "Mavzuga mos to‘liq gap yozing."
+      ],
+      [
+        "Write one difficult sentence with a time marker.",
+        "past_perfect",
+        [
+          "By the time we arrived, they had already left."
+        ],
+        "Time marker ishlating."
+      ],
+      [
+        "Write one negative sentence for this topic.",
+        "past_perfect",
+        [
+          "The report was not completed on time."
+        ],
+        "Inkor shakl yozing."
+      ],
+      [
+        "Write one question for this topic.",
+        "past_perfect",
+        [
+          "Had they finished the work before the meeting?"
+        ],
+        "Savol shaklini yozing."
+      ],
+      [
+        "Write one sentence about school or work.",
+        "past_perfect",
+        [
+          "The new rules will be explained tomorrow."
+        ],
+        "Real hayotga bog‘lang."
+      ],
+      [
+        "Write one sentence with contrast or result.",
+        "past_perfect",
+        [
+          "Although it was difficult, we finished it."
+        ],
+        "Bog‘lovchi ishlating."
+      ],
+      [
+        "Write one sentence with a complex grammar structure.",
+        "past_perfect",
+        [
+          "If I had had more time, I would have checked every answer."
+        ],
+        "Qiyinroq gap tuzing."
+      ]
+    ]
+  },
+  "MODAL VERBS 1, MODAL VERBS 2": {
+    "choice": [
+      [
+        "Choose the best answer for MODAL VERBS 1, MODAL VERBS 2: The manager said the task ___ before the meeting.",
+        [
+          "must have forgotten",
+          "should have told",
+          "is finish",
+          "finishing"
+        ],
+        0,
+        "MODAL VERBS 1, MODAL VERBS 2 mavzusiga mos murakkab forma."
+      ],
+      [
+        "Which sentence is grammatically correct in MODAL VERBS 1, MODAL VERBS 2?",
+        [
+          "This sentence uses must have forgotten correctly.",
+          "This sentence use grammar wrong.",
+          "This sentence using grammar.",
+          "This sentence has not correct."
+        ],
+        0,
+        "To‘g‘ri struktura tanlanadi."
+      ],
+      [
+        "The students were confused; ___, the teacher explained the rule again.",
+        [
+          "therefore",
+          "although",
+          "despite",
+          "while"
+        ],
+        0,
+        "Natija bog‘lovchisi."
+      ],
+      [
+        "If I had known about the change, I ___ earlier.",
+        [
+          "would have arrived",
+          "would arrive",
+          "will arrive",
+          "arrived"
+        ],
+        0,
+        "Third Conditional."
+      ],
+      [
+        "The report ___ by the director tomorrow.",
+        [
+          "will be reviewed",
+          "reviewed",
+          "will review",
+          "has reviewing"
+        ],
+        0,
+        "Future Passive."
+      ],
+      [
+        "She told me that she ___ the email the day before.",
+        [
+          "had sent",
+          "has sent",
+          "sent tomorrow",
+          "is sending"
+        ],
+        0,
+        "Reported speechda backshift."
+      ],
+      [
+        "___ the weather was bad, they continued the trip.",
+        [
+          "Although",
+          "Despite",
+          "However",
+          "Therefore"
+        ],
+        0,
+        "Although + clause."
+      ],
+      [
+        "This exercise is ___ than the previous one.",
+        [
+          "more challenging",
+          "the most challenging",
+          "challenginger",
+          "most challenging than"
+        ],
+        0,
+        "Comparative."
+      ],
+      [
+        "By the time we arrived, the lesson ___.",
+        [
+          "had already started",
+          "has already started",
+          "was starting now",
+          "starts"
+        ],
+        0,
+        "Past Perfect."
+      ],
+      [
+        "You ___ be exhausted after working all night.",
+        [
+          "must",
+          "should to",
+          "can to",
+          "have"
+        ],
+        0,
+        "Logical deduction with modal."
+      ]
+    ],
+    "blanks": [
+      [
+        "Complete with a correct MODAL VERBS 1, MODAL VERBS 2 form: She ___ the answer before I helped her.",
+        [
+          "must have forgotten"
+        ],
+        "Mavzuga mos shakl yozing."
+      ],
+      [
+        "If he had studied harder, he ___ the exam.",
+        [
+          "would have passed"
+        ],
+        "Third Conditional natija qismi."
+      ],
+      [
+        "The documents ___ every Monday. (check)",
+        [
+          "are checked"
+        ],
+        "Present Simple Passive."
+      ],
+      [
+        "Ali said, 'I am busy.' → Ali said that he ___.",
+        [
+          "was busy"
+        ],
+        "Reported speech."
+      ],
+      [
+        "___ being tired, she finished the work.",
+        [
+          "Despite",
+          "In spite of"
+        ],
+        "Despite/In spite of + noun/gerund."
+      ],
+      [
+        "This is ___ test I have ever taken. (difficult)",
+        [
+          "the most difficult"
+        ],
+        "Superlative."
+      ],
+      [
+        "By 9 p.m., they ___ for two hours. (wait)",
+        [
+          "had been waiting"
+        ],
+        "Past Perfect Continuous."
+      ],
+      [
+        "He ___ be at home; the lights are on.",
+        [
+          "must"
+        ],
+        "Strong deduction."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence using must have forgotten.",
+        "modal_verbs",
+        [
+          "I think this grammar uses must have forgotten correctly."
+        ],
+        "Mavzuga mos to‘liq gap yozing."
+      ],
+      [
+        "Write one difficult sentence with a time marker.",
+        "modal_verbs",
+        [
+          "By the time we arrived, they had already left."
+        ],
+        "Time marker ishlating."
+      ],
+      [
+        "Write one negative sentence for this topic.",
+        "modal_verbs",
+        [
+          "The report was not completed on time."
+        ],
+        "Inkor shakl yozing."
+      ],
+      [
+        "Write one question for this topic.",
+        "modal_verbs",
+        [
+          "Had they finished the work before the meeting?"
+        ],
+        "Savol shaklini yozing."
+      ],
+      [
+        "Write one sentence about school or work.",
+        "modal_verbs",
+        [
+          "The new rules will be explained tomorrow."
+        ],
+        "Real hayotga bog‘lang."
+      ],
+      [
+        "Write one sentence with contrast or result.",
+        "modal_verbs",
+        [
+          "Although it was difficult, we finished it."
+        ],
+        "Bog‘lovchi ishlating."
+      ],
+      [
+        "Write one sentence with a complex grammar structure.",
+        "modal_verbs",
+        [
+          "If I had had more time, I would have checked every answer."
+        ],
+        "Qiyinroq gap tuzing."
+      ]
+    ]
+  },
+  "CONDITIONALS 2 & 3": {
+    "choice": [
+      [
+        "Choose the best answer for CONDITIONALS 2 & 3: The manager said the task ___ before the meeting.",
+        [
+          "would travel",
+          "would have passed",
+          "is finish",
+          "finishing"
+        ],
+        0,
+        "CONDITIONALS 2 & 3 mavzusiga mos murakkab forma."
+      ],
+      [
+        "Which sentence is grammatically correct in CONDITIONALS 2 & 3?",
+        [
+          "This sentence uses would travel correctly.",
+          "This sentence use grammar wrong.",
+          "This sentence using grammar.",
+          "This sentence has not correct."
+        ],
+        0,
+        "To‘g‘ri struktura tanlanadi."
+      ],
+      [
+        "The students were confused; ___, the teacher explained the rule again.",
+        [
+          "therefore",
+          "although",
+          "despite",
+          "while"
+        ],
+        0,
+        "Natija bog‘lovchisi."
+      ],
+      [
+        "If I had known about the change, I ___ earlier.",
+        [
+          "would have arrived",
+          "would arrive",
+          "will arrive",
+          "arrived"
+        ],
+        0,
+        "Third Conditional."
+      ],
+      [
+        "The report ___ by the director tomorrow.",
+        [
+          "will be reviewed",
+          "reviewed",
+          "will review",
+          "has reviewing"
+        ],
+        0,
+        "Future Passive."
+      ],
+      [
+        "She told me that she ___ the email the day before.",
+        [
+          "had sent",
+          "has sent",
+          "sent tomorrow",
+          "is sending"
+        ],
+        0,
+        "Reported speechda backshift."
+      ],
+      [
+        "___ the weather was bad, they continued the trip.",
+        [
+          "Although",
+          "Despite",
+          "However",
+          "Therefore"
+        ],
+        0,
+        "Although + clause."
+      ],
+      [
+        "This exercise is ___ than the previous one.",
+        [
+          "more challenging",
+          "the most challenging",
+          "challenginger",
+          "most challenging than"
+        ],
+        0,
+        "Comparative."
+      ],
+      [
+        "By the time we arrived, the lesson ___.",
+        [
+          "had already started",
+          "has already started",
+          "was starting now",
+          "starts"
+        ],
+        0,
+        "Past Perfect."
+      ],
+      [
+        "You ___ be exhausted after working all night.",
+        [
+          "must",
+          "should to",
+          "can to",
+          "have"
+        ],
+        0,
+        "Logical deduction with modal."
+      ]
+    ],
+    "blanks": [
+      [
+        "Complete with a correct CONDITIONALS 2 & 3 form: She ___ the answer before I helped her.",
+        [
+          "would travel"
+        ],
+        "Mavzuga mos shakl yozing."
+      ],
+      [
+        "If he had studied harder, he ___ the exam.",
+        [
+          "would have passed"
+        ],
+        "Third Conditional natija qismi."
+      ],
+      [
+        "The documents ___ every Monday. (check)",
+        [
+          "are checked"
+        ],
+        "Present Simple Passive."
+      ],
+      [
+        "Ali said, 'I am busy.' → Ali said that he ___.",
+        [
+          "was busy"
+        ],
+        "Reported speech."
+      ],
+      [
+        "___ being tired, she finished the work.",
+        [
+          "Despite",
+          "In spite of"
+        ],
+        "Despite/In spite of + noun/gerund."
+      ],
+      [
+        "This is ___ test I have ever taken. (difficult)",
+        [
+          "the most difficult"
+        ],
+        "Superlative."
+      ],
+      [
+        "By 9 p.m., they ___ for two hours. (wait)",
+        [
+          "had been waiting"
+        ],
+        "Past Perfect Continuous."
+      ],
+      [
+        "He ___ be at home; the lights are on.",
+        [
+          "must"
+        ],
+        "Strong deduction."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence using would travel.",
+        "conditionals",
+        [
+          "I think this grammar uses would travel correctly."
+        ],
+        "Mavzuga mos to‘liq gap yozing."
+      ],
+      [
+        "Write one difficult sentence with a time marker.",
+        "conditionals",
+        [
+          "By the time we arrived, they had already left."
+        ],
+        "Time marker ishlating."
+      ],
+      [
+        "Write one negative sentence for this topic.",
+        "conditionals",
+        [
+          "The report was not completed on time."
+        ],
+        "Inkor shakl yozing."
+      ],
+      [
+        "Write one question for this topic.",
+        "conditionals",
+        [
+          "Had they finished the work before the meeting?"
+        ],
+        "Savol shaklini yozing."
+      ],
+      [
+        "Write one sentence about school or work.",
+        "conditionals",
+        [
+          "The new rules will be explained tomorrow."
+        ],
+        "Real hayotga bog‘lang."
+      ],
+      [
+        "Write one sentence with contrast or result.",
+        "conditionals",
+        [
+          "Although it was difficult, we finished it."
+        ],
+        "Bog‘lovchi ishlating."
+      ],
+      [
+        "Write one sentence with a complex grammar structure.",
+        "conditionals",
+        [
+          "If I had had more time, I would have checked every answer."
+        ],
+        "Qiyinroq gap tuzing."
+      ]
+    ]
+  },
+  "PASSIVE VOICE 1 (PRESENT AND PAST TENSES)": {
+    "choice": [
+      [
+        "Choose the best answer for PASSIVE VOICE 1 (PRESENT AND PAST TENSES): The manager said the task ___ before the meeting.",
+        [
+          "is checked",
+          "was repaired",
+          "is finish",
+          "finishing"
+        ],
+        0,
+        "PASSIVE VOICE 1 (PRESENT AND PAST TENSES) mavzusiga mos murakkab forma."
+      ],
+      [
+        "Which sentence is grammatically correct in PASSIVE VOICE 1 (PRESENT AND PAST TENSES)?",
+        [
+          "This sentence uses is checked correctly.",
+          "This sentence use grammar wrong.",
+          "This sentence using grammar.",
+          "This sentence has not correct."
+        ],
+        0,
+        "To‘g‘ri struktura tanlanadi."
+      ],
+      [
+        "The students were confused; ___, the teacher explained the rule again.",
+        [
+          "therefore",
+          "although",
+          "despite",
+          "while"
+        ],
+        0,
+        "Natija bog‘lovchisi."
+      ],
+      [
+        "If I had known about the change, I ___ earlier.",
+        [
+          "would have arrived",
+          "would arrive",
+          "will arrive",
+          "arrived"
+        ],
+        0,
+        "Third Conditional."
+      ],
+      [
+        "The report ___ by the director tomorrow.",
+        [
+          "will be reviewed",
+          "reviewed",
+          "will review",
+          "has reviewing"
+        ],
+        0,
+        "Future Passive."
+      ],
+      [
+        "She told me that she ___ the email the day before.",
+        [
+          "had sent",
+          "has sent",
+          "sent tomorrow",
+          "is sending"
+        ],
+        0,
+        "Reported speechda backshift."
+      ],
+      [
+        "___ the weather was bad, they continued the trip.",
+        [
+          "Although",
+          "Despite",
+          "However",
+          "Therefore"
+        ],
+        0,
+        "Although + clause."
+      ],
+      [
+        "This exercise is ___ than the previous one.",
+        [
+          "more challenging",
+          "the most challenging",
+          "challenginger",
+          "most challenging than"
+        ],
+        0,
+        "Comparative."
+      ],
+      [
+        "By the time we arrived, the lesson ___.",
+        [
+          "had already started",
+          "has already started",
+          "was starting now",
+          "starts"
+        ],
+        0,
+        "Past Perfect."
+      ],
+      [
+        "You ___ be exhausted after working all night.",
+        [
+          "must",
+          "should to",
+          "can to",
+          "have"
+        ],
+        0,
+        "Logical deduction with modal."
+      ]
+    ],
+    "blanks": [
+      [
+        "Complete with a correct PASSIVE VOICE 1 (PRESENT AND PAST TENSES) form: She ___ the answer before I helped her.",
+        [
+          "is checked"
+        ],
+        "Mavzuga mos shakl yozing."
+      ],
+      [
+        "If he had studied harder, he ___ the exam.",
+        [
+          "would have passed"
+        ],
+        "Third Conditional natija qismi."
+      ],
+      [
+        "The documents ___ every Monday. (check)",
+        [
+          "are checked"
+        ],
+        "Present Simple Passive."
+      ],
+      [
+        "Ali said, 'I am busy.' → Ali said that he ___.",
+        [
+          "was busy"
+        ],
+        "Reported speech."
+      ],
+      [
+        "___ being tired, she finished the work.",
+        [
+          "Despite",
+          "In spite of"
+        ],
+        "Despite/In spite of + noun/gerund."
+      ],
+      [
+        "This is ___ test I have ever taken. (difficult)",
+        [
+          "the most difficult"
+        ],
+        "Superlative."
+      ],
+      [
+        "By 9 p.m., they ___ for two hours. (wait)",
+        [
+          "had been waiting"
+        ],
+        "Past Perfect Continuous."
+      ],
+      [
+        "He ___ be at home; the lights are on.",
+        [
+          "must"
+        ],
+        "Strong deduction."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence using is checked.",
+        "passive_voice",
+        [
+          "I think this grammar uses is checked correctly."
+        ],
+        "Mavzuga mos to‘liq gap yozing."
+      ],
+      [
+        "Write one difficult sentence with a time marker.",
+        "passive_voice",
+        [
+          "By the time we arrived, they had already left."
+        ],
+        "Time marker ishlating."
+      ],
+      [
+        "Write one negative sentence for this topic.",
+        "passive_voice",
+        [
+          "The report was not completed on time."
+        ],
+        "Inkor shakl yozing."
+      ],
+      [
+        "Write one question for this topic.",
+        "passive_voice",
+        [
+          "Had they finished the work before the meeting?"
+        ],
+        "Savol shaklini yozing."
+      ],
+      [
+        "Write one sentence about school or work.",
+        "passive_voice",
+        [
+          "The new rules will be explained tomorrow."
+        ],
+        "Real hayotga bog‘lang."
+      ],
+      [
+        "Write one sentence with contrast or result.",
+        "passive_voice",
+        [
+          "Although it was difficult, we finished it."
+        ],
+        "Bog‘lovchi ishlating."
+      ],
+      [
+        "Write one sentence with a complex grammar structure.",
+        "passive_voice",
+        [
+          "If I had had more time, I would have checked every answer."
+        ],
+        "Qiyinroq gap tuzing."
+      ]
+    ]
+  },
+  "PASSIVE VOICE 2 (ALL TENSES)": {
+    "choice": [
+      [
+        "Choose the best answer for PASSIVE VOICE 2 (ALL TENSES): The manager said the task ___ before the meeting.",
+        [
+          "has been approved",
+          "will be announced",
+          "is finish",
+          "finishing"
+        ],
+        0,
+        "PASSIVE VOICE 2 (ALL TENSES) mavzusiga mos murakkab forma."
+      ],
+      [
+        "Which sentence is grammatically correct in PASSIVE VOICE 2 (ALL TENSES)?",
+        [
+          "This sentence uses has been approved correctly.",
+          "This sentence use grammar wrong.",
+          "This sentence using grammar.",
+          "This sentence has not correct."
+        ],
+        0,
+        "To‘g‘ri struktura tanlanadi."
+      ],
+      [
+        "The students were confused; ___, the teacher explained the rule again.",
+        [
+          "therefore",
+          "although",
+          "despite",
+          "while"
+        ],
+        0,
+        "Natija bog‘lovchisi."
+      ],
+      [
+        "If I had known about the change, I ___ earlier.",
+        [
+          "would have arrived",
+          "would arrive",
+          "will arrive",
+          "arrived"
+        ],
+        0,
+        "Third Conditional."
+      ],
+      [
+        "The report ___ by the director tomorrow.",
+        [
+          "will be reviewed",
+          "reviewed",
+          "will review",
+          "has reviewing"
+        ],
+        0,
+        "Future Passive."
+      ],
+      [
+        "She told me that she ___ the email the day before.",
+        [
+          "had sent",
+          "has sent",
+          "sent tomorrow",
+          "is sending"
+        ],
+        0,
+        "Reported speechda backshift."
+      ],
+      [
+        "___ the weather was bad, they continued the trip.",
+        [
+          "Although",
+          "Despite",
+          "However",
+          "Therefore"
+        ],
+        0,
+        "Although + clause."
+      ],
+      [
+        "This exercise is ___ than the previous one.",
+        [
+          "more challenging",
+          "the most challenging",
+          "challenginger",
+          "most challenging than"
+        ],
+        0,
+        "Comparative."
+      ],
+      [
+        "By the time we arrived, the lesson ___.",
+        [
+          "had already started",
+          "has already started",
+          "was starting now",
+          "starts"
+        ],
+        0,
+        "Past Perfect."
+      ],
+      [
+        "You ___ be exhausted after working all night.",
+        [
+          "must",
+          "should to",
+          "can to",
+          "have"
+        ],
+        0,
+        "Logical deduction with modal."
+      ]
+    ],
+    "blanks": [
+      [
+        "Complete with a correct PASSIVE VOICE 2 (ALL TENSES) form: She ___ the answer before I helped her.",
+        [
+          "has been approved"
+        ],
+        "Mavzuga mos shakl yozing."
+      ],
+      [
+        "If he had studied harder, he ___ the exam.",
+        [
+          "would have passed"
+        ],
+        "Third Conditional natija qismi."
+      ],
+      [
+        "The documents ___ every Monday. (check)",
+        [
+          "are checked"
+        ],
+        "Present Simple Passive."
+      ],
+      [
+        "Ali said, 'I am busy.' → Ali said that he ___.",
+        [
+          "was busy"
+        ],
+        "Reported speech."
+      ],
+      [
+        "___ being tired, she finished the work.",
+        [
+          "Despite",
+          "In spite of"
+        ],
+        "Despite/In spite of + noun/gerund."
+      ],
+      [
+        "This is ___ test I have ever taken. (difficult)",
+        [
+          "the most difficult"
+        ],
+        "Superlative."
+      ],
+      [
+        "By 9 p.m., they ___ for two hours. (wait)",
+        [
+          "had been waiting"
+        ],
+        "Past Perfect Continuous."
+      ],
+      [
+        "He ___ be at home; the lights are on.",
+        [
+          "must"
+        ],
+        "Strong deduction."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence using has been approved.",
+        "passive_all_tenses",
+        [
+          "I think this grammar uses has been approved correctly."
+        ],
+        "Mavzuga mos to‘liq gap yozing."
+      ],
+      [
+        "Write one difficult sentence with a time marker.",
+        "passive_all_tenses",
+        [
+          "By the time we arrived, they had already left."
+        ],
+        "Time marker ishlating."
+      ],
+      [
+        "Write one negative sentence for this topic.",
+        "passive_all_tenses",
+        [
+          "The report was not completed on time."
+        ],
+        "Inkor shakl yozing."
+      ],
+      [
+        "Write one question for this topic.",
+        "passive_all_tenses",
+        [
+          "Had they finished the work before the meeting?"
+        ],
+        "Savol shaklini yozing."
+      ],
+      [
+        "Write one sentence about school or work.",
+        "passive_all_tenses",
+        [
+          "The new rules will be explained tomorrow."
+        ],
+        "Real hayotga bog‘lang."
+      ],
+      [
+        "Write one sentence with contrast or result.",
+        "passive_all_tenses",
+        [
+          "Although it was difficult, we finished it."
+        ],
+        "Bog‘lovchi ishlating."
+      ],
+      [
+        "Write one sentence with a complex grammar structure.",
+        "passive_all_tenses",
+        [
+          "If I had had more time, I would have checked every answer."
+        ],
+        "Qiyinroq gap tuzing."
+      ]
+    ]
+  },
+  "REPORTED SPEECH": {
+    "choice": [
+      [
+        "Choose the best answer for REPORTED SPEECH: The manager said the task ___ before the meeting.",
+        [
+          "he was tired",
+          "she had finished",
+          "is finish",
+          "finishing"
+        ],
+        0,
+        "REPORTED SPEECH mavzusiga mos murakkab forma."
+      ],
+      [
+        "Which sentence is grammatically correct in REPORTED SPEECH?",
+        [
+          "This sentence uses he was tired correctly.",
+          "This sentence use grammar wrong.",
+          "This sentence using grammar.",
+          "This sentence has not correct."
+        ],
+        0,
+        "To‘g‘ri struktura tanlanadi."
+      ],
+      [
+        "The students were confused; ___, the teacher explained the rule again.",
+        [
+          "therefore",
+          "although",
+          "despite",
+          "while"
+        ],
+        0,
+        "Natija bog‘lovchisi."
+      ],
+      [
+        "If I had known about the change, I ___ earlier.",
+        [
+          "would have arrived",
+          "would arrive",
+          "will arrive",
+          "arrived"
+        ],
+        0,
+        "Third Conditional."
+      ],
+      [
+        "The report ___ by the director tomorrow.",
+        [
+          "will be reviewed",
+          "reviewed",
+          "will review",
+          "has reviewing"
+        ],
+        0,
+        "Future Passive."
+      ],
+      [
+        "She told me that she ___ the email the day before.",
+        [
+          "had sent",
+          "has sent",
+          "sent tomorrow",
+          "is sending"
+        ],
+        0,
+        "Reported speechda backshift."
+      ],
+      [
+        "___ the weather was bad, they continued the trip.",
+        [
+          "Although",
+          "Despite",
+          "However",
+          "Therefore"
+        ],
+        0,
+        "Although + clause."
+      ],
+      [
+        "This exercise is ___ than the previous one.",
+        [
+          "more challenging",
+          "the most challenging",
+          "challenginger",
+          "most challenging than"
+        ],
+        0,
+        "Comparative."
+      ],
+      [
+        "By the time we arrived, the lesson ___.",
+        [
+          "had already started",
+          "has already started",
+          "was starting now",
+          "starts"
+        ],
+        0,
+        "Past Perfect."
+      ],
+      [
+        "You ___ be exhausted after working all night.",
+        [
+          "must",
+          "should to",
+          "can to",
+          "have"
+        ],
+        0,
+        "Logical deduction with modal."
+      ]
+    ],
+    "blanks": [
+      [
+        "Complete with a correct REPORTED SPEECH form: She ___ the answer before I helped her.",
+        [
+          "he was tired"
+        ],
+        "Mavzuga mos shakl yozing."
+      ],
+      [
+        "If he had studied harder, he ___ the exam.",
+        [
+          "would have passed"
+        ],
+        "Third Conditional natija qismi."
+      ],
+      [
+        "The documents ___ every Monday. (check)",
+        [
+          "are checked"
+        ],
+        "Present Simple Passive."
+      ],
+      [
+        "Ali said, 'I am busy.' → Ali said that he ___.",
+        [
+          "was busy"
+        ],
+        "Reported speech."
+      ],
+      [
+        "___ being tired, she finished the work.",
+        [
+          "Despite",
+          "In spite of"
+        ],
+        "Despite/In spite of + noun/gerund."
+      ],
+      [
+        "This is ___ test I have ever taken. (difficult)",
+        [
+          "the most difficult"
+        ],
+        "Superlative."
+      ],
+      [
+        "By 9 p.m., they ___ for two hours. (wait)",
+        [
+          "had been waiting"
+        ],
+        "Past Perfect Continuous."
+      ],
+      [
+        "He ___ be at home; the lights are on.",
+        [
+          "must"
+        ],
+        "Strong deduction."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence using he was tired.",
+        "reported_speech",
+        [
+          "I think this grammar uses he was tired correctly."
+        ],
+        "Mavzuga mos to‘liq gap yozing."
+      ],
+      [
+        "Write one difficult sentence with a time marker.",
+        "reported_speech",
+        [
+          "By the time we arrived, they had already left."
+        ],
+        "Time marker ishlating."
+      ],
+      [
+        "Write one negative sentence for this topic.",
+        "reported_speech",
+        [
+          "The report was not completed on time."
+        ],
+        "Inkor shakl yozing."
+      ],
+      [
+        "Write one question for this topic.",
+        "reported_speech",
+        [
+          "Had they finished the work before the meeting?"
+        ],
+        "Savol shaklini yozing."
+      ],
+      [
+        "Write one sentence about school or work.",
+        "reported_speech",
+        [
+          "The new rules will be explained tomorrow."
+        ],
+        "Real hayotga bog‘lang."
+      ],
+      [
+        "Write one sentence with contrast or result.",
+        "reported_speech",
+        [
+          "Although it was difficult, we finished it."
+        ],
+        "Bog‘lovchi ishlating."
+      ],
+      [
+        "Write one sentence with a complex grammar structure.",
+        "reported_speech",
+        [
+          "If I had had more time, I would have checked every answer."
+        ],
+        "Qiyinroq gap tuzing."
+      ]
+    ]
+  },
+  "CONNECTIVES": {
+    "choice": [
+      [
+        "Choose the best answer for CONNECTIVES: The manager said the task ___ before the meeting.",
+        [
+          "however",
+          "therefore",
+          "is finish",
+          "finishing"
+        ],
+        0,
+        "CONNECTIVES mavzusiga mos murakkab forma."
+      ],
+      [
+        "Which sentence is grammatically correct in CONNECTIVES?",
+        [
+          "This sentence uses however correctly.",
+          "This sentence use grammar wrong.",
+          "This sentence using grammar.",
+          "This sentence has not correct."
+        ],
+        0,
+        "To‘g‘ri struktura tanlanadi."
+      ],
+      [
+        "The students were confused; ___, the teacher explained the rule again.",
+        [
+          "therefore",
+          "although",
+          "despite",
+          "while"
+        ],
+        0,
+        "Natija bog‘lovchisi."
+      ],
+      [
+        "If I had known about the change, I ___ earlier.",
+        [
+          "would have arrived",
+          "would arrive",
+          "will arrive",
+          "arrived"
+        ],
+        0,
+        "Third Conditional."
+      ],
+      [
+        "The report ___ by the director tomorrow.",
+        [
+          "will be reviewed",
+          "reviewed",
+          "will review",
+          "has reviewing"
+        ],
+        0,
+        "Future Passive."
+      ],
+      [
+        "She told me that she ___ the email the day before.",
+        [
+          "had sent",
+          "has sent",
+          "sent tomorrow",
+          "is sending"
+        ],
+        0,
+        "Reported speechda backshift."
+      ],
+      [
+        "___ the weather was bad, they continued the trip.",
+        [
+          "Although",
+          "Despite",
+          "However",
+          "Therefore"
+        ],
+        0,
+        "Although + clause."
+      ],
+      [
+        "This exercise is ___ than the previous one.",
+        [
+          "more challenging",
+          "the most challenging",
+          "challenginger",
+          "most challenging than"
+        ],
+        0,
+        "Comparative."
+      ],
+      [
+        "By the time we arrived, the lesson ___.",
+        [
+          "had already started",
+          "has already started",
+          "was starting now",
+          "starts"
+        ],
+        0,
+        "Past Perfect."
+      ],
+      [
+        "You ___ be exhausted after working all night.",
+        [
+          "must",
+          "should to",
+          "can to",
+          "have"
+        ],
+        0,
+        "Logical deduction with modal."
+      ]
+    ],
+    "blanks": [
+      [
+        "Complete with a correct CONNECTIVES form: She ___ the answer before I helped her.",
+        [
+          "however"
+        ],
+        "Mavzuga mos shakl yozing."
+      ],
+      [
+        "If he had studied harder, he ___ the exam.",
+        [
+          "would have passed"
+        ],
+        "Third Conditional natija qismi."
+      ],
+      [
+        "The documents ___ every Monday. (check)",
+        [
+          "are checked"
+        ],
+        "Present Simple Passive."
+      ],
+      [
+        "Ali said, 'I am busy.' → Ali said that he ___.",
+        [
+          "was busy"
+        ],
+        "Reported speech."
+      ],
+      [
+        "___ being tired, she finished the work.",
+        [
+          "Despite",
+          "In spite of"
+        ],
+        "Despite/In spite of + noun/gerund."
+      ],
+      [
+        "This is ___ test I have ever taken. (difficult)",
+        [
+          "the most difficult"
+        ],
+        "Superlative."
+      ],
+      [
+        "By 9 p.m., they ___ for two hours. (wait)",
+        [
+          "had been waiting"
+        ],
+        "Past Perfect Continuous."
+      ],
+      [
+        "He ___ be at home; the lights are on.",
+        [
+          "must"
+        ],
+        "Strong deduction."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence using however.",
+        "connectives",
+        [
+          "I think this grammar uses however correctly."
+        ],
+        "Mavzuga mos to‘liq gap yozing."
+      ],
+      [
+        "Write one difficult sentence with a time marker.",
+        "connectives",
+        [
+          "By the time we arrived, they had already left."
+        ],
+        "Time marker ishlating."
+      ],
+      [
+        "Write one negative sentence for this topic.",
+        "connectives",
+        [
+          "The report was not completed on time."
+        ],
+        "Inkor shakl yozing."
+      ],
+      [
+        "Write one question for this topic.",
+        "connectives",
+        [
+          "Had they finished the work before the meeting?"
+        ],
+        "Savol shaklini yozing."
+      ],
+      [
+        "Write one sentence about school or work.",
+        "connectives",
+        [
+          "The new rules will be explained tomorrow."
+        ],
+        "Real hayotga bog‘lang."
+      ],
+      [
+        "Write one sentence with contrast or result.",
+        "connectives",
+        [
+          "Although it was difficult, we finished it."
+        ],
+        "Bog‘lovchi ishlating."
+      ],
+      [
+        "Write one sentence with a complex grammar structure.",
+        "connectives",
+        [
+          "If I had had more time, I would have checked every answer."
+        ],
+        "Qiyinroq gap tuzing."
+      ]
+    ]
+  },
+  "DESPITE, IN SPITE OF, ALTHOUGH, WHILE": {
+    "choice": [
+      [
+        "Choose the best answer for DESPITE, IN SPITE OF, ALTHOUGH, WHILE: The manager said the task ___ before the meeting.",
+        [
+          "Although",
+          "Despite",
+          "is finish",
+          "finishing"
+        ],
+        0,
+        "DESPITE, IN SPITE OF, ALTHOUGH, WHILE mavzusiga mos murakkab forma."
+      ],
+      [
+        "Which sentence is grammatically correct in DESPITE, IN SPITE OF, ALTHOUGH, WHILE?",
+        [
+          "This sentence uses Although correctly.",
+          "This sentence use grammar wrong.",
+          "This sentence using grammar.",
+          "This sentence has not correct."
+        ],
+        0,
+        "To‘g‘ri struktura tanlanadi."
+      ],
+      [
+        "The students were confused; ___, the teacher explained the rule again.",
+        [
+          "therefore",
+          "although",
+          "despite",
+          "while"
+        ],
+        0,
+        "Natija bog‘lovchisi."
+      ],
+      [
+        "If I had known about the change, I ___ earlier.",
+        [
+          "would have arrived",
+          "would arrive",
+          "will arrive",
+          "arrived"
+        ],
+        0,
+        "Third Conditional."
+      ],
+      [
+        "The report ___ by the director tomorrow.",
+        [
+          "will be reviewed",
+          "reviewed",
+          "will review",
+          "has reviewing"
+        ],
+        0,
+        "Future Passive."
+      ],
+      [
+        "She told me that she ___ the email the day before.",
+        [
+          "had sent",
+          "has sent",
+          "sent tomorrow",
+          "is sending"
+        ],
+        0,
+        "Reported speechda backshift."
+      ],
+      [
+        "___ the weather was bad, they continued the trip.",
+        [
+          "Although",
+          "Despite",
+          "However",
+          "Therefore"
+        ],
+        0,
+        "Although + clause."
+      ],
+      [
+        "This exercise is ___ than the previous one.",
+        [
+          "more challenging",
+          "the most challenging",
+          "challenginger",
+          "most challenging than"
+        ],
+        0,
+        "Comparative."
+      ],
+      [
+        "By the time we arrived, the lesson ___.",
+        [
+          "had already started",
+          "has already started",
+          "was starting now",
+          "starts"
+        ],
+        0,
+        "Past Perfect."
+      ],
+      [
+        "You ___ be exhausted after working all night.",
+        [
+          "must",
+          "should to",
+          "can to",
+          "have"
+        ],
+        0,
+        "Logical deduction with modal."
+      ]
+    ],
+    "blanks": [
+      [
+        "Complete with a correct DESPITE, IN SPITE OF, ALTHOUGH, WHILE form: She ___ the answer before I helped her.",
+        [
+          "Although"
+        ],
+        "Mavzuga mos shakl yozing."
+      ],
+      [
+        "If he had studied harder, he ___ the exam.",
+        [
+          "would have passed"
+        ],
+        "Third Conditional natija qismi."
+      ],
+      [
+        "The documents ___ every Monday. (check)",
+        [
+          "are checked"
+        ],
+        "Present Simple Passive."
+      ],
+      [
+        "Ali said, 'I am busy.' → Ali said that he ___.",
+        [
+          "was busy"
+        ],
+        "Reported speech."
+      ],
+      [
+        "___ being tired, she finished the work.",
+        [
+          "Despite",
+          "In spite of"
+        ],
+        "Despite/In spite of + noun/gerund."
+      ],
+      [
+        "This is ___ test I have ever taken. (difficult)",
+        [
+          "the most difficult"
+        ],
+        "Superlative."
+      ],
+      [
+        "By 9 p.m., they ___ for two hours. (wait)",
+        [
+          "had been waiting"
+        ],
+        "Past Perfect Continuous."
+      ],
+      [
+        "He ___ be at home; the lights are on.",
+        [
+          "must"
+        ],
+        "Strong deduction."
+      ]
+    ],
+    "sentences": [
+      [
+        "Write one sentence using Although.",
+        "contrast",
+        [
+          "I think this grammar uses Although correctly."
+        ],
+        "Mavzuga mos to‘liq gap yozing."
+      ],
+      [
+        "Write one difficult sentence with a time marker.",
+        "contrast",
+        [
+          "By the time we arrived, they had already left."
+        ],
+        "Time marker ishlating."
+      ],
+      [
+        "Write one negative sentence for this topic.",
+        "contrast",
+        [
+          "The report was not completed on time."
+        ],
+        "Inkor shakl yozing."
+      ],
+      [
+        "Write one question for this topic.",
+        "contrast",
+        [
+          "Had they finished the work before the meeting?"
+        ],
+        "Savol shaklini yozing."
+      ],
+      [
+        "Write one sentence about school or work.",
+        "contrast",
+        [
+          "The new rules will be explained tomorrow."
+        ],
+        "Real hayotga bog‘lang."
+      ],
+      [
+        "Write one sentence with contrast or result.",
+        "contrast",
+        [
+          "Although it was difficult, we finished it."
+        ],
+        "Bog‘lovchi ishlating."
+      ],
+      [
+        "Write one sentence with a complex grammar structure.",
+        "contrast",
+        [
+          "If I had had more time, I would have checked every answer."
+        ],
+        "Qiyinroq gap tuzing."
+      ]
+    ]
+  }
+});
+
+const PRE_INTERMEDIATE_DEEP_EXPLANATIONS = {
+  "Present Simple, Present Continuous, Past Simple, Past Continuous": [
+    {
+      "heading": "Present Simple",
+      "text": "Odatlar, doimiy ishlar va faktlar uchun ishlatiladi. Formula: I/you/we/they + V1; he/she/it + V-s/es. Inkor: do/does not + V1. Signal words: always, usually, often, every day."
+    },
+    {
+      "heading": "Present Continuous",
+      "text": "Hozir bo‘layotgan yoki vaqtinchalik ishlar uchun ishlatiladi. Formula: am/is/are + V-ing. Signal words: now, right now, at the moment, today, this week."
+    },
+    {
+      "heading": "Past Simple",
+      "text": "O‘tmishda tugagan ishlar uchun ishlatiladi. Formula: V2 yoki did + V1. Signal words: yesterday, last week, ago, in 2020."
+    },
+    {
+      "heading": "Past Continuous",
+      "text": "O‘tmishda aniq vaqtda davom etayotgan ish uchun ishlatiladi. Formula: was/were + V-ing. Ko‘pincha when/while bilan keladi."
+    }
+  ],
+  "Relative Clauses (who, which, where, whose, that)": [
+    {
+      "heading": "Who / which / that",
+      "text": "Who odamlar uchun, which narsalar uchun, that esa odam yoki narsa uchun ishlatiladi. Relative clause ot haqida qo‘shimcha ma’lumot beradi."
+    },
+    {
+      "heading": "Where / whose",
+      "text": "Where joyni bildiradi: the school where I studied. Whose egalikni bildiradi: the boy whose father is a doctor."
+    }
+  ],
+  "Present Perfect Simple, Present Perfect Continuous": [
+    {
+      "heading": "Present Perfect Simple",
+      "text": "Natija, tajriba va tugallangan ish uchun: have/has + V3. Already, just, yet, ever, never bilan ko‘p ishlatiladi."
+    },
+    {
+      "heading": "Present Perfect Continuous",
+      "text": "Davomiy jarayon va hozirgi natijasi ko‘rinadigan ish uchun: have/has been + V-ing. Since/for/how long bilan ishlatiladi."
+    }
+  ],
+  "Articles (a, an, the, no article)": [
+    {
+      "heading": "A / An",
+      "text": "Noaniq birlik sanaladigan ot oldidan keladi. A undosh tovushdan oldin, an unli tovushdan oldin."
+    },
+    {
+      "heading": "The / No article",
+      "text": "The aniq narsa, yagona obyekt, oldin aytilgan ot va superlative oldidan keladi. Umumiy ko‘plik/uncountable otlar oldidan article ishlatilmaydi."
+    }
+  ],
+  "Past Simple and Present Perfect": [
+    {
+      "heading": "Past Simple",
+      "text": "Aniq o‘tgan vaqt bor bo‘lsa ishlatiladi: yesterday, last year, two days ago."
+    },
+    {
+      "heading": "Present Perfect",
+      "text": "Vaqti aniq aytilmagan natija yoki tajriba uchun: have/has + V3. Hayotiy tajriba va hozirga ta’sir qiluvchi natijada ishlatiladi."
+    }
+  ],
+  "Comparative, Superlative": [
+    {
+      "heading": "Comparative",
+      "text": "Ikki narsani solishtirish: adjective-er/more adjective + than."
+    },
+    {
+      "heading": "Superlative",
+      "text": "Bir guruh ichida eng yuqori daraja: the adjective-est / the most adjective."
+    }
+  ],
+  "Past Perfect Simple, Past Perfect Continuous": [
+    {
+      "heading": "Past Perfect Simple",
+      "text": "O‘tmishdagi boshqa voqeadan oldin tugagan ish: had + V3."
+    },
+    {
+      "heading": "Past Perfect Continuous",
+      "text": "O‘tmishdagi bir paytgacha davom etgan jarayon: had been + V-ing."
+    }
+  ],
+  "Modal Verbs 1, Modal Verbs 2": [
+    {
+      "heading": "Modal Verbs 1",
+      "text": "Can, could, may, might, must, should, have to kabi modal fe’llar imkoniyat, majburiyat, maslahat va ruxsatni bildiradi. Modal + V1 ishlatiladi."
+    },
+    {
+      "heading": "Modal Verbs 2",
+      "text": "Modal perfect: must have V3, might have V3, should have V3 o‘tmish haqida xulosa, afsus yoki ehtimol bildiradi."
+    }
+  ],
+  "Conditionals 2 & 3": [
+    {
+      "heading": "Second Conditional",
+      "text": "Hozirgi yoki kelajakdagi xayoliy holat: If + Past Simple, would + V1."
+    },
+    {
+      "heading": "Third Conditional",
+      "text": "O‘tmishda bo‘lmagan holat natijasini aytish: If + Past Perfect, would have + V3."
+    }
+  ],
+  "Passive Voice 1 (Present and Past Tenses)": [
+    {
+      "heading": "Present Passive",
+      "text": "Am/is/are + V3. Ish bajaruvchisi muhim bo‘lmaganda ishlatiladi: The room is cleaned."
+    },
+    {
+      "heading": "Past Passive",
+      "text": "Was/were + V3. O‘tmishda bajarilgan ish: The window was broken."
+    }
+  ],
+  "Passive Voice 2 (All Tenses)": [
+    {
+      "heading": "Passive in all tenses",
+      "text": "Passive umumiy formula: be + V3. Tense faqat be fe’lida o‘zgaradi: is done, was done, has been done, will be done, is being done."
+    }
+  ],
+  "Reported Speech": [
+    {
+      "heading": "Reported Speech",
+      "text": "Birovning gapini ko‘chirishda zamon ko‘pincha orqaga siljiydi: am/is → was, present simple → past simple, present perfect → past perfect, will → would."
+    }
+  ],
+  "Connectives": [
+    {
+      "heading": "Connectives",
+      "text": "Fikrlarni bog‘laydi: because sabab, so/therefore natija, however/but qarama-qarshilik, moreover qo‘shimcha fikr, although zid fikr."
+    }
+  ],
+  "Despite, In Spite of, Although, While": [
+    {
+      "heading": "Despite / In spite of",
+      "text": "Ot yoki V-ing bilan keladi: Despite the rain, ... / In spite of being tired, ..."
+    },
+    {
+      "heading": "Although / While",
+      "text": "To‘liq gap bilan keladi: Although it was raining, ... While I agree, ... Qarama-qarshi fikrni bildiradi."
+    }
+  ]
+};
+
 function workbookExerciseKey(language, title = '') {
   if (language !== 'english') return '';
   const key = normalizeTopicName(title);
@@ -19158,8 +22542,8 @@ function getDifferentWorkbookBlanks(language, title, pack, limit = WRITING_FILL_
   return unique.slice(0, limit);
 }
 
-const WRITING_FILL_BLANK_COUNT = 7;
-const WRITING_SENTENCE_COUNT = 8;
+const WRITING_FILL_BLANK_COUNT = 8;
+const WRITING_SENTENCE_COUNT = 7;
 
 function defaultSentenceItemsForTopic(title = '') {
   const key = normalizeTopicName(title);
