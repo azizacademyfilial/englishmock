@@ -6048,13 +6048,12 @@ function StudentPanel({ user, onLogout }) {
 
   async function selectLevel(lv) {
     setSelectedTopic(null);
+    setGate(null);
     setFinalTest(null);
     setFinalResult(null);
 
-    // ENG MUHIM QOIDA:
-    // Admin qaysi darajani qo‘lda ochib bergan bo‘lsa, o‘quvchi shu darajaga
-    // hech qanday kirish testi, final testi yoki progress shartisiz kira oladi.
-    // Shuning uchun har bosganda progressni backenddan yangilab tekshiramiz.
+    // Admin qo'lda ochgan daraja har doim TO'G'RIDAN-TO'G'RI ochiladi.
+    // Bunda hech qanday ruxsat testi, final testi, tugma yoki modal chiqmaydi.
     let latestProgress = progress;
     try {
       latestProgress = await api('/api/progress');
@@ -6063,10 +6062,14 @@ function StudentPanel({ user, onLogout }) {
       latestProgress = progress;
     }
 
-    const adminOrProgressOpened = latestProgress?.access?.[subject]?.[lv] === true;
-    if (adminOrProgressOpened) {
+    const subjectAccess = latestProgress?.access?.[subject] || {};
+    const unlockedFromUser = Array.isArray(user?.unlockedLevels) ? user.unlockedLevels : [];
+    const adminOpenedLevel = subjectAccess[lv] === true || lv === 'Beginner' || unlockedFromUser.includes(lv);
+
+    if (adminOpenedLevel) {
       setLevel(lv);
       setGate(null);
+      setActiveTab('lessons');
       await loadTopics(subject, lv);
       return;
     }
@@ -6079,13 +6082,18 @@ function StudentPanel({ user, onLogout }) {
 
     // Admin ochmagan darajada odatiy kirish testi ishlaydi.
     const test = await api(`/api/gate-test/${subject}/${lv}`);
-    setLevel(lv);
+
+    // Backend ham “alreadyUnlocked” qaytarsa, modal ko'rsatmaymiz.
     if (test?.alreadyUnlocked) {
+      setLevel(lv);
       setGate(null);
+      setActiveTab('lessons');
       await loadBase();
       await loadTopics(subject, lv);
       return;
     }
+
+    setLevel(lv);
     setGate(test);
   }
   async function submitGate(answers) {
