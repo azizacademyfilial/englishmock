@@ -1660,11 +1660,19 @@ const TOPIC_PASS_SCORE = 90;
 const LEVEL_PASS_SCORE = 90;
 const PLAN_DAYS = ['Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'Shanba', 'Yakshanba'];
 
+function normalizeLevelName(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  const compact = raw.toLowerCase().replace(/[–—]/g, '-').replace(/\s+/g, '');
+  const found = levels.find(level => level.toLowerCase().replace(/\s+/g, '') === compact);
+  return found || '';
+}
+
 function normalizeUnlockedLevels(value = []) {
   const list = Array.isArray(value) ? value : String(value || '').split(',');
   const selected = list
-    .map(item => String(item || '').trim())
-    .filter(level => levels.includes(level));
+    .map(item => normalizeLevelName(item))
+    .filter(Boolean);
 
   // Admin yuqori darajani ochsa, undan oldingi darajalar ham avtomatik ochiq hisoblanadi.
   // Masalan: Pre-Intermediate ochilsa, Elementary ham ochiladi.

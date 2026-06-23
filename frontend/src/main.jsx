@@ -6009,6 +6009,18 @@ function StudentPlaceholderPanel({ title, text, icon }) {
 
 const STUDENT_NOT_READY_LEVELS = ['Intermediate'];
 const STUDENT_NOT_READY_MESSAGE = 'Bu daraja hali tayyor emas. Bu daraja ustida ishlanmoqda. Iltimos administratorga murojaat qiling.';
+function normalizeLevelName(value, availableLevels = ['Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate']) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  const compact = raw.toLowerCase().replace(/[–—]/g, '-').replace(/\s+/g, '');
+  return availableLevels.find(level => level.toLowerCase().replace(/\s+/g, '') === compact) || '';
+}
+function hasOpenedLevel(accessMap = {}, unlockedLevels = [], lv, availableLevels) {
+  if (lv === 'Beginner') return true;
+  if (accessMap?.[lv] === true) return true;
+  const normalized = unlockedLevels.map(item => normalizeLevelName(item, availableLevels)).filter(Boolean);
+  return normalized.includes(lv);
+}
 
 function StudentPanel({ user, onLogout }) {
   const [content, setContent] = useState(null);
@@ -6064,7 +6076,8 @@ function StudentPanel({ user, onLogout }) {
 
     const subjectAccess = latestProgress?.access?.[subject] || {};
     const unlockedFromUser = Array.isArray(user?.unlockedLevels) ? user.unlockedLevels : [];
-    const adminOpenedLevel = subjectAccess[lv] === true || lv === 'Beginner' || unlockedFromUser.includes(lv);
+    const availableLevels = content?.levels || ['Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate'];
+    const adminOpenedLevel = hasOpenedLevel(subjectAccess, unlockedFromUser, lv, availableLevels);
 
     if (adminOpenedLevel) {
       setLevel(lv);
