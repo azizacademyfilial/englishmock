@@ -6022,6 +6022,24 @@ function hasOpenedLevel(accessMap = {}, unlockedLevels = [], lv, availableLevels
   return normalized.includes(lv);
 }
 
+
+function AdminLevelConfirmModal({ level, onConfirm, onCancel }) {
+  if (!level) return null;
+  return (
+    <div className="adminLevelConfirmOverlay" role="dialog" aria-modal="true">
+      <div className="adminLevelConfirmCard">
+        <div className="adminLevelConfirmIcon">✅</div>
+        <h2>{level} bo‘limiga o‘tmoqchimisiz?</h2>
+        <p>Bu bo‘lim admin tomonidan sizga ochib berilgan. “Ha” bossangiz, ruxsat testisiz mavzularga o‘tasiz.</p>
+        <div className="adminLevelConfirmActions">
+          <button type="button" className="secondaryBtn" onClick={onCancel}>Yo‘q</button>
+          <button type="button" className="primaryBtn" onClick={onConfirm}>Ha, o‘tish</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function StudentPanel({ user, onLogout }) {
   const [content, setContent] = useState(null);
   const [progress, setProgress] = useState(null);
@@ -6034,6 +6052,7 @@ function StudentPanel({ user, onLogout }) {
   const [finalTest, setFinalTest] = useState(null);
   const [finalResult, setFinalResult] = useState(null);
   const [activeTab, setActiveTab] = useState('lessons');
+  const [pendingAdminLevel, setPendingAdminLevel] = useState(null);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
 
   async function loadBase() {
@@ -6064,8 +6083,8 @@ function StudentPanel({ user, onLogout }) {
     setFinalTest(null);
     setFinalResult(null);
 
-    // Admin qo'lda ochgan daraja har doim TO'G'RIDAN-TO'G'RI ochiladi.
-    // Bunda hech qanday ruxsat testi, final testi, tugma yoki modal chiqmaydi.
+    // Admin qo'lda ochgan daraja bosilganda avval tasdiqlash modali chiqadi.
+    // Ha bosilgandan keyin ruxsat testisiz mavzularga o'tadi.
     let latestProgress = progress;
     try {
       latestProgress = await api('/api/progress');
@@ -6080,10 +6099,7 @@ function StudentPanel({ user, onLogout }) {
     const adminOpenedLevel = hasOpenedLevel(subjectAccess, unlockedFromUser, lv, availableLevels);
 
     if (adminOpenedLevel) {
-      setLevel(lv);
-      setGate(null);
-      setActiveTab('lessons');
-      await loadTopics(subject, lv);
+      setPendingAdminLevel(lv);
       return;
     }
 
@@ -6160,6 +6176,23 @@ function StudentPanel({ user, onLogout }) {
     return result;
   }
 
+  async function confirmAdminLevel() {
+    const lv = pendingAdminLevel;
+    if (!lv) return;
+    setPendingAdminLevel(null);
+    setSelectedTopic(null);
+    setGate(null);
+    setFinalTest(null);
+    setFinalResult(null);
+    setLevel(lv);
+    setActiveTab('lessons');
+    await loadTopics(subject, lv);
+  }
+
+  function cancelAdminLevel() {
+    setPendingAdminLevel(null);
+  }
+
   const selectedSubjectTitle = useMemo(() => content?.subjects?.find(s => s.id === subject)?.title || '', [content, subject]);
   const completedCount = topics.filter(t => t.bestScore >= TOPIC_PASS_SCORE).length;
   const totalTopics = topics.length || 15;
@@ -6174,46 +6207,52 @@ function StudentPanel({ user, onLogout }) {
   if (finalTest) return <main className="page"><TestView test={finalTest} onSubmit={submitFinal} onCancel={() => setFinalTest(null)} submitText="Daraja testini yakunlash" />{finalResult?.certificate && <div className="card finalCertificateCard"><h2>Sertifikat tayyorlandi</h2><p className="muted">Daraja testi natijangiz sertifikatga yozildi. Sertifikatni ko‘rish yoki rasm qilib yuklab olish mumkin.</p><CertificatePreview certificate={finalResult.certificate} /></div>}</main>;
 
   if (isMobile) return (
-    <MobileStudentDashboard
-      user={user}
-      onLogout={onLogout}
-      content={content}
-      progress={progress}
-      subject={subject}
-      setSubject={setSubject}
-      level={level}
-      selectLevel={selectLevel}
-      topics={topics}
-      currentTopic={currentTopic}
-      overallPercent={overallPercent}
-      completedCount={completedCount}
-      totalTopics={totalTopics}
-      openTopic={setSelectedTopic}
-      openFinal={openFinal}
-      finalUnlocked={finalUnlocked}
-    />
+    <>
+      <MobileStudentDashboard
+        user={user}
+        onLogout={onLogout}
+        content={content}
+        progress={progress}
+        subject={subject}
+        setSubject={setSubject}
+        level={level}
+        selectLevel={selectLevel}
+        topics={topics}
+        currentTopic={currentTopic}
+        overallPercent={overallPercent}
+        completedCount={completedCount}
+        totalTopics={totalTopics}
+        openTopic={setSelectedTopic}
+        openFinal={openFinal}
+        finalUnlocked={finalUnlocked}
+      />
+      <AdminLevelConfirmModal level={pendingAdminLevel} onConfirm={confirmAdminLevel} onCancel={cancelAdminLevel} />
+    </>
   );
 
   return (
-    <DesktopStudentDashboard
-      user={user}
-      onLogout={onLogout}
-      content={content}
-      progress={progress}
-      activeTab={activeTab}
-      setActiveTab={setActiveTab}
-      subject={subject}
-      level={level}
-      selectLevel={selectLevel}
-      topics={topics}
-      currentTopic={currentTopic}
-      completedCount={completedCount}
-      totalTopics={totalTopics}
-      overallPercent={overallPercent}
-      openTopic={setSelectedTopic}
-      openFinal={openFinal}
-      finalUnlocked={finalUnlocked}
-    />
+    <>
+      <DesktopStudentDashboard
+        user={user}
+        onLogout={onLogout}
+        content={content}
+        progress={progress}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        subject={subject}
+        level={level}
+        selectLevel={selectLevel}
+        topics={topics}
+        currentTopic={currentTopic}
+        completedCount={completedCount}
+        totalTopics={totalTopics}
+        overallPercent={overallPercent}
+        openTopic={setSelectedTopic}
+        openFinal={openFinal}
+        finalUnlocked={finalUnlocked}
+      />
+      <AdminLevelConfirmModal level={pendingAdminLevel} onConfirm={confirmAdminLevel} onCancel={cancelAdminLevel} />
+    </>
   );
 
   /* legacy desktop layout
