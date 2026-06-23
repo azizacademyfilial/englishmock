@@ -5,7 +5,7 @@ import './admin-mobile.css';
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
-const APP_VERSION = '2026-06-17-topic-mode-daily-toggle-v133';
+const APP_VERSION = '2026-06-23-vocab-speaking-tail-v139';
 const TOPIC_PASS_SCORE = 90;
 
 const ADMIN_ROUTE_TABS = ['dashboard', 'centers', 'create', 'accounts', 'plans', 'enrollments', 'progress', 'certificates', 'shopOrders', 'content', 'logs', 'settings'];
@@ -3642,9 +3642,9 @@ function getCleanTopicFormCards(topic) {
         },
         {
             "icon": "✅",
-            "title": "Darak gap",
+            "title": "Positive (+)",
             "formula": "I am ...\nHe / She / It is ...\nYou / We / They are ...",
-            "text": "Darak gapda avval ega keladi, keyin egaga mos am/is/are qo‘yiladi. Bu gap oddiy xabar beradi.",
+            "text": "Positive (+)da avval ega keladi, keyin egaga mos am/is/are qo‘yiladi. Bu gap oddiy xabar beradi.",
             "points": [
                 "I bilan am",
                 "He/She/It bilan is",
@@ -3658,9 +3658,9 @@ function getCleanTopicFormCards(topic) {
         },
         {
             "icon": "➖",
-            "title": "Inkor gap",
-            "formula": "subject + am/is/are + not",
-            "text": "Inkor gapda “emas” ma’nosi beriladi. Buning uchun am/is/are dan keyin not qo‘yiladi.",
+            "title": "Negative (-)",
+            "formula": "Subject + am/is/are + not",
+            "text": "Negative (-)da “emas” ma’nosi beriladi. Buning uchun am/is/are dan keyin not qo‘yiladi.",
             "points": [
                 "I am not = men ... emasman",
                 "is not = isn’t",
@@ -3674,8 +3674,8 @@ function getCleanTopicFormCards(topic) {
         },
         {
             "icon": "❓",
-            "title": "Savol gap",
-            "formula": "Am / Is / Are + subject + ...?",
+            "title": "Question (?)",
+            "formula": "Am / Is / Are + Subject + ...?",
             "text": "Savolda am/is/are gap boshiga chiqadi. Javobda ham shu fe’l bilan qisqa javob beriladi.",
             "points": [
                 "Are you ready? — Yes, I am.",
@@ -3864,7 +3864,7 @@ function getCleanTopicFormCards(topic) {
         icon: '✅',
         title: 'Positive',
         formula: 'Subject + am/is/are + verb-ing',
-        text: 'Darak gapda ega keladi, keyin am/is/are, keyin fe’lning -ing shakli yoziladi.',
+        text: 'Positive (+)da ega keladi, keyin am/is/are, keyin fe’lning -ing shakli yoziladi.',
         points: ['I bilan am ishlatiladi.', 'He / she / it bilan is ishlatiladi.', 'You / we / they bilan are ishlatiladi.'],
         examples: ['I am reading now. / Men hozir o‘qiyapman.', 'She is cooking dinner. / U kechki ovqat pishiryapti.']
       },
@@ -3872,14 +3872,14 @@ function getCleanTopicFormCards(topic) {
         icon: '➖',
         title: 'Negative',
         formula: 'Subject + am/is/are + not + verb-ing',
-        text: 'Inkor gapda to be fe’lidan keyin not qo‘yiladi.',
+        text: 'Negative (-)da to be fe’lidan keyin not qo‘yiladi.',
         points: ['am not = emasman / qilmayapman', 'is not = isn’t', 'are not = aren’t'],
         examples: ['I am not working now. / Men hozir ishlamayapman.', 'They are not playing football. / Ular futbol o‘ynamayapti.']
       },
       {
         icon: '❓',
         title: 'Question',
-        formula: 'Am/Is/Are + subject + verb-ing?',
+        formula: 'Am/Is/Are + Subject + verb-ing?',
         text: 'Savolda am/is/are gap boshiga chiqadi. What, where, why kabi savol so‘zlari bo‘lsa, ular eng boshida turadi.',
         points: ['Are you ...? — Siz ... qilyapsizmi?', 'Is he/she ...? — U ... qilyaptimi?', 'What are you doing? — Nima qilyapsiz?'],
         examples: ['Are you studying now? / Hozir o‘qiyapsizmi?', 'What are they doing? / Ular nima qilyapti?']
@@ -3914,7 +3914,7 @@ function getCleanTopicFormCards(topic) {
         icon: '➖',
         title: 'Negative',
         formula: 'I / you / we / they + do not + V1\nHe / she / it + does not + V1',
-        text: 'Inkor gapda do not yoki does not ishlatiladi. Does ishlatilganda asosiy fe’lga -s/-es qo‘shilmaydi.',
+        text: 'Negative (-)da do not yoki does not ishlatiladi. Does ishlatilganda asosiy fe’lga -s/-es qo‘shilmaydi.',
         points: ["do not = don't", "does not = doesn't", 'doesn’t + V1: doesn’t go, doesn’t like.'],
         examples: ["I don’t like coffee. / Men kofeni yoqtirmayman.", "Tom doesn’t work at school. / Tom maktabda ishlamaydi."]
       },
@@ -3922,7 +3922,7 @@ function getCleanTopicFormCards(topic) {
         icon: '❓',
         title: 'Question',
         formula: 'Do + I / you / we / they + V1?\nDoes + he / she / it + V1?',
-        text: 'Savol gapda do yoki does gap boshiga chiqadi. He/she/it bilan savolda does ishlatiladi va asosiy fe’l V1 bo‘lib qoladi.',
+        text: 'Question (?)da do yoki does gap boshiga chiqadi. He/she/it bilan savolda does ishlatiladi va asosiy fe’l V1 bo‘lib qoladi.',
         points: ['Do you ...? — Siz ... qilasizmi?', 'Does she ...? — U ... qiladimi?', 'Does he goes? emas, Does he go?'],
         examples: ['Do you speak English? / Siz inglizcha gapirasizmi?', 'Does she speak English? / U inglizcha gapiradimi?']
       },
@@ -3951,7 +3951,7 @@ function getCleanTopicFormCards(topic) {
       {
         icon: '❓',
         title: 'Question',
-        formula: 'Do/Does + subject + V1?\nAm/Is/Are + subject + verb-ing?',
+        formula: 'Do/Does + Subject + V1?\nAm/Is/Are + Subject + verb-ing?',
         examples: ['Do you play tennis? / Tennis o‘ynaysizmi?', 'Are you playing tennis now? / Hozir tennis o‘ynayapsizmi?']
       }
     ],
@@ -3971,7 +3971,7 @@ function getCleanTopicFormCards(topic) {
       {
         icon: '❓',
         title: 'Question',
-        formula: 'Did + subject + V1?',
+        formula: 'Did + Subject + V1?',
         examples: ['Did you see Ali? / Alini ko‘rdingizmi?', 'Where did you go yesterday? / Kecha qayerga bordingiz?']
       }
     ],
@@ -3991,7 +3991,7 @@ function getCleanTopicFormCards(topic) {
       {
         icon: '❓',
         title: 'Question',
-        formula: 'Was/Were + subject + verb-ing?',
+        formula: 'Was/Were + Subject + verb-ing?',
         examples: ['Were you studying at 9? / Soat 9 da o‘qiyotgan edingizmi?', 'What were you doing yesterday evening? / Kecha kechqurun nima qilayotgan edingiz?']
       }
     ],
@@ -4011,7 +4011,7 @@ function getCleanTopicFormCards(topic) {
       {
         icon: '❓',
         title: 'Question',
-        formula: 'Will + subject + V1?\nAm/Is/Are + subject + going to + V1?',
+        formula: 'Will + Subject + V1?\nAm/Is/Are + Subject + going to + V1?',
         examples: ['Will you help me? / Menga yordam berasizmi?', 'Are you going to study tonight? / Bugun kechqurun o‘qimoqchimisiz?']
       }
     ],
@@ -4031,7 +4031,7 @@ function getCleanTopicFormCards(topic) {
       {
         icon: '❓',
         title: 'Question',
-        formula: 'Have/Has + subject + V3?',
+        formula: 'Have/Has + Subject + V3?',
         examples: ['Have you ever seen snow? / Hech qor ko‘rganmisiz?', 'Has she finished the test? / U testni tugatdimi?']
       }
     ],
@@ -4051,7 +4051,7 @@ function getCleanTopicFormCards(topic) {
       {
         icon: '❓',
         title: 'Question',
-        formula: 'Have/Has + subject + V3?',
+        formula: 'Have/Has + Subject + V3?',
         examples: ['Have you ever been to Tashkent? / Hech Toshkentda bo‘lganmisiz?', 'Has he opened the door? / U eshikni ochdimi?']
       }
     ],
@@ -4115,7 +4115,7 @@ function getCleanTopicFormCards(topic) {
       {
         icon: '❓',
         title: 'Question',
-        formula: 'Can + subject + V1?',
+        formula: 'Can + Subject + V1?',
         text: 'Savolda Can gap boshiga chiqadi. Javobda Yes, I can yoki No, I can’t ishlatiladi.',
         points: ['Can you...? — Siz ... qila olasizmi?', 'Can I...? — Men ... qilsam bo‘ladimi?', 'Savolda do/does kerak emas.'],
         examples: ['Can you sing? / Qo‘shiq ayta olasizmi?', 'Can she speak English? / U ingliz tilida gapira oladimi?', 'Can I come in? / Kirsam bo‘ladimi?']
@@ -4277,25 +4277,25 @@ function buildFormCards(topic, examples, explanationParts = []) {
     return [
       {
         icon: '✅',
-        title: 'Darak gap',
-        formula: 'Ega + am/is/are + qolgan so‘zlar',
-        text: 'Darak gap oddiy xabar beradi. Avval ega keladi, keyin egaga mos am, is yoki are qo‘yiladi. Undan keyin gapning qolgan qismi yoziladi.',
+        title: 'Positive (+)',
+        formula: 'Subject + am/is/are + qolgan so‘zlar',
+        text: 'Positive (+) oddiy xabar beradi. Avval ega keladi, keyin egaga mos am, is yoki are qo‘yiladi. Undan keyin gapning qolgan qismi yoziladi.',
         points: ['I bilan am ishlatiladi.', 'He / She / It bilan is ishlatiladi.', 'You / We / They bilan are ishlatiladi.'],
         examples: ['I am a student. / Men o‘quvchiman.', 'She is my teacher. / U mening ustozim.', 'They are friends. / Ular do‘stlar.']
       },
       {
         icon: '➖',
-        title: 'Inkor gap',
-        formula: 'Ega + am/is/are + not + qolgan so‘zlar',
-        text: 'Inkor gapda “emas” ma’nosi beriladi. Buning uchun am, is yoki are dan keyin not qo‘yiladi. So‘z tartibi buzilmaydi, faqat not qo‘shiladi.',
+        title: 'Negative (-)',
+        formula: 'Subject + am/is/are + not + qolgan so‘zlar',
+        text: 'Negative (-)da “emas” ma’nosi beriladi. Buning uchun am, is yoki are dan keyin not qo‘yiladi. So‘z tartibi buzilmaydi, faqat not qo‘shiladi.',
         points: ['I am not — men ... emasman.', 'He / She / It is not — u ... emas.', 'You / We / They are not — siz/biz/ular ... emas.'],
         examples: ['I am not tired. / Men charchagan emasman.', 'He is not busy. / U band emas.', 'They are not at home. / Ular uyda emas.']
       },
       {
         icon: '❓',
-        title: 'So‘roq gap',
-        formula: 'Am/Is/Are + ega + qolgan so‘zlar?',
-        text: 'So‘roq gapda savol beriladi. To be fe’li gap boshiga chiqadi: am, is yoki are birinchi keladi, keyin ega yoziladi.',
+        title: 'Question (?)',
+        formula: 'Am/Is/Are + Subject + qolgan so‘zlar?',
+        text: 'Question (?)da savol beriladi. To be fe’li gap boshiga chiqadi: am, is yoki are birinchi keladi, keyin ega yoziladi.',
         points: ['Are you ...? — Siz ...misiz?', 'Is he/she/it ...? — U ...mi?', 'Are they ...? — Ular ...mi?'],
         examples: ['Is he at home? / U uydami?', 'Are you ready? / Siz tayyormisiz?', 'Are they in the classroom? / Ular sinfxonadami?']
       }
@@ -4305,31 +4305,217 @@ function buildFormCards(topic, examples, explanationParts = []) {
   return [
     {
       icon: '✅',
-      title: 'Darak gap',
+      title: 'Positive (+)',
       formula: `${title} qoidasini oddiy gap ichida ishlatish`,
-      text: 'Darak gapda fikr tasdiq shaklida aytiladi. Avval gapning egasini toping, keyin mavzuga mos qoida yoki fe’l shaklini joylashtiring.',
+      text: 'Positive (+)da fikr tasdiq shaklida aytiladi. Avval gapning egasini toping, keyin mavzuga mos qoida yoki fe’l shaklini joylashtiring.',
       points: ['Gap egasini aniqlang.', 'Mavzuga mos qoida yoki fe’l shaklini tanlang.', 'Gapni to‘liq va sodda yozing.'],
       examples: examples.slice(0, 3)
     },
     {
       icon: '➖',
-      title: 'Inkor gap',
-      formula: 'Ega + mavzuga mos inkor shakli + qolgan so‘zlar',
-      text: 'Inkor gapda fikr rad etiladi. Ingliz tilida ko‘pincha not, do not, does not, did not yoki mavzuga mos boshqa inkor shakli ishlatiladi.',
+      title: 'Negative (-)',
+      formula: 'Subject + mavzuga mos inkor shakli + qolgan so‘zlar',
+      text: 'Negative (-)da fikr rad etiladi. Ingliz tilida ko‘pincha not, do not, does not, did not yoki mavzuga mos boshqa inkor shakli ishlatiladi.',
       points: ['Avval darak gapni tuzing.', 'Keyin mavzuga mos inkor so‘zini qo‘shing.', 'Fe’l yoki yordamchi fe’l shakliga e’tibor bering.'],
       examples: examples.slice(3, 6).length ? examples.slice(3, 6) : examples.slice(0, 3)
     },
     {
       icon: '❓',
-      title: 'So‘roq gap',
-      formula: 'Yordamchi fe’l / savol so‘zi + ega + qolgan so‘zlar?',
-      text: 'So‘roq gapda javob olish uchun gap tartibi o‘zgaradi. Ko‘pincha yordamchi fe’l yoki savol so‘zi gap boshiga chiqadi.',
+      title: 'Question (?)',
+      formula: 'Yordamchi fe’l / savol so‘zi + Subject + qolgan so‘zlar?',
+      text: 'Question (?)da javob olish uchun gap tartibi o‘zgaradi. Ko‘pincha yordamchi fe’l yoki savol so‘zi gap boshiga chiqadi.',
       points: ['Savol nima haqida ekanini aniqlang.', 'Yordamchi fe’l yoki savol so‘zini boshiga qo‘ying.', 'Gap oxirida savol belgisi qo‘ying.'],
       examples: examples.slice(0, 3)
     }
   ];
 }
 
+
+
+
+function isPreIntermediateDeepTopic(topic) {
+  const t = normalizeLessonTitle(topic?.title || '');
+  return topic?.language === 'english' && (
+    t.includes('PRESENT SIMPLE, PRESENT CONTINUOUS') ||
+    t.includes('RELATIVE CLAUSES') ||
+    t.includes('PRESENT PERFECT SIMPLE') ||
+    t.includes('ARTICLES') ||
+    t.includes('PAST SIMPLE AND PRESENT PERFECT') ||
+    t.includes('COMPARATIVE') ||
+    t.includes('PAST PERFECT') ||
+    t.includes('MODAL VERBS') ||
+    t.includes('CONDITIONALS 2') ||
+    t.includes('PASSIVE VOICE') ||
+    t.includes('REPORTED SPEECH') ||
+    t.includes('CONNECTIVES') ||
+    t.includes('DESPITE')
+  );
+}
+
+const commonPreIntermediateVocabulary = [
+  ['achieve','erishmoq','/əˈtʃiːv/'], ['accurate','aniq','/ˈækjərət/'], ['attend','qatnashmoq','/əˈtend/'], ['avoid','qochmoq','/əˈvɔɪd/'], ['communicate','muloqot qilmoq','/kəˈmjuːnɪkeɪt/'],
+  ['compare','taqqoslamoq','/kəmˈpeə/'], ['complete','yakunlamoq','/kəmˈpliːt/'], ['consider','hisobga olmoq','/kənˈsɪdə/'], ['continue','davom etmoq','/kənˈtɪnjuː/'], ['create','yaratmoq','/kriˈeɪt/'],
+  ['decision','qaror','/dɪˈsɪʒən/'], ['develop','rivojlantirmoq','/dɪˈveləp/'], ['efficient','samarali','/ɪˈfɪʃənt/'], ['environment','atrof-muhit','/ɪnˈvaɪrənmənt/'], ['experience','tajriba','/ɪkˈspɪəriəns/'],
+  ['explain','tushuntirmoq','/ɪkˈspleɪn/'], ['improve','yaxshilamoq','/ɪmˈpruːv/'], ['include','o‘z ichiga olmoq','/ɪnˈkluːd/'], ['increase','oshirmoq','/ɪnˈkriːs/'], ['knowledge','bilim','/ˈnɒlɪdʒ/'],
+  ['necessary','zarur','/ˈnesəsəri/'], ['opportunity','imkoniyat','/ˌɒpəˈtjuːnəti/'], ['prepare','tayyorlamoq','/prɪˈpeə/'], ['provide','ta’minlamoq','/prəˈvaɪd/'], ['purpose','maqsad','/ˈpɜːpəs/'],
+  ['relationship','munosabat','/rɪˈleɪʃənʃɪp/'], ['require','talab qilmoq','/rɪˈkwaɪə/'], ['responsibility','mas’uliyat','/rɪˌspɒnsəˈbɪləti/'], ['support','qo‘llab-quvvatlamoq','/səˈpɔːt/'], ['valuable','qimmatli','/ˈvæljuəbəl/']
+];
+
+function asVocab(list) {
+  return list.slice(0, 30).map((item, index) => ({ id: `pi-vocab-${index+1}-${item[0]}`, word: item[0], meaning: item[1], ipa: item[2] || '', example: `${item[0][0].toUpperCase()+item[0].slice(1)} is useful in English learning.` }));
+}
+
+function getMergedVocabularyForTopic(topic) {
+  const existing = Array.isArray(topic?.vocabulary) ? topic.vocabulary : [];
+  if (!isPreIntermediateDeepTopic(topic)) return existing;
+  const title = normalizeLessonTitle(topic?.title || '');
+  let extra = [];
+  if (title.includes('PRESENT SIMPLE')) extra = [['routine','odatdagi tartib','/ruːˈtiːn/'],['schedule','jadval','/ˈʃedjuːl/'],['habit','odat','/ˈhæbɪt/'],['currently','hozirda','/ˈkʌrəntli/'],['temporary','vaqtinchalik','/ˈtempərəri/'],['interrupt','to‘xtatib qo‘ymoq','/ˌɪntəˈrʌpt/']];
+  else if (title.includes('RELATIVE')) extra = [['define','aniqlamoq','/dɪˈfaɪn/'],['describe','tasvirlamoq','/dɪˈskraɪb/'],['owner','egasi','/ˈəʊnə/'],['place','joy','/pleɪs/'],['person','odam','/ˈpɜːsən/'],['object','narsa','/ˈɒbdʒɪkt/']];
+  else if (title.includes('PERFECT')) extra = [['result','natija','/rɪˈzʌlt/'],['recently','yaqinda','/ˈriːsəntli/'],['duration','davomiylik','/djʊˈreɪʃən/'],['evidence','dalil','/ˈevɪdəns/'],['progress','jarayon','/ˈprəʊɡres/']];
+  else if (title.includes('ARTICLE')) extra = [['specific','aniq','/spəˈsɪfɪk/'],['general','umumiy','/ˈdʒenərəl/'],['unique','yagona','/juːˈniːk/'],['countable','sanaladigan','/ˈkaʊntəbəl/'],['uncountable','sanalmaydigan','/ʌnˈkaʊntəbəl/']];
+  else if (title.includes('COMPARATIVE')) extra = [['higher','balandroq','/ˈhaɪə/'],['lower','pastroq','/ˈləʊə/'],['better','yaxshiroq','/ˈbetə/'],['worse','yomonroq','/wɜːs/'],['the most','eng ko‘p','/ðə məʊst/']];
+  else if (title.includes('MODAL')) extra = [['permission','ruxsat','/pəˈmɪʃən/'],['obligation','majburiyat','/ˌɒblɪˈɡeɪʃən/'],['advice','maslahat','/ədˈvaɪs/'],['possibility','imkoniyat','/ˌpɒsəˈbɪləti/'],['probability','ehtimollik','/ˌprɒbəˈbɪləti/']];
+  else if (title.includes('CONDITIONAL')) extra = [['imaginary','tasavvuriy','/ɪˈmædʒɪnəri/'],['regret','afsus','/rɪˈɡret/'],['condition','shart','/kənˈdɪʃən/'],['consequence','oqibat','/ˈkɒnsɪkwəns/']];
+  else if (title.includes('PASSIVE')) extra = [['active','aniq nisbat','/ˈæktɪv/'],['passive','majhul nisbat','/ˈpæsɪv/'],['agent','bajaruvchi','/ˈeɪdʒənt/'],['process','jarayon','/ˈprəʊses/']];
+  else if (title.includes('REPORTED')) extra = [['report','xabar qilmoq','/rɪˈpɔːt/'],['statement','darak gap','/ˈsteɪtmənt/'],['command','buyruq','/kəˈmɑːnd/'],['request','iltimos','/rɪˈkwest/']];
+  else if (title.includes('CONNECTIVE') || title.includes('DESPITE')) extra = [['although','garchi','/ɔːlˈðəʊ/'],['however','biroq','/haʊˈevə/'],['therefore','shuning uchun','/ˈðeəfɔː/'],['moreover','bundan tashqari','/mɔːrˈəʊvə/']];
+  const merged = [...extra, ...commonPreIntermediateVocabulary];
+  return asVocab(merged).slice(0, 30);
+}
+
+function piSection(title, color, usage, formula, keywords, examples, rules = []) {
+  return { title, color, usage, formula, keywords, examples, rules };
+}
+
+function getPreIntermediateVisualLesson(topic) {
+  if (!isPreIntermediateDeepTopic(topic)) return null;
+  const t = normalizeLessonTitle(topic?.title || '');
+  if (t.includes('PRESENT SIMPLE, PRESENT CONTINUOUS')) {
+    return {
+      title: '4 TA ZAMON: TO‘LIQ TUSHUNTIRISH',
+      sections: [
+        piSection('Present Simple','green',['Doimiy odatlar','Har kuni qilinadigan ishlar','Faktlar va haqiqatlar','Jadval va rejalashtirilgan voqealar'],{positive:'Subject + V1(s/es)',negative:'Subject + do/does not + V1',question:'Do/Does + Subject + V1?'},['always','usually','often','sometimes','never','every day','every week','on Mondays'],['I go to school every day. / Men har kuni maktabga boraman.','She usually drinks coffee. / U odatda qahva ichadi.','They play football on Sundays. / Ular yakshanba kuni futbol o‘ynashadi.'],['He/She/It bilan fe’lga -s yoki -es qo‘shiladi.','Savol va inkorda do/does ishlatiladi.']),
+        piSection('Present Continuous','blue',['Hozir ayni vaqtda bo‘layotgan ish','Vaqtinchalik holat','Yaqin kelajak rejalari'],{positive:'Subject + am/is/are + V-ing',negative:'Subject + am/is/are not + V-ing',question:'Am/Is/Are + Subject + V-ing?'},['now','right now','at the moment','currently','today','look!','listen!'],['I am doing my homework now. / Men hozir uy vazifamni bajaryapman.','Look! The baby is sleeping. / Qara! Bola uxlayapti.','They are playing football at the moment. / Ular ayni damda futbol o‘ynashmoqda.'],['I bilan am, He/She/It bilan is, You/We/They bilan are ishlatiladi.']),
+        piSection('Past Simple','orange',['O‘tmishda tugagan ish','Kecha, o‘tgan hafta, o‘tgan yil bo‘lgan voqealar'],{positive:'Subject + V2',negative:'Subject + did not + V1',question:'Did + Subject + V1?'},['yesterday','last week','last month','last year','ago','in 2020'],['I watched a movie yesterday. / Men kecha film tomosha qildim.','They visited Samarkand last year. / Ular o‘tgan yili Samarqandga borishdi.','She went to school yesterday. / U kecha maktabga bordi.'],['Inkor va savolda V1 qaytadi: did not go, did you go?']),
+        piSection('Past Continuous','purple',['O‘tmishdagi ma’lum bir vaqtda davom etayotgan ish','Bir ish davom etayotgan paytda boshqa ish sodir bo‘lgan'],{positive:'Subject + was/were + V-ing',negative:'Subject + was/were not + V-ing',question:'Was/Were + Subject + V-ing?'},['while','when','at 5 o’clock yesterday','all evening','all day'],['I was studying at 8 PM yesterday. / Men kecha soat 8 da o‘qiyotgan edim.','They were playing football all afternoon. / Ular tushdan keyin futbol o‘ynashayotgan edi.','She was cooking when I arrived. / Men kelganimda u ovqat tayyorlayotgan edi.'],['Past Continuous davom etayotgan ishni, Past Simple uni bo‘lgan voqeani bildiradi.'])
+      ],
+      comparisons: [
+        { title:'Present Simple va Present Continuous farqi', left:'Present Simple — odat yoki doimiy ish: I play football every day.', right:'Present Continuous — hozir bo‘layotgan ish: I am playing football now.' },
+        { title:'Past Simple va Past Continuous farqi', left:'Past Simple — tugagan ish: I watched TV yesterday.', right:'Past Continuous — davom etayotgan ish: I was watching TV at 8 PM yesterday.' }
+      ],
+      table: [['Present Simple','Odat, fakt','always, usually, every day','I play football every day.'],['Present Continuous','Hozir bo‘layotgan ish','now, right now','I am playing football now.'],['Past Simple','O‘tmishda tugagan ish','yesterday, ago','I played football yesterday.'],['Past Continuous','O‘tmishda davom etayotgan ish','while, when','I was playing football at 5 PM.']],
+      remember:['Present Simple → Har doim qiladigan ish','Present Continuous → Hozir qilayotgan ish','Past Simple → O‘tmishda tugagan ish','Past Continuous → O‘tmishda davom etayotgan ish']
+    };
+  }
+  let title='PRE-INTERMEDIATE: TO‘LIQ TUSHUNTIRISH';
+  let sections=[]; let comparisons=[]; let table=[]; let remember=[];
+  if (t.includes('RELATIVE')) { title='RELATIVE CLAUSES: WHO / WHICH / WHERE / WHOSE / THAT'; sections=[
+    piSection('WHO','green',['Odamlar haqida qo‘shimcha ma’lumot berish','Ikki gapni bitta chiroyli gapga birlashtirish'],{positive:'person + who + verb',negative:'who ishlatilgan qism odamni aniqlaydi',question:'Which person? → who'},['who','person','people','man','woman','student'],['The man who lives next door is a doctor. / Yonimizda yashaydigan kishi shifokor.','Students who study hard usually improve quickly. / Qattiq o‘qiydigan o‘quvchilar tez rivojlanadi.']),
+    piSection('WHICH','blue',['Narsalar va hayvonlar uchun','Narsa haqida qo‘shimcha ma’lumot berish'],{positive:'thing + which + verb',negative:'which odam uchun emas',question:'Which thing?'},['which','thing','object','book','car','idea'],['The book which I bought is useful. / Men sotib olgan kitob foydali.','The app which we use is convenient. / Biz ishlatadigan ilova qulay.']),
+    piSection('WHERE','orange',['Joy haqida qo‘shimcha ma’lumot berish'],{positive:'place + where + Subject + verb',negative:'where = in/at which place',question:'Where?'},['where','place','city','school','room'],['This is the city where I was born. / Bu men tug‘ilgan shahar.','The school where I study is modern. / Men o‘qiydigan maktab zamonaviy.']),
+    piSection('WHOSE','purple',['Egalikni ko‘rsatish','Kimning? savoliga javob berish'],{positive:'person + whose + noun + verb',negative:'whose dan keyin ot keladi',question:'Whose?'},['whose','owner','his','her','their'],['The student whose phone rang apologized. / Telefoni jiringlagan o‘quvchi uzr so‘radi.','I know a girl whose brother studies abroad. / Akasi chetda o‘qiydigan qizni taniyman.']),
+    piSection('THAT','green',['Odam va narsalar uchun ishlatiladi','Who/which o‘rniga ko‘pincha keladi'],{positive:'person/thing + that + verb',negative:'rasmiy yozuvda which/who afzal bo‘lishi mumkin',question:'Which one?'},['that','who','which'],['The car that he bought is expensive. / U sotib olgan mashina qimmat.','The teacher that helped me was kind. / Menga yordam bergan ustoz mehribon edi.'])]; comparisons=[{title:'Farqi',left:'WHO → odam, WHICH → narsa, WHERE → joy',right:'WHOSE → egalik, THAT → odam yoki narsa'}]; remember=['Odam → who','Narsa → which','Joy → where','Egalik → whose','Odam/narsa → that']; }
+  else if (t.includes('PRESENT PERFECT SIMPLE')) { title='PRESENT PERFECT SIMPLE VA CONTINUOUS'; sections=[
+    piSection('Present Perfect Simple','green',['Natija muhim bo‘lsa','Tajriba haqida gapirganda','O‘tmishdagi ishning hozirgi natijasi bor bo‘lsa'],{positive:'Subject + have/has + V3',negative:'Subject + have/has not + V3',question:'Have/Has + Subject + V3?'},['already','just','yet','ever','never','recently'],['I have finished my homework. / Men uy vazifamni tugatdim.','She has already eaten lunch. / U allaqachon tushlik qildi.','Have you ever visited Samarkand? / Samarqandga hech borganmisiz?']),
+    piSection('Present Perfect Continuous','blue',['Ish qancha vaqt davom etganini aytish','Hali ham davom etayotgan yoki yaqinda tugagan ish'],{positive:'Subject + have/has been + V-ing',negative:'Subject + have/has not been + V-ing',question:'Have/Has + Subject + been + V-ing?'},['for','since','all day','recently','lately'],['I have been studying for three hours. / Men uch soatdan beri o‘qiyapman.','She has been working since morning. / U ertalabdan beri ishlayapti.','It has been raining all day. / Kun bo‘yi yomg‘ir yog‘moqda.'])]; comparisons=[{title:'Asosiy farq',left:'Present Perfect Simple → natija: I have cleaned the room.',right:'Present Perfect Continuous → jarayon/davomiylik: I have been cleaning the room.'}]; remember=['Simple → natija muhim','Continuous → qancha vaqt davom etgani muhim']; }
+  else if (t.includes('ARTICLE')) { title='ARTICLES: A / AN / THE / NO ARTICLE'; sections=[
+    piSection('A','green',['Birinchi marta aytilgan birlik sanaladigan ot','Undosh tovushdan oldin'],{positive:'a + singular countable noun',negative:'a + plural noun ishlatilmaydi',question:'What is it? → a book'},['a','one','singular','countable'],['I bought a book. / Men bitta kitob sotib oldim.','She is a teacher. / U o‘qituvchi.']),
+    piSection('AN','blue',['Unli tovushdan oldin','Birlik sanaladigan ot bilan'],{positive:'an + vowel sound',negative:'an university emas → a university',question:'What is it? → an apple'},['an','vowel sound','apple','hour'],['I ate an apple. / Men olma yedim.','He waited for an hour. / U bir soat kutdi.']),
+    piSection('THE','orange',['Aniq narsa','Oldin aytilgan narsa','Yagona narsalar'],{positive:'the + specific noun',negative:'umumiy gapda har doim the kerak emas',question:'Which one? → the one we know'},['the','specific','unique','second time'],['The book on the table is mine. / Stol ustidagi kitob meniki.','The sun is bright. / Quyosh yorqin.']),
+    piSection('No Article','purple',['Umumiy ko‘plik otlar','Sanalmaydigan otlar','Tilllar, fanlar, sportlar'],{positive:'plural/uncountable noun without article',negative:'the water umumiy ma’noda emas',question:'General or specific?'},['water','English','football','people'],['Water is important. / Suv muhim.','I like English. / Men ingliz tilini yoqtiraman.'])]; comparisons=[{title:'A/An vs The',left:'A/An → noaniq, birinchi marta',right:'The → aniq, oldin ma’lum yoki yagona'}]; remember=['a/an = bitta/noaniq','the = aniq','no article = umumiy ma’no']; }
+  else if (t.includes('PAST SIMPLE AND PRESENT PERFECT')) { title='PAST SIMPLE VA PRESENT PERFECT FARQI'; sections=[piSection('Past Simple','orange',['Vaqti aniq bo‘lgan o‘tmishdagi tugagan ish'],{positive:'Subject + V2',negative:'Subject + did not + V1',question:'Did + Subject + V1?'},['yesterday','last week','ago','in 2020'],['I visited Bukhara last year. / Men o‘tgan yili Buxoroga bordim.']), piSection('Present Perfect','green',['Vaqti aniq emas, natija hozir muhim','Tajriba va hozirgacha bo‘lgan ishlar'],{positive:'Subject + have/has + V3',negative:'Subject + have/has not + V3',question:'Have/Has + Subject + V3?'},['already','just','yet','ever','never'],['I have visited Bukhara. / Men Buxoroga borganman.'])]; comparisons=[{title:'Eng katta farq',left:'Past Simple → vaqt aniq: yesterday, last year',right:'Present Perfect → natija/tajriba muhim: already, ever, never'}]; remember=['Vaqt aniq bo‘lsa → Past Simple','Natija yoki tajriba muhim bo‘lsa → Present Perfect']; }
+  else if (t.includes('COMPARATIVE')) { title='COMPARATIVE VA SUPERLATIVE'; sections=[piSection('Comparative','blue',['2 ta narsani taqqoslash'],{positive:'adjective + -er + than / more + adjective + than',negative:'than ni unutmaslik kerak',question:'Which is better?'},['than','more','less','better','worse'],['This book is cheaper than that one. / Bu kitob undan arzonroq.','English is more useful than I expected. / Ingliz tili kutganimdan foydaliroq.']), piSection('Superlative','green',['3 yoki undan ko‘p narsadan eng yuqori/past daraja'],{positive:'the + adjective-est / the most + adjective',negative:'the ni unutmaslik kerak',question:'Which is the best?'},['the most','the best','in the class','of all'],['She is the smartest student in the group. / U guruhdagi eng aqlli o‘quvchi.','This is the most important rule. / Bu eng muhim qoida.'])]; comparisons=[{title:'Farqi',left:'Comparative → ikki narsani solishtiradi: bigger than',right:'Superlative → eng darajani bildiradi: the biggest'}]; remember=['2 ta narsa → comparative','3+ narsa → superlative']; }
+  else if (t.includes('PAST PERFECT')) { title='PAST PERFECT SIMPLE VA CONTINUOUS'; sections=[piSection('Past Perfect Simple','green',['O‘tmishda bir ish boshqa ishdan oldin tugagan bo‘lsa'],{positive:'Subject + had + V3',negative:'Subject + had not + V3',question:'Had + Subject + V3?'},['before','after','by the time','already'],['When I arrived, she had left. / Men kelganimda u ketib bo‘lgan edi.']), piSection('Past Perfect Continuous','blue',['O‘tmishda bir vaqtgacha davom etgan ish'],{positive:'Subject + had been + V-ing',negative:'Subject + had not been + V-ing',question:'Had + Subject + been + V-ing?'},['for','since','before','until'],['I had been studying for two hours before he called. / U qo‘ng‘iroq qilishidan oldin ikki soat o‘qiyotgan edim.'])]; comparisons=[{title:'Farqi',left:'Past Perfect Simple → tugagan natija',right:'Past Perfect Continuous → davomiy jarayon'}]; remember=['had + V3 = oldin tugagan','had been + V-ing = oldin davom etgan']; }
+  else if (t.includes('MODAL')) { title='MODAL VERBS: MA’NO VA FARQLARI'; sections=[piSection('Can / Could','blue',['Qobiliyat, ruxsat, odobli iltimos'],{positive:'Subject + can/could + V1',negative:'Subject + cannot/could not + V1',question:'Can/Could + Subject + V1?'},['can','could','ability','permission'],['I can solve this problem. / Men bu muammoni yecha olaman.','Could you help me? / Menga yordam bera olasizmi?']), piSection('Must / Have to','orange',['Majburiyat va qoida'],{positive:'Subject + must/have to + V1',negative:'must not / do not have to',question:'Must/Do you have to...?'},['must','have to','rule','obligation'],['You must wear a seatbelt. / Kamar taqishingiz shart.','I have to finish this today. / Men buni bugun tugatishim kerak.']), piSection('Should / Ought to','green',['Maslahat berish'],{positive:'Subject + should/ought to + V1',negative:'should not + V1',question:'Should + Subject + V1?'},['should','advice','recommendation'],['You should revise before the exam. / Imtihondan oldin takrorlashing kerak.']), piSection('May / Might','purple',['Ruxsat va ehtimollik'],{positive:'Subject + may/might + V1',negative:'may not / might not + V1',question:'May + Subject + V1?'},['may','might','perhaps','possibly'],['It might rain later. / Keyinroq yomg‘ir yog‘ishi mumkin.'])]; comparisons=[{title:'Modal farqlari',left:'must/have to → majburiyat, should → maslahat',right:'can/could → qobiliyat/ruxsat, may/might → ehtimol'}]; remember=['Modal + V1 ishlatiladi','Modal’dan keyin to qo‘yilmaydi']; }
+  else if (t.includes('CONDITIONALS 2')) { title='CONDITIONALS 2 & 3'; sections=[piSection('Second Conditional','blue',['Hozirgi yoki kelajakdagi tasavvuriy holat'],{positive:'If + Past Simple, would + V1',negative:'If + did not + V1, would not + V1',question:'What would you do if...?'},['if','would','imaginary','were'],['If I had more time, I would learn another language. / Vaqtim ko‘proq bo‘lsa, boshqa til o‘rganardim.']), piSection('Third Conditional','purple',['O‘tmishdagi afsus yoki o‘zgarmaydigan holat'],{positive:'If + Past Perfect, would have + V3',negative:'If + had not + V3, would not have + V3',question:'What would have happened if...?'},['if','had','would have','regret'],['If I had studied harder, I would have passed. / Qattiqroq o‘qiganimda, o‘tgan bo‘lardim.'])]; comparisons=[{title:'Farqi',left:'Conditional 2 → hozir/kelajak tasavvur',right:'Conditional 3 → o‘tmishdagi afsus'}]; remember=['If I were... → hozirgi tasavvur','If I had... → o‘tmishdagi afsus']; }
+  else if (t.includes('PASSIVE VOICE')) { title='PASSIVE VOICE: ACTIVE DAN PASSIVE GA'; sections=[piSection('Passive Voice Present','green',['Ish bajaruvchidan ko‘ra ishning o‘zi muhim bo‘lsa'],{positive:'Subject + am/is/are + V3',negative:'Subject + am/is/are not + V3',question:'Am/Is/Are + Subject + V3?'},['is made','are used','by'],['English is spoken around the world. / Ingliz tili dunyo bo‘ylab gapiriladi.']), piSection('Passive Voice Past','orange',['O‘tmishda bajarilgan ish haqida'],{positive:'Subject + was/were + V3',negative:'Subject + was/were not + V3',question:'Was/Were + Subject + V3?'},['was built','were invited','by'],['The school was built in 2020. / Maktab 2020-yilda qurilgan.'])]; if(t.includes('ALL')) sections.push(piSection('Passive All Tenses','blue',['Barcha zamonlarda be shakli o‘zgaradi, V3 qoladi'],{positive:'be + V3',negative:'be + not + V3',question:'be + Subject + V3?'},['is being','has been','will be'],['The project will be finished tomorrow. / Loyiha ertaga tugatiladi.','The room has been cleaned. / Xona tozalangan.'])); comparisons=[{title:'Active vs Passive',left:'Active → Ali wrote the letter.',right:'Passive → The letter was written by Ali.'}]; remember=['Passive formulasi: BE + V3','Zamon faqat BE qismida ko‘rinadi']; }
+  else if (t.includes('REPORTED SPEECH')) { title='REPORTED SPEECH'; sections=[piSection('Reported Statements','green',['Birov aytgan gapni qayta aytish'],{positive:'said/told + that + Subject + verb',negative:'do not quote directly',question:'What did he/she say?'},['said','told','that','backshift'],['She said that she was tired. / U charchaganini aytdi.']), piSection('Reported Questions','blue',['Savolni ko‘chirma gapga aylantirish'],{positive:'asked + if/wh-word + Subject + verb',negative:'savolda so‘z tartibi darak gapga aylanadi',question:'He asked if I was ready.'},['asked','if','whether','why','where'],['He asked where I lived. / U qayerda yashashimni so‘radi.']), piSection('Reported Commands','orange',['Buyruq va iltimosni aytish'],{positive:'told/asked + object + to + V1',negative:'told + object + not to + V1',question:'What did he tell you to do?'},['told','asked','to','not to'],['The teacher told us to open our books. / Ustoz kitoblarni ochishni aytdi.'])]; comparisons=[{title:'Direct vs Reported',left:'Direct: “I am busy,” she said.',right:'Reported: She said that she was busy.'}]; remember=['am/is → was','will → would','today → that day','tomorrow → the next day']; }
+  else if (t.includes('CONNECTIVES')) { title='CONNECTIVES: GAPNI BOG‘LOVCHI SO‘ZLAR'; sections=[piSection('And / But / Because / So','green',['Oddiy gaplarni bog‘lash'],{positive:'sentence + connective + sentence',negative:'ma’noga mos bog‘lovchi tanlanadi',question:'Why? Result? Contrast?'},['and','but','because','so'],['I was tired, but I finished the task. / Charchadim, lekin vazifani tugatdim.','She studied hard, so she passed. / U qattiq o‘qidi, shuning uchun o‘tdi.']), piSection('However / Therefore / Moreover','blue',['Yozma nutqda rasmiy bog‘lash'],{positive:'Sentence. However, sentence.',negative:'vergul va nuqtaga e’tibor beriladi',question:'What is the relation?'},['however','therefore','moreover','in addition'],['The test was difficult. However, I passed. / Test qiyin edi. Biroq, men o‘tdim.'])]; comparisons=[{title:'Farqi',left:'because → sabab, so/therefore → natija',right:'but/however → qarama-qarshilik, moreover → qo‘shimcha fikr'}]; remember=['Sabab → because','Natija → so/therefore','Qarama-qarshi fikr → but/however']; }
+  else { title='DESPITE / IN SPITE OF / ALTHOUGH / WHILE'; sections=[piSection('Although','blue',['Qarama-qarshi fikrni Subject + verb bilan bog‘lash'],{positive:'Although + Subject + verb, Subject + verb',negative:'although dan keyin to‘liq gap keladi',question:'Although what?'},['although','even though','subject','verb'],['Although it was raining, we went outside. / Yomg‘ir yog‘ayotgan bo‘lsa ham, tashqariga chiqdik.']), piSection('Despite / In spite of','orange',['Qarama-qarshi fikrni noun yoki V-ing bilan bog‘lash'],{positive:'Despite/In spite of + noun/V-ing',negative:'despite it was raining emas',question:'Despite what?'},['despite','in spite of','noun','V-ing'],['Despite the rain, we went outside. / Yomg‘irga qaramay, tashqariga chiqdik.','In spite of being tired, she continued. / Charchaganiga qaramay, davom etdi.']), piSection('While','purple',['Bir vaqtda sodir bo‘lgan ikki ish','Qarama-qarshilik berish'],{positive:'While + Subject + verb, Subject + verb',negative:'while dan keyin gap keladi',question:'When / contrast?'},['while','at the same time','whereas'],['While I was studying, my brother was playing games. / Men o‘qiyotganimda, ukam o‘yin o‘ynayotgan edi.'])]; comparisons=[{title:'Farqi',left:'Although + Subject + verb',right:'Despite/In spite of + noun/V-ing'}]; remember=['Although → to‘liq gap','Despite/In spite of → ot yoki V-ing','While → bir vaqtda / qarama-qarshi fikr']; }
+  table = table.length ? table : sections.map(sec => [sec.title, sec.usage?.[0] || '', sec.keywords?.slice(0,4).join(', ') || '', sec.examples?.[0] || '']);
+  return { title, sections, comparisons, table, remember };
+}
+
+function PreIntermediateInfographicLesson({ lesson }) {
+  const [activeSection, setActiveSection] = useState(0);
+  const [activeCompare, setActiveCompare] = useState(0);
+  if (!lesson) return null;
+  const sections = lesson.sections || [];
+  const comparisons = lesson.comparisons || [];
+  const current = sections[activeSection] || sections[0];
+  const compare = comparisons[activeCompare] || comparisons[0];
+  const goSection = step => setActiveSection(prev => Math.max(0, Math.min(sections.length - 1, prev + step)));
+  const goCompare = step => setActiveCompare(prev => Math.max(0, Math.min(comparisons.length - 1, prev + step)));
+  return (
+    <div className="piInfographicLesson">
+      <div className="piInfoHeader"><span>📖</span><h2>{lesson.title}</h2><i>💡</i></div>
+
+      <div className="piArrowSwiperHeader">
+        <button type="button" onClick={() => goSection(-1)} disabled={activeSection === 0}>‹</button>
+        <strong>{activeSection + 1} / {sections.length}</strong>
+        <button type="button" onClick={() => goSection(1)} disabled={activeSection >= sections.length - 1}>›</button>
+      </div>
+
+      {current && (
+        <div className="piGrammarSwiper arrowMode">
+          <article className={`piGrammarCard ${current.color || 'blue'}`} key={`${current.title}-${activeSection}`}>
+            <div className="piCardTitle"><b>{activeSection + 1}. {current.title}</b></div>
+            <div className="piCardBody">
+              <div className="piUsage"><h4>Nima uchun ishlatiladi?</h4>{(current.usage || []).map(x => <p key={x}>✅ {x}</p>)}</div>
+              <div className="piFormulaBox"><h4>Formula</h4><div><strong>Positive (+)</strong><span>{current.formula?.positive}</span></div><div><strong>Negative (-)</strong><span>{current.formula?.negative}</span></div><div><strong>Question (?)</strong><span>{current.formula?.question}</span></div></div>
+              {!!current.rules?.length && <div className="piRules"><h4>Qo‘llanish qoidalari</h4>{current.rules.map(r => <p key={r}>• {r}</p>)}</div>}
+              <div className="piKeywords"><h4>Kalit so‘zlar</h4><p>{(current.keywords || []).join(', ')}</p></div>
+              <div className="piExamples"><h4>Misollar</h4>{(current.examples || []).map(ex => <p key={ex}>• {ex}</p>)}</div>
+            </div>
+          </article>
+        </div>
+      )}
+
+      {sections.length > 1 && <div className="piDots">{sections.map((sec, i) => <button type="button" key={sec.title} className={i === activeSection ? 'active' : ''} onClick={() => setActiveSection(i)} aria-label={`${i+1}-bo‘lim`} />)}</div>}
+
+      {!!comparisons.length && <div className="piCompareSlider">
+        <div className="piArrowSwiperHeader compare">
+          <button type="button" onClick={() => goCompare(-1)} disabled={activeCompare === 0}>‹</button>
+          <strong>Farqlar {activeCompare + 1} / {comparisons.length}</strong>
+          <button type="button" onClick={() => goCompare(1)} disabled={activeCompare >= comparisons.length - 1}>›</button>
+        </div>
+        <div className="piCompareGrid oneSlide"><div className="piCompareBox" key={compare.title}><h3>{compare.title}</h3><div><p>{compare.left}</p><p>{compare.right}</p></div></div></div>
+      </div>}
+      {!!lesson.table?.length && <div className="piTableBox"><h3>Asosiy farqlar jadvali</h3><div className="piTable"><div className="head">Mavzu</div><div className="head">Qachon ishlatiladi?</div><div className="head">Kalit so‘zlar</div><div className="head">Misol</div>{lesson.table.map((row, i) => row.map((cell, j) => <div key={`${i}-${j}`}>{cell}</div>))}</div></div>}
+      {!!lesson.remember?.length && <div className="piRemember"><h3>Eng muhim eslab qolish usuli</h3><div>{lesson.remember.map((r, i) => <span key={r}><b>{i+1}</b>{r}</span>)}</div></div>}
+    </div>
+  );
+}
+
+function VocabularyArrowList({ vocabulary }) {
+  const words = vocabulary || [];
+  const [page, setPage] = useState(0);
+  const perPage = 6;
+  const totalPages = Math.max(1, Math.ceil(words.length / perPage));
+  const currentWords = words.slice(page * perPage, page * perPage + perPage);
+  const goPage = step => setPage(prev => Math.max(0, Math.min(totalPages - 1, prev + step)));
+  return (
+    <div className="vocabArrowBox">
+      <div className="piArrowSwiperHeader vocab">
+        <button type="button" onClick={() => goPage(-1)} disabled={page === 0}>‹</button>
+        <strong>Vocabulary {page + 1} / {totalPages}</strong>
+        <button type="button" onClick={() => goPage(1)} disabled={page >= totalPages - 1}>›</button>
+      </div>
+      <div className="vocabRows arrowMode">
+        {currentWords.map(item => (
+          <div className="vocabRow" key={item.id || item.word}>
+            <b>{item.word}</b>
+            <span>{item.meaning}</span>
+            {item.ipa && <em>{item.ipa}</em>}
+            {item.example && <small>{item.example}</small>}
+          </div>
+        ))}
+      </div>
+      <div className="piDots">{Array.from({ length: totalPages }).map((_, i) => <button type="button" key={i} className={i === page ? 'active' : ''} onClick={() => setPage(i)} aria-label={`${i+1}-sahifa`} />)}</div>
+    </div>
+  );
+}
 
 function PronunciationSpeakingPractice({ topic, vocabulary, stepNo, onSaved }) {
   const words = (vocabulary || []).slice(0, 30);
@@ -4528,8 +4714,8 @@ function PronunciationSpeakingPractice({ topic, vocabulary, stepNo, onSaved }) {
     <section className="lessonStepCard speakingCheckStepCard">
       <div className="stepBadge"><span>{stepNo}</span><i>🎤</i></div>
       <div className="stepContent">
-        <h3>Speaking: talaffuz tekshiruvi</h3>
-        <p>Vocabularydagi har bir so‘zni alohida talaffuz qiling. Hamma 30 ta so‘z aytilgandan keyin “Vocabulary yuborish” tugmasi chiqadi.</p>
+        <h3>Speaking: vocabulary talaffuz tekshiruvi</h3>
+        <p>Yuqoridagi vocabulary so‘zlarini bittalab eshiting va mikrofonga ayting. Hamma 30 ta so‘z tekshirilgandan keyin “Vocabulary yuborish” tugmasi chiqadi.</p>
 
         <div className="speakingLiveSummary">
           <div className="speakingMiniRing"><TopicProgressRing value={speakingSummary.score || 0} /><span>Speaking</span></div>
@@ -4673,7 +4859,7 @@ function TopicView({ topic, onPracticeSubmit, onGoNext, onBack, onSpeakingSaved 
   const examples = (topic.examples || []).filter(Boolean);
   const cleanWorkbookLesson = isCleanWorkbookTopic(topic);
   const showVocabulary = hasVocabularyBlockForTopic(topic);
-  const vocabulary = showVocabulary ? (topic.vocabulary || []).slice(0, 30) : [];
+  const vocabulary = showVocabulary ? getMergedVocabularyForTopic(topic).slice(0, 30) : [];
   const showSpeaking = hasSpeakingPracticeForTopic(topic);
   const showYoutubeVideo = !!topic.youtubeVideo?.videoId;
   const meaning = explanationParts.find(part => String(part.heading || '').toLowerCase().includes('ma’nosi')) || explanationParts[0];
@@ -4686,6 +4872,7 @@ function TopicView({ topic, onPracticeSubmit, onGoNext, onBack, onSpeakingSaved 
   const formStepStart = keyWords.length ? 3 : 2;
   const supportStepStart = formStepStart + formCards.length;
   const examplesStepNo = supportStepStart + supportCards.length;
+  const preIntermediateVisualLesson = getPreIntermediateVisualLesson(topic);
   return (
     <section className="topicDetailPage topicSequentialPage">
       <div className="topicDetailTop">
@@ -4717,7 +4904,7 @@ function TopicView({ topic, onPracticeSubmit, onGoNext, onBack, onSpeakingSaved 
         <div className="sequentialLessonTitle">
           <span>Boshlang‘ich mavzu</span>
           <h2>{topic.title}</h2>
-          <p>{cleanWorkbookLesson ? 'Mavzu kitob uslubida: ma’no, shakl, ishlatilish, eslatma, misollar, vocabulary va speaking.' : 'Har bir bo‘lim alohida card ko‘rinishida berildi. Yuqoridan pastga qarab ketma-ket o‘qing.'}</p>
+          <p>{cleanWorkbookLesson ? 'Mavzuni avval tushuntirish cardlari orqali o‘qing. Eng oxirida 30 ta vocabulary va talaffuz tekshiruvi chiqadi, undan keyin mashqlar boshlanadi.' : 'Har bir bo‘lim alohida card ko‘rinishida berildi. Yuqoridan pastga qarab ketma-ket o‘qing. Oxirida vocabulary va speaking bor.'}</p>
         </div>
 
         {!cleanWorkbookLesson && Array.isArray(topic.exerciseTypes) && topic.exerciseTypes.length > 0 && (
@@ -4736,6 +4923,7 @@ function TopicView({ topic, onPracticeSubmit, onGoNext, onBack, onSpeakingSaved 
         {showYoutubeVideo && <YouTubeLessonVideo video={topic.youtubeVideo} topicTitle={topic.title} />}
 
         <div className="sequentialCards">
+          {preIntermediateVisualLesson ? <PreIntermediateInfographicLesson lesson={preIntermediateVisualLesson} /> : <>
           <section className="lessonStepCard meaningCard">
             <div className="stepBadge"><span>1</span><i>📖</i></div>
             <div className="stepContent">
@@ -4820,21 +5008,15 @@ function TopicView({ topic, onPracticeSubmit, onGoNext, onBack, onSpeakingSaved 
             </div>
           </section>
 
+          </>}
+
           {showVocabulary && (
             <section className="lessonStepCard vocabularyStepCard">
               <div className="stepBadge"><span>{examplesStepNo + 1}</span><i>📚</i></div>
               <div className="stepContent">
-                <h3>Vocabulary</h3>
-                <p>Essential vocabularydan olingan 30 ta asosiy so‘z. Har bir qator bitta so‘zdan iborat.</p>
-                <div className="vocabRows">
-                  {vocabulary.map(item => (
-                    <div className="vocabRow" key={item.id || item.word}>
-                      <b>{item.word}</b>
-                      <span>{item.meaning}</span>
-                      {item.example && <small>{item.example}</small>}
-                    </div>
-                  ))}
-                </div>
+                <h3>Vocabulary: yodlash uchun 30 ta so‘z</h3>
+                <p>Mavzu tugagandan keyin yodlash uchun kerakli 30 ta so‘z. Avval so‘zlarni yodlang, keyin pastdagi Speaking qismida talaffuzingizni tekshiring.</p>
+                <VocabularyArrowList vocabulary={vocabulary} />
               </div>
             </section>
           )}

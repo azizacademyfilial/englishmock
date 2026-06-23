@@ -6,11 +6,12 @@ export const preIntermediateTopics = [
   'Past Simple and Present Perfect',
   'Comparative, Superlative',
   'Past Perfect Simple, Past Perfect Continuous',
-  'Modal Verbs 1, Modal Verbs 2',
+  'Modal Verbs 1',
+  'Modal Verbs 2',
   'Conditionals 2 & 3',
-  'Passive Voice 1 (Present and Past Tenses)',
-  'Passive Voice 2 (All Tenses)',
+  'Passive Voice 1 (Present/Past)',
+  'Passive Voice 2 (All tenses)',
   'Reported Speech',
   'Connectives',
-  'Despite, In Spite of, Although, While'
+  'Despite / In spite of / Although / While'
 ];
