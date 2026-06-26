@@ -14123,3 +14123,229 @@ button.altPrimary b,
 .piArrowSwiperHeader.compare strong{
   background:linear-gradient(135deg,#0f6ed8,#0b57b8) !important;
 }
+
+/* vPlanFix: Rejalar sahifasi joylashuvini tuzatish */
+.plansPane .plansCard{
+  padding:24px!important;
+  border-radius:24px!important;
+  overflow:hidden!important;
+}
+.plansPane .plansHeader{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:space-between!important;
+  gap:16px!important;
+  flex-wrap:wrap!important;
+}
+.plansPane .plansHeader > div:first-child{
+  min-width:0!important;
+  flex:1 1 420px!important;
+}
+.plansPane .plansHeader h2,
+.plansPane .plansHeader p{
+  overflow-wrap:anywhere!important;
+}
+.plansPane .plansHeaderCount{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+}
+.plansPane .planBulkPanel{
+  padding:16px!important;
+  border-radius:20px!important;
+  overflow:hidden!important;
+}
+.plansPane .planBulkTop{
+  display:grid!important;
+  grid-template-columns:minmax(190px,220px) minmax(260px,1fr) minmax(112px,auto)!important;
+  gap:12px!important;
+  align-items:center!important;
+}
+.plansPane .planSelectAll{
+  min-height:48px!important;
+  width:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  padding:10px 14px!important;
+  border-radius:14px!important;
+  line-height:1.25!important;
+  text-align:left!important;
+  white-space:normal!important;
+}
+.plansPane .planSelectAll span{
+  display:block!important;
+  color:#087b2c!important;
+  font-weight:1000!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  line-height:1.25!important;
+}
+.plansPane .planSelectAll input,
+.plansPane .planCheckboxCell input,
+.plansPane .planUnlimitedToggle input{
+  flex:0 0 auto!important;
+  width:18px!important;
+  height:18px!important;
+  margin:0!important;
+}
+.plansPane .planSearchInput{
+  width:100%!important;
+  min-width:0!important;
+  height:48px!important;
+  box-sizing:border-box!important;
+}
+.plansPane .planAssignButton{
+  width:100%!important;
+  min-width:112px!important;
+  height:48px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.plansPane .planDayChips{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:10px!important;
+  align-items:center!important;
+}
+.plansPane .planDayChip{
+  min-height:40px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+}
+.plansPane .planLevelUnlockBox{
+  margin-top:16px!important;
+  padding-top:16px!important;
+  border-top:1px solid #e4edf6!important;
+  display:grid!important;
+  gap:8px!important;
+}
+.plansPane .planLevelUnlockBox small{
+  max-width:100%!important;
+  overflow-wrap:anywhere!important;
+}
+.plansPane .topicModeToggleBox{
+  margin-top:14px!important;
+  padding:14px!important;
+  border-radius:18px!important;
+  display:grid!important;
+  gap:10px!important;
+}
+.plansPane .planUnlimitedToggle{
+  min-height:58px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:12px!important;
+  margin:0!important;
+  padding:12px 16px!important;
+  line-height:1.35!important;
+}
+.plansPane .planUnlimitedToggle span{
+  min-width:0!important;
+  overflow-wrap:anywhere!important;
+  color:#0f172a!important;
+  font-weight:900!important;
+}
+.plansPane .plansTable{
+  width:100%!important;
+  overflow-x:auto!important;
+  -webkit-overflow-scrolling:touch!important;
+}
+.plansPane .plansTr{
+  grid-template-columns:46px minmax(180px,1.1fr) minmax(110px,.7fr) minmax(140px,.85fr) minmax(88px,.55fr) minmax(150px,.95fr) minmax(150px,.95fr) minmax(130px,.85fr)!important;
+  min-width:1040px!important;
+  gap:10px!important;
+  align-items:center!important;
+}
+.plansPane .plansTr > *,
+.plansPane .plansHead > *{
+  min-width:0!important;
+  overflow-wrap:anywhere!important;
+}
+.plansPane .plansEmpty{
+  min-width:0!important;
+}
+
+@media (max-width:1300px){
+  .plansPane .planBulkTop{
+    grid-template-columns:minmax(180px,220px) minmax(240px,1fr) minmax(112px,auto)!important;
+  }
+  .plansPane .planDayChip{
+    padding:9px 13px!important;
+    font-size:14px!important;
+  }
+}
+@media (max-width:980px){
+  .plansPane .planBulkTop{
+    grid-template-columns:1fr!important;
+  }
+  .plansPane .planSelectAll,
+  .plansPane .planAssignButton{
+    justify-content:center!important;
+  }
+  .plansPane .planDayChips.levelChips .planDayChip{
+    flex:1 1 180px!important;
+  }
+}
+@media (max-width:760px){
+  .plansPane .plansCard{
+    padding:14px!important;
+    border-radius:18px!important;
+  }
+  .plansPane .plansHeader{
+    gap:12px!important;
+  }
+  .plansPane .plansHeader > div:first-child{
+    flex-basis:100%!important;
+  }
+  .plansPane .plansHeader h2{
+    font-size:22px!important;
+    line-height:1.2!important;
+  }
+  .plansPane .plansHeaderCount{
+    width:100%!important;
+    text-align:center!important;
+  }
+  .plansPane .planBulkPanel{
+    padding:12px!important;
+    border-radius:16px!important;
+  }
+  .plansPane .planDayChips{
+    gap:8px!important;
+  }
+  .plansPane .planDayChip{
+    flex:1 1 calc(50% - 8px)!important;
+    white-space:normal!important;
+    padding:10px 8px!important;
+  }
+  .plansPane .planUnlimitedToggle{
+    align-items:flex-start!important;
+    min-height:auto!important;
+  }
+  .plansPane .plansTr{
+    min-width:860px!important;
+  }
+}
+@media (max-width:420px){
+  .plansPane .plansCard{
+    padding:10px!important;
+  }
+  .plansPane .planBulkPanel{
+    padding:10px!important;
+  }
+  .plansPane .planDayChip{
+    flex-basis:100%!important;
+  }
+  .plansPane .planSelectAll{
+    justify-content:flex-start!important;
+  }
+  .plansPane .plansTr{
+    min-width:760px!important;
+    font-size:13px!important;
+  }
+}
