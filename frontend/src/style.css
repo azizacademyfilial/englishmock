@@ -13948,3 +13948,178 @@ button.altPrimary b,
 .mobileWritingSwiper .writingTaskTop{
   color:#0f172a!important;
 }
+
+/* V103: blue/green card backgrounds need white text */
+.writingTestCard .writingTask.active,
+.writingTestCard .writingTask.selected,
+.writingTestCard .writingTask.open,
+.writingTestCard .writingTask.current,
+.writingTestCard .writingTask.done,
+.writingTestCard .writingTask.success,
+.writingTestCard .writingTask.correct,
+.writingTestCard .writingTask.ok,
+.practiceCard .writingTask.active,
+.practiceCard .writingTask.selected,
+.practiceCard .writingTask.open,
+.practiceCard .writingTask.current,
+.practiceCard .writingTask.done,
+.practiceCard .writingTask.success,
+.practiceCard .writingTask.correct,
+.practiceCard .writingTask.ok,
+.mobileWritingSwiper .writingTask.active,
+.mobileWritingSwiper .writingTask.selected,
+.mobileWritingSwiper .writingTask.open,
+.mobileWritingSwiper .writingTask.current,
+.mobileWritingSwiper .writingTask.done,
+.mobileWritingSwiper .writingTask.success,
+.mobileWritingSwiper .writingTask.correct,
+.mobileWritingSwiper .writingTask.ok{
+  color:#ffffff!important;
+}
+.writingTestCard .writingTask.active *,
+.writingTestCard .writingTask.selected *,
+.writingTestCard .writingTask.open *,
+.writingTestCard .writingTask.current *,
+.writingTestCard .writingTask.done *,
+.writingTestCard .writingTask.success *,
+.writingTestCard .writingTask.correct *,
+.writingTestCard .writingTask.ok *,
+.practiceCard .writingTask.active *,
+.practiceCard .writingTask.selected *,
+.practiceCard .writingTask.open *,
+.practiceCard .writingTask.current *,
+.practiceCard .writingTask.done *,
+.practiceCard .writingTask.success *,
+.practiceCard .writingTask.correct *,
+.practiceCard .writingTask.ok *,
+.mobileWritingSwiper .writingTask.active *,
+.mobileWritingSwiper .writingTask.selected *,
+.mobileWritingSwiper .writingTask.open *,
+.mobileWritingSwiper .writingTask.current *,
+.mobileWritingSwiper .writingTask.done *,
+.mobileWritingSwiper .writingTask.success *,
+.mobileWritingSwiper .writingTask.correct *,
+.mobileWritingSwiper .writingTask.ok *{
+  color:#ffffff!important;
+  text-shadow:none!important;
+}
+.writingTestCard .writingTask.active .writingTaskTop > span,
+.writingTestCard .writingTask.selected .writingTaskTop > span,
+.writingTestCard .writingTask.open .writingTaskTop > span,
+.writingTestCard .writingTask.current .writingTaskTop > span,
+.writingTestCard .writingTask.done .writingTaskTop > span,
+.writingTestCard .writingTask.success .writingTaskTop > span,
+.writingTestCard .writingTask.correct .writingTaskTop > span,
+.writingTestCard .writingTask.ok .writingTaskTop > span,
+.practiceCard .writingTask.active .writingTaskTop > span,
+.practiceCard .writingTask.selected .writingTaskTop > span,
+.practiceCard .writingTask.open .writingTaskTop > span,
+.practiceCard .writingTask.current .writingTaskTop > span,
+.practiceCard .writingTask.done .writingTaskTop > span,
+.practiceCard .writingTask.success .writingTaskTop > span,
+.practiceCard .writingTask.correct .writingTaskTop > span,
+.practiceCard .writingTask.ok .writingTaskTop > span,
+.mobileWritingSwiper .writingTask.active .writingTaskTop > span,
+.mobileWritingSwiper .writingTask.selected .writingTaskTop > span,
+.mobileWritingSwiper .writingTask.open .writingTaskTop > span,
+.mobileWritingSwiper .writingTask.current .writingTaskTop > span,
+.mobileWritingSwiper .writingTask.done .writingTaskTop > span,
+.mobileWritingSwiper .writingTask.success .writingTaskTop > span,
+.mobileWritingSwiper .writingTask.correct .writingTaskTop > span,
+.mobileWritingSwiper .writingTask.ok .writingTaskTop > span{
+  background:rgba(255,255,255,.18)!important;
+  border-color:rgba(255,255,255,.45)!important;
+  color:#ffffff!important;
+}
+.levelCard.open,
+.topicCard.open,
+.levelCard.active,
+.topicCard.current{
+  color:#ffffff!important;
+}
+.levelCard.open *,
+.topicCard.open *,
+.levelCard.active *,
+.topicCard.current *{
+  color:#ffffff!important;
+}
+.levelCard.open .levelMeta,
+.topicCard.open small,
+.levelCard.active .levelMeta,
+.topicCard.current small{
+  color:rgba(255,255,255,.88)!important;
+}
+
+/* v147: Pre-Intermediate rangli dars cardlari kontrasti to'g'irlandi */
+.piInfographicLesson .piGrammarCard .piCardTitle,
+.piInfographicLesson .piGrammarCard .piCardTitle *,
+.piInfographicLesson .piGrammarCard .piCardTitle b{
+  color:#ffffff !important;
+  text-shadow:0 2px 6px rgba(0,0,0,.28) !important;
+}
+
+.piInfographicLesson .piGrammarCard.blue .piCardTitle{
+  background:linear-gradient(135deg,#0f6ed8,#0b57b8) !important;
+  border-bottom:1px solid rgba(255,255,255,.18) !important;
+}
+.piInfographicLesson .piGrammarCard.green .piCardTitle{
+  background:linear-gradient(135deg,#16a34a,#08743b) !important;
+  border-bottom:1px solid rgba(255,255,255,.18) !important;
+}
+.piInfographicLesson .piGrammarCard.orange .piCardTitle{
+  background:linear-gradient(135deg,#f97316,#c2410c) !important;
+  border-bottom:1px solid rgba(255,255,255,.18) !important;
+}
+.piInfographicLesson .piGrammarCard.purple .piCardTitle{
+  background:linear-gradient(135deg,#7c3aed,#5b21b6) !important;
+  border-bottom:1px solid rgba(255,255,255,.18) !important;
+}
+
+.piInfographicLesson .piFormulaBox strong,
+.piInfographicLesson .piFormulaBox strong *,
+.piInfographicLesson .piTable .head,
+.piInfographicLesson .piTable .head *,
+.piInfographicLesson .piRemember b,
+.piInfographicLesson .piRemember b *,
+.piArrowSwiperHeader strong,
+.piArrowSwiperHeader strong *{
+  color:#ffffff !important;
+  text-shadow:none !important;
+}
+
+.piInfographicLesson .piFormulaBox strong{
+  background:#0b6dcc !important;
+  border:1px solid #085fb4 !important;
+}
+.piInfographicLesson .piGrammarCard.green .piFormulaBox strong{background:#16a34a !important;border-color:#15803d !important;}
+.piInfographicLesson .piGrammarCard.orange .piFormulaBox strong{background:#f97316 !important;border-color:#c2410c !important;}
+.piInfographicLesson .piGrammarCard.purple .piFormulaBox strong{background:#7c3aed !important;border-color:#5b21b6 !important;}
+
+.piInfographicLesson .piCardBody h4,
+.piInfographicLesson .piCompareBox h3,
+.piInfographicLesson .piTableBox h3,
+.piInfographicLesson .piRemember h3{
+  color:#062f6f !important;
+  text-shadow:none !important;
+}
+.piInfographicLesson .piCardBody p,
+.piInfographicLesson .piFormulaBox span,
+.piInfographicLesson .piKeywords p,
+.piInfographicLesson .piExamples p,
+.piInfographicLesson .piRules p,
+.piInfographicLesson .piUsage p,
+.piInfographicLesson .piCompareBox p,
+.piInfographicLesson .piTable div:not(.head),
+.piInfographicLesson .piRemember span{
+  color:#111827 !important;
+  text-shadow:none !important;
+}
+
+.piArrowSwiperHeader strong{
+  background:linear-gradient(135deg,#0f6ed8,#0b57b8) !important;
+  border:1px solid #0b57b8 !important;
+  box-shadow:0 8px 18px rgba(15,110,216,.18) !important;
+}
+.piArrowSwiperHeader.compare strong{
+  background:linear-gradient(135deg,#0f6ed8,#0b57b8) !important;
+}
