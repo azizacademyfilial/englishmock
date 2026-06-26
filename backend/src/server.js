@@ -1731,13 +1731,42 @@ function tashkentDateNumber(value = new Date()) {
     return Number(`${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}`);
   }
 }
-function topicPassedRecord(db, userId, language, level, topicNo) {
+function topicProgressRecord(db, userId, language, level, topicNo) {
   const p = userProgress(db, userId);
-  const rec = p[progressKey(language, level, topicNo)] || null;
+  return p[progressKey(language, level, topicNo)] || null;
+}
+function topicPassedRecord(db, userId, language, level, topicNo) {
+  const rec = topicProgressRecord(db, userId, language, level, topicNo);
   return rec && Number(rec.bestScore || 0) >= TOPIC_PASS_SCORE ? rec : null;
 }
 function topicPassedAt(record) {
   return record?.passedAt || record?.firstPassedAt || record?.updatedAt || record?.createdAt || '';
+}
+function topicWasOpened(record) {
+  return !!(record?.openedAt || record?.attempts || record?.updatedAt || record?.createdAt);
+}
+function consecutivePassedTopicCount(db, userId, language, level) {
+  const count = topicCountForLevel(language, level);
+  let passedCount = 0;
+  for (let no = 1; no <= count; no += 1) {
+    if (!topicPassedRecord(db, userId, language, level, no)) break;
+    passedCount = no;
+  }
+  return passedCount;
+}
+function markTopicOpened(db, userId, language, level, topicNo) {
+  const p = userProgress(db, userId);
+  const key = progressKey(language, level, topicNo);
+  const old = p[key] || {};
+  if (old.openedAt) return false;
+  const nowIso = new Date().toISOString();
+  p[key] = {
+    ...old,
+    openedAt: nowIso,
+    createdAt: old.createdAt || nowIso,
+    updatedAt: old.updatedAt || nowIso
+  };
+  return true;
 }
 function topicScheduleStatus(db, userId, language, level, topicNo, now = new Date()) {
   const user = db.users.find(u => u.id === userId);
@@ -1745,10 +1774,10 @@ function topicScheduleStatus(db, userId, language, level, topicNo, now = new Dat
   const allowUnlimitedTopics = topicAccessMode === 'unlimited';
   const planDays = normalizePlanDays(user?.planDays || []);
   const todayName = tashkentWeekday(now);
-  const todayAllowed = !planDays.length || planDays.includes(todayName);
-  const p = userProgress(db, userId);
-  const current = p[progressKey(language, level, topicNo)] || null;
+  const todayAllowed = planDays.includes(todayName);
+  const current = topicProgressRecord(db, userId, language, level, topicNo);
   const currentDone = Number(current?.bestScore || 0) >= TOPIC_PASS_SCORE;
+  const openedBefore = topicWasOpened(current);
 
   if (allowUnlimitedTopics) {
     return {
@@ -1763,28 +1792,49 @@ function topicScheduleStatus(db, userId, language, level, topicNo, now = new Dat
         : 'Cheklovsiz rejim: admin tomonidan barcha mavzular ochilgan.'
     };
   }
+
+  // O‘tilgan mavzular har kuni takrorlash uchun ochiq turadi.
+  if (currentDone) {
+    return { scheduled: true, allowed: true, todayName, todayAllowed, planDays, allowUnlimitedTopics: false, message: 'Bu mavzu yakunlangan, takrorlash mumkin.' };
+  }
+
   if (!planDays.length) {
     return { scheduled: true, allowed: false, todayName, todayAllowed: false, planDays, allowUnlimitedTopics: false, message: 'Admin hali bu o‘quvchiga dars kunlarini biriktirmagan.' };
   }
-  if (currentDone) {
-    return { scheduled: true, allowed: true, todayName, todayAllowed, planDays, allowUnlimitedTopics: false, message: 'Bu mavzu yakunlangan, ko‘rish mumkin.' };
+
+  const passedCount = consecutivePassedTopicCount(db, userId, language, level);
+  const activeTopicNo = passedCount + 1;
+
+  // Oldin ochilgan, lekin 90% bo‘lmagan mavzuni belgilanmagan kunlarda ham qayta ishlash mumkin.
+  if (topicNo === activeTopicNo && openedBefore) {
+    return { scheduled: true, allowed: true, todayName, todayAllowed, planDays, allowUnlimitedTopics: false, message: todayAllowed ? `Bugun ${todayName} — mavzuni davom ettiring.` : 'Bugun yangi mavzu ochilmaydi, oldingi mavzuni takrorlash mumkin.' };
   }
+
+  if (topicNo < activeTopicNo) {
+    return { scheduled: true, allowed: true, todayName, todayAllowed, planDays, allowUnlimitedTopics: false, message: 'Oldingi mavzuni takrorlash mumkin.' };
+  }
+
+  if (topicNo > activeTopicNo) {
+    return { scheduled: true, allowed: false, todayName, todayAllowed, planDays, allowUnlimitedTopics: false, message: `Avval ${activeTopicNo}-mavzudan kamida 90% oling.` };
+  }
+
   if (!todayAllowed) {
-    return { scheduled: true, allowed: false, todayName, todayAllowed: false, planDays, allowUnlimitedTopics: false, message: `Bu mavzu faqat belgilangan kunlarda ochiladi: ${planDays.join(', ')}.` };
+    return { scheduled: true, allowed: false, todayName, todayAllowed: false, planDays, allowUnlimitedTopics: false, message: `Bugun yangi mavzu ochilmaydi. Yangi mavzu faqat belgilangan kunlarda ochiladi: ${planDays.join(', ')}.` };
   }
-  if (topicNo === 1) {
-    return { scheduled: true, allowed: true, todayName, todayAllowed: true, planDays, allowUnlimitedTopics: false, message: `Bugun ${todayName} — mavzu ishlash kuni.` };
+
+  if (topicNo > 1) {
+    const prev = topicPassedRecord(db, userId, language, level, topicNo - 1);
+    if (!prev) {
+      return { scheduled: true, allowed: false, todayName, todayAllowed: true, planDays, allowUnlimitedTopics: false, message: `Avval ${topicNo - 1}-mavzudan kamida 90% oling.` };
+    }
+    const prevDate = tashkentDateNumber(topicPassedAt(prev));
+    const todayDate = tashkentDateNumber(now);
+    if (prevDate && todayDate <= prevDate) {
+      return { scheduled: true, allowed: false, todayName, todayAllowed: true, planDays, allowUnlimitedTopics: false, message: 'Keyingi mavzu keyingi belgilangan kunda ochiladi.' };
+    }
   }
-  const prev = topicPassedRecord(db, userId, language, level, topicNo - 1);
-  if (!prev) {
-    return { scheduled: true, allowed: false, todayName, todayAllowed: true, planDays, allowUnlimitedTopics: false, message: `Avval ${topicNo - 1}-mavzudan kamida 90% oling.` };
-  }
-  const prevDate = tashkentDateNumber(topicPassedAt(prev));
-  const todayDate = tashkentDateNumber(now);
-  if (prevDate && todayDate <= prevDate) {
-    return { scheduled: true, allowed: false, todayName, todayAllowed: true, planDays, allowUnlimitedTopics: false, message: 'Keyingi mavzu keyingi belgilangan kunda ochiladi.' };
-  }
-  return { scheduled: true, allowed: true, todayName, todayAllowed: true, planDays, allowUnlimitedTopics: false, message: `Bugun ${todayName} — yangi mavzu ochiq.` };
+
+  return { scheduled: true, allowed: true, todayName, todayAllowed: true, planDays, allowUnlimitedTopics: false, message: `Bugun ${todayName} — faqat 1 ta yangi mavzu ochiq.` };
 }
 
 
@@ -30608,8 +30658,7 @@ function hasLevelAccess(db, userId, language, level) {
   return (p[gateKey(language, level)]?.bestScore || 0) >= LEVEL_PASS_SCORE || (p[finalKey(language, previous)]?.bestScore || 0) >= LEVEL_PASS_SCORE;
 }
 function isTopicUnlocked(db, userId, language, level, topicNo) {
-  const user = db.users.find(u => u.id === userId);
-  if (hasAdminLevelUnlock(user, level)) return true;
+  // Admin darajani ochib bergan bo‘lsa ham, mavzular admin tanlagan kunlar va 90% qoidasi bo‘yicha bittalab ochiladi.
   if (!hasLevelAccess(db, userId, language, level)) return false;
   return topicScheduleStatus(db, userId, language, level, Number(topicNo)).allowed;
 }
@@ -31134,11 +31183,14 @@ app.get('/api/topics/:language/:level', auth, requireSubject, (req, res) => {
   if (!levels.includes(level)) return res.status(404).json({ message: 'Daraja topilmadi' });
   const db = req.db;
   const p = userProgress(db, req.user.id);
+  let openedChanged = false;
   const topics = getTopics(language, level).map(raw => {
     const t = applyTopicOverride(db, raw);
-    const speaking = summarizeSpeakingRecord(p[speakingProgressKey(language, level, t.topicNo)] || {});
     const schedule = topicScheduleStatus(db, req.user.id, language, level, t.topicNo);
     const unlocked = isTopicUnlocked(db, req.user.id, language, level, t.topicNo);
+    if (unlocked) openedChanged = markTopicOpened(db, req.user.id, language, level, t.topicNo) || openedChanged;
+    const rec = p[progressKey(language, level, t.topicNo)] || {};
+    const speaking = summarizeSpeakingRecord(p[speakingProgressKey(language, level, t.topicNo)] || {});
     return {
       ...t,
       unlocked,
@@ -31146,8 +31198,9 @@ app.get('/api/topics/:language/:level', auth, requireSubject, (req, res) => {
       unlockMessage: unlocked ? (schedule.message || '') : (schedule.message || 'Bu mavzu hali ochilmagan.'),
       todayPlanDay: schedule.todayName,
       planDays: schedule.planDays,
-      bestScore: p[progressKey(language, level, t.topicNo)]?.bestScore || 0,
-      attempts: p[progressKey(language, level, t.topicNo)]?.attempts || 0,
+      openedAt: rec.openedAt || '',
+      bestScore: rec.bestScore || 0,
+      attempts: rec.attempts || 0,
       speakingScore: speaking.score,
       speakingBestScore: speaking.bestScore,
       speakingCheckedWords: speaking.checkedWords,
@@ -31157,6 +31210,7 @@ app.get('/api/topics/:language/:level', auth, requireSubject, (req, res) => {
       speakingUpdatedAt: speaking.updatedAt
     };
   });
+  if (openedChanged) writeDb(db);
   res.json({ topics, finalUnlocked: isFinalUnlocked(db, req.user.id, language, level), finalBest: p[finalKey(language, level)]?.bestScore || 0 });
 });
 app.post('/api/speaking-batch-check', auth, async (req, res) => {
@@ -31365,6 +31419,7 @@ app.post('/api/topic-practice/:language/:level/:topicNo', auth, requireSubject, 
   const score = writingEnabled ? Math.round((choiceResult.score + writingResult.score) / 2) : choiceResult.score;
   const passed = score >= TOPIC_PASS_SCORE;
 
+  markTopicOpened(db, req.user.id, language, level, topicNo);
   const dbProgress = userProgress(db, req.user.id);
   const key = progressKey(language, level, topicNo);
   const nowIso = new Date().toISOString();
