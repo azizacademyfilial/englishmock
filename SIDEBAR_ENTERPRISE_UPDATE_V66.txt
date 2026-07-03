@@ -1,0 +1,9 @@
+V66 Sidebar update
+
+- Admin sidebar enterprise dashboard uslubiga o'tkazildi.
+- Menu guruhlarga bo'lindi: Asosiy, Boshqaruv, Monitoring, Tizim.
+- Dashboard, account, ariza va sertifikatlar uchun badge qo'shildi.
+- Sidebar ichida bugungi fokus va aktivlik statistik kartalari qo'shildi.
+- Desktopda fixed professional dark sidebar, mobilda responsive grid sidebar qilindi.
+- Menyuga "Yaratish" bo'limi ham qo'shildi.
+- Frontend build tekshirildi: npm run build muvaffaqiyatli yakunlandi.

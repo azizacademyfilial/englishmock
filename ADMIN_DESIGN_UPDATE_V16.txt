@@ -1,0 +1,7 @@
+V16 UPDATE
+- Admin paneldagi eski yuqori ENGLISH Mock / Chiqish global topbar olib tashlandi.
+- Admin uchun faqat modern dashboard header qoldirildi.
+- Sidebar desktopda fixed qilindi: sahifa scroll bo‘lsa ham chap menu joyida qotib turadi.
+- Sidebar ichida alohida scroll yo‘q, menu ixchamlashtirildi.
+- Admin profil chip bosilganda logout ishlaydi.
+- Frontend build muvaffaqiyatli bajarildi.

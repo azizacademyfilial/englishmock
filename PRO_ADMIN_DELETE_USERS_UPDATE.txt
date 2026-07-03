@@ -1,0 +1,9 @@
+Pro Admin delete accounts update
+
+Qo'shildi:
+- Faqat Pro Admin foydalanuvchilarni o'chira oladi.
+- O'quvchi, ustoz va admin accountlarini o'chirish mumkin.
+- Pro Admin o'z accountini o'chira olmaydi.
+- Account o'chirilganda progress, sertifikat va aktiv sessiyalar ham tozalanadi.
+- Frontend Accountlar jadvalida O'chirish tugmasi qo'shilgan.
+- O'chirishdan oldin confirm tasdiqlash oynasi chiqadi.

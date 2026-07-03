@@ -1,0 +1,10 @@
+Update V96 — Present Simple positive / negative / question strict check
+
+- Present Simple gap tuzish mashqlarida positive, negative va question alohida farqlanadi.
+- Positive so‘ralganda negative yoki question javob qabul qilinmaydi.
+- Negative so‘ralganda do not / does not bo‘lishi majburiy qilindi.
+- Question so‘ralganda Do / Does bilan boshlanishi majburiy qilindi.
+- I/you/we/they so‘ralgan topshiriqda he/she/it bilan yozilgan javob yuqori foiz olmaydi.
+- he/she/it so‘ralgan topshiriqda I/you/we/they bilan yozilgan javob yuqori foiz olmaydi.
+- Do + I/you/we/they va Does + he/she/it tartibi alohida tekshiriladi.
+- Inkor gap va savol gap aralashib ketmasligi uchun strict scoring qo‘shildi.

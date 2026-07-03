@@ -1,0 +1,7 @@
+PREPOSITION OF TIME mashqlari yangilandi.
+
+Qilingan ishlar:
+- before / after oldingi update’da olib tashlangan edi.
+- Endi from ... to ..., until, by, for, under, to kabi boshqa variantlar ham Preposition of Time mashqlaridan olib tashlandi.
+- Mashqlar va asosiy ko‘rinish faqat 3 ta predlogga moslandi: at / in / on.
+- Frontenddagi kalit so‘zlar va mavzu kartalari ham faqat at / in / on bo‘yicha yangilandi.

@@ -1,0 +1,7 @@
+V82 update:
+- Admin, teacher, student desktop sidebar va student mobile header endi hardcoded ENGLISH Mock emas.
+- Har bir account o‘z markazi nomi va logoDataUrl bo‘yicha brand ko‘rsatadi.
+- Katta admin uchun ENGLISH Mock HQ qoladi.
+- Markaz logosi bo‘lmasa, markaz nomidan avtomatik 2 harfli belgi chiqadi.
+- Uzoq markaz nomlari sidebar dizaynini buzmasligi uchun text ellipsis qo‘shildi.
+- Frontend build muvaffaqiyatli tekshirildi.

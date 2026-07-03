@@ -1,0 +1,26 @@
+SPEAKING STATISTIKA TUZATILDI
+
+Qo'shilgan/tuzatilgan joylar:
+1. Har bir dars/unit uchun 30 ta vocabulary so'z talaffuz mashqi sifatida olinadi.
+2. Speaking foizi endi faqat aytilgan so'zlar o'rtachasi emas.
+   Formula:
+   Speaking % = aytilgan so'zlar ballari yig'indisi / ochiq unitlardagi jami so'zlar soni.
+
+Misol:
+- 1 ta unit ochiq = 30 ta so'z.
+- O'quvchi 4 ta so'zni 98% bilan aytsa:
+  4 * 98 / 30 = 13% atrofida ko'rsatadi.
+- 30 ta so'zning hammasi yaxshi aytilsa, keyin 90-100% chiqadi.
+
+3. Agar 2 ta unit ochiq bo'lsa, umumiy speaking 60 ta so'z bo'yicha hisoblanadi.
+   Masalan 2 unit ochiq, faqat 30 ta so'z bajarilgan bo'lsa, qolgan 30 ta so'z 0 hisobida turadi.
+
+4. Statistika oynasida Speaking aylana foizi umumiy ochiq unitlardagi jami so'zlar bo'yicha chiqadi.
+5. Admin va teacher panelida har bir o'quvchining Speaking foizi ham shunday umumiy formula bilan ko'rinadi.
+6. Jadval va kartalarda endi aytilgan/jami so'zlar ko'rinadi: masalan 4/30 yoki 30/60.
+
+Texnik o'zgarishlar:
+- backend/src/server.js ichida summarizeSpeakingRecord va summarizeSpeakingForUser formulalari yangilandi.
+- Ochiq unitlar isTopicUnlocked() orqali aniqlanadi.
+- frontend/src/main.jsx dagi statistik yozuvlar checked/total formatiga o'tkazildi.
+- frontend dist qayta build qilindi.

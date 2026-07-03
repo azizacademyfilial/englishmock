@@ -1,0 +1,7 @@
+Admin panel sidebar versiya:
+- Admin panel bitta uzun sahifa emas, chap sidebarli bo'limlarga ajratildi.
+- Bo'limlar: Dashboard, Account yaratish, Arizalar, Accountlar, Progress nazorati, Sertifikatlar, Kontent va Excel, Loglar.
+- Har bir bo'lim alohida oynada ochiladi.
+- Accountlar va sertifikatlarda backend pagination/search/filter saqlangan.
+- Progress, ariza va dashboarddan kerakli joyga o'tish tugmalari mos bo'limga olib boradi.
+- Mobil versiyada sidebar yuqoriga tushadi va 320px ekranda ham ishlaydi.

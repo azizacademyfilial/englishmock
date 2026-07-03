@@ -1,0 +1,8 @@
+Admin media yangilandi:
+- frontend/src/admin-mobile.css qo'shildi va style.css dan keyin import qilindi.
+- Admin panel telefonda bottom navigation/router ko'rinishida ishlaydi.
+- Admin tablar URL hash orqali alohida route bo'ladi: #admin/dashboard, #admin/accounts, #admin/create va hokazo.
+- KPI kartalar telefonda gorizontal scroll bo'ladi, bir-birini bosmaydi.
+- Jadval va accountlar telefonda card ko'rinishiga o'tadi.
+- Yozuvlar qora/aniq qilindi, ranglar bir-birini bosmaydi.
+- Sig'magan listlar ichki scroll bilan ishlaydi.

@@ -1,0 +1,27 @@
+UPDATE V58 - Clean Murphy-style grammar explanations
+
+Changed:
+- Removed unnecessary extra explanation text from selected grammar lessons.
+- Selected grammar lessons now show a cleaner book-style order:
+  1) Mavzuning ma’nosi
+  2) Shakl
+  3) Qachon ishlatiladi
+  4) Eslatma
+  5) Xato qilmaslik
+  6) Misollar
+- Hidden extra vocabulary/speaking/video/exercise-type cards on these selected grammar explanation pages to make them closer to a grammar book layout.
+- Updated selected topics:
+  THERE IS / THERE ARE
+  HAVE / HAS
+  PREPOSITION OF PLACE
+  PREPOSITION OF TIME
+  PRESENT CONTINUOUS
+  PRESENT SIMPLE
+  PRESENT SIMPLE & PRESENT CONTINUOUS
+  PAST SIMPLE
+  PAST CONTINUOUS
+  FUTURE SIMPLE / TO BE GOING TO
+  PRESENT PERFECT / PRESENT PERFECT INTRO
+
+Note:
+- The content is original and not copied word-for-word from any copyrighted book, but it follows a simple workbook-style teaching order.

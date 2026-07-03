@@ -1,0 +1,13 @@
+VOCABULARY PRIORITY FIX V65
+
+Bu yangilanishda Vocabulary bo'limi tuzatildi.
+
+Nima o'zgardi:
+- English grammar mavzularida Vocabulary endi birinchi navbatda aynan shu mavzuga mos bankdan olinadi.
+- Profile ichidagi umumiy grammar so'zlar (subject, verb, sentence kabi) endi Vocabulary boshida chiqmaydi.
+- Har bir mavzuda Vocabulary alohida bo'ladi: Present Continuous, Present Simple, There is/are, Have/Has, Preposition of Place, Preposition of Time va boshqa mavzular bir xil chiqmaydi.
+- Kalit so'zlar alohida blok sifatida qoladi; Vocabulary esa alohida speaking uchun ishlatiladigan so'zlar ro'yxati bo'ladi.
+
+Tekshirish:
+- Backend syntax OK
+- Frontend build OK

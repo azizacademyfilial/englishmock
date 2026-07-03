@@ -1,0 +1,23 @@
+UPDATE V53 — 3 BOSQICHLI GRAMMATIKA MASHQLARI
+
+Faqat quyidagi 4 ta English mavzusiga maxsus mashq formati qo'shildi:
+1) PLURALS (REGULAR)
+2) PLURAL (IRREGULAR)
+3) PRESENT CONTINUOUS
+4) PRESENT SIMPLE
+
+Har bir shu mavzuda:
+- 10 ta tanlanadigan test
+- yoziladigan bo'sh joy testi
+- gap tuzish testi
+
+Muhim:
+- Boshqa mavzularda bu maxsus yozma/gap-tuzish mashqlari chiqmaydi.
+- Yozma javoblar katta/kichik harfga qaramasdan tekshiriladi.
+- Apostrof va tinish belgilaridagi kichik farqlar xato hisoblanmaydi.
+- Avvalgi so'rov bo'yicha variantli testlarda to'g'ri javob birinchi variantga (A) ko'chiriladi.
+- Barcha testlar hozircha ochiq rejimda qoldirildi.
+
+Tekshirildi:
+- backend: node --check src/server.js OK
+- frontend: npm run build OK

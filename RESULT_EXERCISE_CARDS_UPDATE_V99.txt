@@ -1,0 +1,16 @@
+RESULT EXERCISE CARDS UPDATE V99
+
+O'zgartirishlar:
+1) Mashq tugagandan keyingi natija oynasi endi bitta uzun ro'yxat emas.
+2) Savollar mashqlar bo'yicha alohida cardlarga ajratildi:
+   - 1-mashq: Tanlash savollari
+   - 2-mashq: Yoziladigan test / So'z yozish mashqi
+   - 3-mashq: Gap tuzish testi
+3) Har bir savol alohida card ichida ko'rinadi.
+4) Har bir cardda o'quvchi tanlagan/yozgan javob, to'g'ri javob va to'g'ri/noto'g'ri holati ko'rinadi.
+5) Backend yozma javob natijalariga section/type/title ma'lumotlarini ham qaytaradi, shuning uchun frontend savollarni qaysi mashqqa tegishli ekaniga qarab ajrata oladi.
+
+O'zgargan fayllar:
+- frontend/src/main.jsx
+- frontend/src/style.css
+- backend/src/server.js

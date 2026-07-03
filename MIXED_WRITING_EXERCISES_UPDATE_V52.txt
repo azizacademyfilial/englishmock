@@ -1,0 +1,10 @@
+MIXED WRITING EXERCISES UPDATE V52
+
+O‘zgartirishlar:
+1) Til mavzularida mashqlar faqat variantli test bo‘lib qolmasligi uchun tanlash qismi 3 ta savolga qisqartirildi.
+2) Har bir mos til mavzusida alohida yoziladigan mashqlar qoldirildi: bo‘sh joyni to‘ldirish, tarjima va gap tuzish.
+3) Fill blank mashqlarida javob katta yoki kichik harflarda yozilsa ham to‘g‘ri tekshiriladi.
+   Misol: IS WRITING, Is Writing, is writing — hammasi bir xil qabul qilinadi.
+4) Apostrof va tinish belgilaridagi farqlar ham tekshiruvda yumshoq qabul qilinadi.
+5) Frontendda fill blank mashqlari textarea emas, oddiy input ko‘rinishida chiqadi.
+6) Barcha mavzular hozircha ochiq qoladi va oldingi A variant javob sozlamasi saqlangan.

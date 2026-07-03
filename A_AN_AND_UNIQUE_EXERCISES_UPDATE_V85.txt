@@ -1,0 +1,6 @@
+Update V85:
+- A / AN mavzusidagi tanlov variantlari faqat a yoki an bo‘ldi.
+- A / AN ichida the, one kabi ortiqcha variantlar ko‘rinmaydi.
+- 1-mashqdagi tanlash savollari va 2-mashqdagi yozma bo‘sh joy gaplari bir-biridan farqli qilindi.
+- Beginner grammatik mavzulari uchun yozma mashqlarga yangi, alohida misollar qo‘shildi.
+- Preposition of Time yozma mashqlari faqat at / in / on bo‘yicha qoldirildi.

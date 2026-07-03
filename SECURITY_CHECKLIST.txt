@@ -1,0 +1,49 @@
+REAL O'QUVCHILAR UCHUN XAVFSIZLIK VA BARQARORLIK CHECKLIST
+
+Bu versiyada quyidagilar qo'shildi:
+
+1) Ma'lumotlar ochilib ketmasligi uchun
+- backend/.env zip ichidan olib tashlanadi, faqat .env.example qoladi.
+- JWT auth ishlaydi.
+- Parollar bcrypt bilan hash qilinadi.
+- Admin API faqat role=admin token bilan ishlaydi.
+- Student faqat o'z faniga kira oladi.
+- Admin faqat o'z fanidagi user/sertifikatlarni ko'radi; super admin subject=all bo'lsa hammasini ko'radi.
+- Express x-powered-by header o'chirildi.
+- Security headerlar qo'shildi: X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy.
+- Admin API cache qilinmaydi: Cache-Control: no-store.
+- CORS faqat CLIENT_URL ichida yozilgan frontend URLlarga ruxsat beradi.
+- Public QR/certificate route admin ma'lumotlarini ochmaydi, faqat bitta sertifikatni ko'rsatadi.
+
+2) Account himoyasi
+- Login uchun rate limit qo'shildi: 15 daqiqada 15 urinish.
+- Admin write API uchun rate limit qo'shildi.
+- Public certificate scan route uchun rate limit qo'shildi.
+- 1 account = 1 qurilma session control saqlandi.
+- Non-active qilinganda user sessioni yopiladi.
+- Parol almashtirilsa user sessioni yopiladi.
+
+3) Admin panel qotmasligi uchun
+- Userlar endi hammasi birdaniga yuklanmaydi; server-side pagination qo'shildi.
+- Account qidirish va status filter backendda bajariladi.
+- Sertifikatlar ham pagination bilan chiqadi.
+- Sertifikat qidirish ID, ism-familya va fan bo'yicha backendda ishlaydi.
+- Hisobotlar serverda hisoblanib, admin frontendga faqat kerakli summary yuboriladi.
+- Past o'zlashtirilgan mavzular va e'tibor kerak o'quvchilar top-N ko'rinishida keladi.
+
+4) Real ishga tushirishdan oldin majburiy sozlash
+- backend/.env faylida kuchli JWT_SECRET yozing. Masalan 40-60 belgili random text.
+- admin / admin123 parolini albatta almashtiring.
+- REQUIRE_POSTGRES=true qolsin.
+- DATABASE_URL hech qachon GitHub yoki frontendga chiqmasin.
+- PostgreSQL backup yoqing.
+- CLIENT_URL ichiga faqat haqiqiy frontend domenlarini yozing.
+- PUBLIC_URL internetdagi backend domeni bo'lsin, shunda QR kod tashqi telefonda ham ochiladi.
+
+5) Tekshirish
+- http://localhost:5000/api/health -> postgresConnected true bo'lishi kerak.
+- Frontend login: http://localhost:5173
+- Admin panelda userlar sahifalab chiqishi kerak.
+- Non-active / Active qilish ishlashi kerak.
+- Sertifikat PDF yuklanishi kerak.
+- QR skaner qilinsa aynan certificate sahifaga kirishi kerak.

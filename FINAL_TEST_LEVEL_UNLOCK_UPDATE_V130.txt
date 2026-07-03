@@ -1,0 +1,15 @@
+FINAL TEST + LEVEL UNLOCK UPDATE V130
+
+Qo‘shildi:
+1) Yakuniy test faqat level ichidagi barcha mavzular 90%+ bilan tugaganda ochiladi.
+2) Yakuniy testdan 90%+ olsa sertifikat beriladi va keyingi daraja avtomatik ochiladi.
+3) Admin Rejalar bo‘limida o‘quvchilarni tanlab:
+   - dars kunlarini biriktira oladi;
+   - Elementary, Pre-Intermediate, Intermediate darajalarini qo‘lda ochib bera oladi.
+4) Admin qo‘lda daraja ochib bersa ham o‘sha darajadagi mavzular kun + 90% qoidasi bilan bittalab ochiladi.
+5) O‘quvchi progressida ochilgan darajalar safeUser orqali qaytadi.
+
+O‘zgargan fayllar:
+- backend/src/server.js
+- frontend/src/main.jsx
+- frontend/src/style.css

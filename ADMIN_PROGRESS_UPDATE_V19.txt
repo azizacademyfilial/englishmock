@@ -1,0 +1,18 @@
+V19 - Admin Progress bo‘limi yangilandi
+
+Qilingan o‘zgarishlar:
+- Admin paneldagi Progress bo‘limi endi umumiy o‘quvchilar jadvali bilan ochiladi.
+- Har bir o‘quvchi qatorida “Kuzatish” tugmasi qo‘shildi.
+- “Kuzatish” bosilganda o‘sha o‘quvchining batafsil progress oynasi ochiladi.
+- Batafsil oynada quyidagilar ko‘rinadi:
+  * Fani
+  * Darajasi
+  * Qaysi mavzuga kelgani
+  * Shu mavzudan olgan foizi
+  * Umumiy progress foizi
+  * Speaking foizi va nechta so‘z tekshirilgani
+  * Har bir daraja/mavzu bo‘yicha alohida foizlar
+- Progress jadvaliga qidiruv, fan filteri va status filteri qo‘shildi.
+- Admin users endpoint pageSize chegarasi 500 gacha kengaytirildi, progress bo‘limida ko‘proq o‘quvchi bir joyda chiqishi uchun.
+- Accountlar bo‘limidagi student action tugmasi “Kuzatish” deb o‘zgartirildi.
+- Frontend build qilindi va backend syntax tekshirildi.

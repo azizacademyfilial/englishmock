@@ -1,0 +1,20 @@
+V14 ADMIN DESIGN UPDATE
+
+Admin panel dizayni reference rasmdagi kabi qayta ishlangan:
+- Chap sidebar to'liq ekranga moslandi va logo/profil uslubiga keltirildi.
+- Header qismi ixcham va toza qilindi: title, subtitle, search, notification, admin profile.
+- Dashboard KPI cardlari professional SaaS ko'rinishiga o'tkazildi.
+- Accountlar jadvali tekislandi: avatar/initials, status badge, to'lov badge, speaking ustuni.
+- Keraksiz "Account yaratish" menu item sidebar'dan olib tashlandi, lekin asosiy tugma sifatida accountlar cardida qoldi.
+- Sidebar itemlari: Dashboard, Accountlar, Arizalar, Progress, Sertifikatlar, Kontent & Excel, Loglar, Sozlamalar.
+- Sozlamalar uchun alohida ixcham panel qo'shildi.
+- Responsive dizayn va production build tekshirildi.
+
+Build:
+cd frontend
+npm install
+npm run build
+
+Backend syntax:
+cd backend
+node --check src/server.js

@@ -1,0 +1,14 @@
+ADMIN LEVEL UNLOCK ALL UPDATE
+
+O'zgartirish:
+- Admin qaysi darajani ochib bergan bo'lsa, o'quvchi shu darajaga hech qanday test/progress shartisiz kiradi.
+- Admin ochgan darajada "Ishlanmoqda" yozuvi ko'rsatilmaydi.
+- Admin ochmagan darajalarda odatiy test/progress logikasi saqlanadi.
+
+Asosiy qoida:
+progress.access[subject][level] === true bo'lsa:
+  setLevel(level)
+  gate test = null
+  topics to'g'ridan-to'g'ri yuklanadi
+
+Backendda hasAdminLevelUnlock() qo'lda ochilgan darajalarni access true qiladi.

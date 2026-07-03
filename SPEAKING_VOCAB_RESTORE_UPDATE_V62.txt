@@ -1,0 +1,6 @@
+SPEAKING + VOCABULARY RESTORE UPDATE V62
+
+- Grammar mavzularida yashirib qo‘yilgan Vocabulary bloki qaytarildi.
+- Grammar mavzularida Speaking talaffuz tekshiruvi qaytarildi.
+- Murphy/kitob uslubidagi tushuntirishlar, kalit so‘zlar, formula cardlar va mashqlar saqlanib qoldi.
+- YouTube video bloki grammar clean lessonlarda avvalgidek chiqmaydi, lekin vocabulary va speaking chiqadi.

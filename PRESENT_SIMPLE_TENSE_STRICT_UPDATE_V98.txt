@@ -1,0 +1,19 @@
+UPDATE V98 — Present Simple strict tense check
+
+O'zgarish:
+- Present Simple gap tuzish mashqlarida boshqa zamon yozilsa endi 0% bo'ladi.
+- Present Continuous: I am playing now -> 0%
+- Past Simple/Past marker: I played yesterday / I went yesterday -> 0%
+- Future marker: I will play tomorrow / I play tomorrow -> 0%
+- Present Perfect: I have played -> 0%
+- Modal: I can play -> 0%
+
+Tuzatilgan fayl:
+- backend/src/server.js
+
+Natija:
+Present Simple topshirig'ida faqat Present Simple shakli qabul qilinadi:
+- I/you/we/they + V1
+- he/she/it + V-s/es
+- do/does not + V1
+- Do/Does + subject + V1?

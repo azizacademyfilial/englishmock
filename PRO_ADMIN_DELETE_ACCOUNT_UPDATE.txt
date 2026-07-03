@@ -1,0 +1,10 @@
+PRO ADMIN DELETE ACCOUNT UPDATE
+
+Qo‘shildi:
+- Backend: DELETE /api/admin/users/:id endpoint.
+- Faqat Pro Admin / Super Admin account o‘chira oladi.
+- O‘quvchi, o‘qituvchi va admin accountlarini o‘chirish mumkin.
+- Pro Admin o‘zi kirgan accountni o‘chira olmaydi.
+- O‘chirilgan user progressi, sertifikatlari va sessiya tokenlari ham tozalanadi.
+- Frontend: Yaratilgan accountlar jadvalida Pro Admin uchun O‘chirish tugmasi qo‘shildi.
+- O‘chirishdan oldin confirm oynasi chiqadi.

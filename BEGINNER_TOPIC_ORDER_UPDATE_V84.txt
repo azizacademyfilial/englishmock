@@ -1,0 +1,12 @@
+UPDATE V84 — Beginner topic order and TO BE cleanup
+
+1) Beginner topic order changed:
+   5. SUBJECT PRONOUN
+   6. TO BE
+
+2) TO BE explanation cleaned:
+   - Removed the what/where focus from the TO BE explanation card.
+   - Removed "Where are they?" style examples from TO BE.
+   - TO BE now focuses on am/is/are, positive, negative, question, short answers, and state/identity examples.
+
+3) Frontend production build updated with npm run build.

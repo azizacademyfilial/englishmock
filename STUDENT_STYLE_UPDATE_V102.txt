@@ -1,0 +1,7 @@
+Student panel style update V102
+
+- O'quvchi paneli desktop va mobile ko'rinishi premium light dizaynga yangilandi.
+- Sidebar, topbar, profil, progress cardlar, darslar ro'yxati, statistika va eslatmalar chiroyliroq qilindi.
+- Dars row/cardlari ixcham, border-radius va hover effektlari yaxshilandi.
+- Mobile student panel cardlari kichik ekranlarga moslashtirildi.
+- Inputlar va search/profil qismlari ixcham ko'rinishga keltirildi.

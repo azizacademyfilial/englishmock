@@ -1,0 +1,5 @@
+PRESENT_SIMPLE_STRICT_WRITING_UPDATE_V94
+- Present Simple gap tuzishda promptda I/you/we/they so‘ralsa, he/she/it bilan yozilgan gap qabul qilinmaydi.
+- Promptda he/she/it so‘ralsa, I/you/we/they bilan yozilgan gap qabul qilinmaydi.
+- Present Simple gap tuzish mashqlarida positive bilan birga negative va question topshiriqlari ham berildi.
+- Do/Does savol topshiriqlari va do not/does not inkor topshiriqlari qat’iy tekshiriladi.

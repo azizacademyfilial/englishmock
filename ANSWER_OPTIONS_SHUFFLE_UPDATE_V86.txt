@@ -1,0 +1,7 @@
+ANSWER OPTIONS SHUFFLE UPDATE V86
+
+Qilingan o‘zgarishlar:
+- Mashqlardagi to‘g‘ri javoblar endi doim birinchi variantda chiqmaydi.
+- A/B/C/D joylari aralashtirildi va har xil savolda to‘g‘ri javob har xil pozitsiyada chiqadi.
+- Topic test, workbook-style grammar exercises, gate test, final test va admin qo‘shgan savollarda correctIndex to‘g‘ri saqlanadigan qilindi.
+- Oldingi forceCorrectAnswerA funksiyasi javobni A ga majburlamasdan, variantlarni tarqatadigan qilib yangilandi.

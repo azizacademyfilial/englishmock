@@ -1,0 +1,9 @@
+ESSENTIAL-STYLE GRAMMAR UPDATE V56
+
+- Essential Grammar in Use kitobining oddiy unit uslubiga o‘xshash, lekin to‘liq original tushuntirishlar qo‘shildi.
+- Kitobdagi matnlar yoki mashqlar aynan ko‘chirilmadi.
+- Ingliz tili grammar mavzulari uchun tushuntirish ketma-ketligi yangilandi: misol → qoida → formula → qachon ishlatiladi → eslatma → xatolar → mashq tartibi.
+- Mos mavzularda 3 bosqichli mashq qo‘shildi: 10 ta tanlanadigan test, inputli bo‘sh joy mashqi, gap tuzish testi.
+- Fill-blank mashqlarda ___ o‘rnida input chiqadi.
+- Javoblar katta-kichik harf va tinish belgilariga qattiq bog‘lanmaydi.
+- Oldingi vaqtinchalik sozlama bo‘yicha barcha testlar ochiq qolgan.

@@ -1,0 +1,20 @@
+UPDATE: Elementary -> Pre-Intermediate level test added
+
+1) Pre-Intermediate yonidagi "Ishlanmoqda" yozuvi olib tashlandi.
+   - frontend/src/main.jsx
+   - STUDENT_NOT_READY_LEVELS endi faqat Intermediate darajasini bloklaydi.
+
+2) Siz bergan 50 ta Elementary test savoli backendga qo'shildi.
+   - backend/src/server.js
+   - buildElementaryEnglishFinalTest() funksiyasi qo'shildi.
+
+3) Pre-Intermediate bosilganda shu test chiqadi.
+   - buildGateTest('english', 'Pre-Intermediate') -> buildElementaryEnglishFinalTest()
+   - 45/50 yoki 90%+ natija Pre-Intermediate access ochadi.
+
+4) Elementary barcha mavzulari tugagandan keyin Yakuniy test ham shu test bo'ladi.
+   - buildFinalTest('english', 'Elementary') -> buildElementaryEnglishFinalTest()
+   - 90%+ natija sertifikat beradi va Pre-Intermediate avtomatik ochiladi.
+
+5) Frontend build tekshirildi: npm install + npm run build muvaffaqiyatli o'tdi.
+6) Backend syntax tekshirildi: node --check src/server.js muvaffaqiyatli o'tdi.

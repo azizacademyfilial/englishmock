@@ -1,0 +1,9 @@
+Beginner Final Test yangilandi.
+
+- Beginner yakuniy testi endi 50 ta savoldan iborat.
+- Savollar foydalanuvchi bergan tartibda va javoblar ketma-ketligi bo'yicha kiritildi.
+- 45/50 yoki 90%+ natija olsa Elementary avtomatik ochiladi.
+- 90% dan past natijada Elementary yopiq qoladi va Final Test qayta ishlanadi.
+
+O'zgartirilgan fayl:
+- backend/src/server.js

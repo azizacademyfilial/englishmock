@@ -1,0 +1,7 @@
+Update V88
+
+- TO BE gacha bo‘lgan Beginner mavzularida yozma mashq faqat so‘z/shakl yozish bo‘ldi.
+- ALFABIT, A / AN, PLURALS (REGULAR), PLURAL (IRREGULAR), SUBJECT PRONOUN mavzularida gap tuzish va gap tarjima qilish olib tashlandi.
+- TO BE va undan keyingi mavzularda so‘z yozishdan keyin gap tuzish mashqlari qoldirildi.
+- Sun’iy variantlar o‘rniga oddiy noto‘g‘ri variantlar qo‘yildi.
+- Frontend yozuvlari mavzuga qarab dinamik chiqadi: so‘z yozish mavzusida “gap tuzish” deb ko‘rsatmaydi.

@@ -1,0 +1,15 @@
+TO BE DEEP EXPLANATION UPDATE V67
+
+O'zgarishlar:
+- TO BE mavzusi kitob uslubiga yaqin, chuqurroq tushuntirish bilan yangilandi.
+- Tushuntirishda I am / He-She-It is / You-We-They are tartibi alohida berildi.
+- Positive, Negative, Question formulalari alohida cardlarda chiqadi.
+- Har bir formula cardda misollar va tarjimalar bor.
+- Kalit so'zlar kengaytirildi: am, is, are, not, subject, adjective, noun, place, short answer, contraction.
+- TO BE mavzusidagi tanlanadigan test, yoziladigan input test va gap tuzish testlari kuchaytirildi.
+- Barcha testlar hozircha ochiq qolgan.
+- Javob tekshirishda katta-kichik harf farq qilmaydi.
+
+Tekshiruv:
+- backend: node --check src/server.js OK
+- frontend: npm run build OK

@@ -1,0 +1,11 @@
+V61 update
+
+- Grammar mavzular tushuntirishiga alohida "Kalit so‘zlar" bloki qo‘shildi.
+- Kalit so‘zlar inglizcha + yonida o‘zbekcha tarjima/izoh bilan chiqadi.
+- Present Continuous, Present Simple, There is/are, Have/Has, Preposition of Place/Time va boshqa English grammar mavzular uchun mos kalit so‘zlar berildi.
+- Step raqamlari qayta tartiblandi: ma’no -> kalit so‘zlar -> formula kartalari -> eslatmalar -> misollar.
+- Kalit so‘zlar dizayni oq, toza card/chip ko‘rinishida qilindi.
+
+Checks:
+- Frontend build OK
+- Backend syntax OK

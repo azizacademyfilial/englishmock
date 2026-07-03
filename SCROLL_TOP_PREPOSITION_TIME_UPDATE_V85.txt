@@ -1,0 +1,12 @@
+UPDATE V85
+
+1) Har bir mavzuga kirilganda sahifa avtomatik tepaga chiqadigan qilindi.
+   - TopicView ichida topic o‘zgarganda mode yana lesson bo‘ladi.
+   - scrollPageToTop('auto') orqali mavzu boshidan ochiladi.
+
+2) PREPOSITION OF TIME mashqlaridan before / after yo‘nalishlari olib tashlandi.
+   - Tanlash testlari at / on / in / from...to asosida yangilandi.
+   - Yozma fill-blank mashqlaridan before / after savollari olib tashlandi.
+   - Gap tuzish mashqlarida before / after o‘rniga from...to va at noon qo‘yildi.
+
+3) Frontend qayta build qilindi.

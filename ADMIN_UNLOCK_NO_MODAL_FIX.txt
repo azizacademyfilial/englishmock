@@ -1,0 +1,6 @@
+Admin ochgan daraja uchun tuzatish:
+- O'quvchi Pre-Intermediate yoki boshqa admin ochgan darajani bossa, darhol mavzularga o'tadi.
+- Daraja testi, modal oyna yoki qo'shimcha tugmalar chiqmaydi.
+- Beginner har doim ochiq.
+- Backend /api/gate-test alreadyUnlocked qaytarsa ham frontend modal ko'rsatmaydi.
+- Intermediate admin tomonidan ochilgan bo'lsa ham “Ishlanmoqda” blokiga tushmaydi.

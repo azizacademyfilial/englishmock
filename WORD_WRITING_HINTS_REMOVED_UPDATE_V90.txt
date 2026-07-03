@@ -1,0 +1,8 @@
+So‘z yozish / bo‘sh joyni to‘ldirish mashqlaridagi pastki ko‘rsatmalar olib tashlandi.
+
+Qilinganlar:
+- So‘zni yozing mashqlarida har bir savol ostidagi hint/ko‘rsatma ko‘rinmaydi.
+- Bo‘sh joyni to‘ldirish tipidagi yozma mashqlarda ham pastki ko‘rsatma chiqmaydi.
+- Gap tuzish mashqlari o‘z holida qoldi.
+- Natija tahlilida fill_blank javoblarga “Eslatma: ...” qo‘shilmaydi.
+- Haqiqiy testlar va gap tuzish mashqlari mavjud tartibda ishlaydi.

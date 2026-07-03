@@ -1,0 +1,49 @@
+POSTGRESQL TO'LIQ ULASH BO'YICHA YO'RIQNOMA
+
+Bu versiyada backend db.json fallback bilan ishlamaydi. Ma'lumotlar PostgreSQL jadvallarida saqlanadi:
+- app_users
+- app_progress
+- app_certificates
+- app_enrollments
+- app_meta
+
+1) PostgreSQL o'rnating yoki mavjud PostgreSQLni oching.
+
+2) Database yarating:
+   createdb al_aziz_language
+
+   Yoki pgAdmin orqali:
+   Databases -> Create -> Database -> al_aziz_language
+
+3) backend/.env faylida DATABASE_URL yozing:
+   DATABASE_URL=postgresql://postgres:SIZNING_PAROL@localhost:5432/al_aziz_language
+
+   Misol:
+   DATABASE_URL=postgresql://postgres:12345@localhost:5432/al_aziz_language
+
+4) Paketlarni o'rnating:
+   cd backend
+   npm install
+
+5) Eski db.json ma'lumotlarini PostgreSQLga import qiling:
+   npm run db:migrate
+
+   Agar PostgreSQL ichidagi eski ma'lumotlarni tozalab, db.jsondan qayta import qilmoqchi bo'lsangiz:
+   npm run db:reset
+
+6) Backendni ishga tushiring:
+   npm run dev
+
+7) Tekshiring:
+   http://localhost:5000/api/health
+
+To'g'ri ishlasa response ichida shular chiqadi:
+   "database": "postgresql"
+   "postgresConnected": true
+
+MUHIM:
+- Real ishlatishda REQUIRE_POSTGRES=true bo'lib tursin.
+- Parollar bcrypt bilan hash bo'lib saqlanadi.
+- Login JWT orqali ishlaydi.
+- Bitta account faqat bitta qurilmadan ishlaydi.
+- Sertifikatlar va progress PostgreSQLda saqlanadi.

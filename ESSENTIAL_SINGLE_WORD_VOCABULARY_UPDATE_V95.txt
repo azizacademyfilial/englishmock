@@ -1,0 +1,7 @@
+V95 Essential single-word vocabulary update
+
+- English mavzularidagi Vocabulary Essential uslubidagi umumiy so‘zlar bilan yangilandi.
+- Har bir mavzuda 30 ta vocabulary bor.
+- Vocabulary word qismi faqat bitta so‘zdan iborat bo‘ladi.
+- Ko‘p so‘zli phrase, gap yoki uzun talaffuz matnlari vocabularydan olib tashlandi.
+- Speaking talaffuz tekshiruvida o‘quvchi faqat bitta vocabulary so‘zini talaffuz qiladi.

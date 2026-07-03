@@ -1,0 +1,12 @@
+GAP TUZISH TESTI UPDATE V76
+
+O'zgartirish:
+- Yoziladigan test qismi 7 ta inputli mashq bilan cheklab qo'yildi.
+- Gap tuzish testi endi 8-raqamdan boshlanadi.
+- Gap tuzish testi 8 tadan bo'ladi: 8, 9, 10, 11, 12, 13, 14, 15.
+- Agar mavzuda gap tuzish savollari kam bo'lsa, tizim mavzuga mos qo'shimcha gap tuzish savollarini avtomatik qo'shadi.
+- Barcha English workbook/grammar mavzularida yozma bosqich umumiy 15 ta topshiriq bo'ladi.
+
+Tekshirildi:
+- backend syntax OK
+- frontend build OK

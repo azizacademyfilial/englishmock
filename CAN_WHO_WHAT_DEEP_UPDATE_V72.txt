@@ -1,0 +1,6 @@
+CAN / CAN'T va WHO / WHAT mavzulari chuqurlashtirildi.
+
+- CAN / CAN'T mavzusi: ma'no, positive/negative/question shakllari, qisqa javoblar, xatolar, tarjimali misollar va 10 talik mashqlar yangilandi.
+- WHO / WHAT mavzusi: who = kim, what = nima farqi, to be/do-does bilan savol tartibi, tarjimali misollar va mashqlar yangilandi.
+- Frontendda bu mavzular ham kitob uslubidagi toza cardlar bilan chiqadi.
+- Variantli test, inputli yozma mashq va gap tuzish testi saqlandi.

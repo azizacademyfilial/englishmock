@@ -1,0 +1,5 @@
+Admin panel notification update V20
+
+- Admin paneldagi tepada chiqadigan message/toast 2 sekunddan keyin avtomatik yo'qoladi.
+- Masalan: 'Foydalanuvchi yangilandi. Hozirgi status: active' xabari endi ekranda osilib qolmaydi.
+- Toastga yengil fade-in/fade-out animatsiya qo'shildi.
