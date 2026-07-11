@@ -14396,7 +14396,7 @@ button.altPrimary b,
   .mobileTopicCard{
     display:grid;
     grid-template-columns:40px minmax(0,1fr) auto;
-    align-items:center;
+    align-items:start;
     gap:10px;
     padding:10px 12px;
     border-radius:16px;
@@ -14412,6 +14412,8 @@ button.altPrimary b,
     display:flex;
     align-items:center;
     justify-content:center;
+    grid-column:1;
+    align-self:start;
   }
 
   .mobileTopicBody{
@@ -14424,14 +14426,15 @@ button.altPrimary b,
     gap:2px;
     align-items:flex-start;
     min-width:0;
+    grid-column:2;
   }
   .mobileTopicHead h4{
     font-size:13.5px;
-    line-height:1.25;
+    line-height:1.3;
     margin:0;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    white-space:normal;
+    overflow-wrap:break-word;
+    word-break:break-word;
     max-width:100%;
   }
   .mobileTopicHead p{
@@ -14442,6 +14445,7 @@ button.altPrimary b,
     font-size:9.5px;
     border-radius:999px;
     white-space:nowrap;
+    align-self:flex-start;
   }
 
   .mobileTopicFoot{
@@ -14449,6 +14453,8 @@ button.altPrimary b,
     flex-direction:column;
     align-items:flex-end;
     gap:4px;
+    grid-column:3;
+    align-self:start;
   }
   .mobileTopicFoot b{
     font-size:12px;
@@ -14632,3 +14638,126 @@ button.altPrimary b,
     max-width:none!important;
   }
 }
+
+/* ============================================================
+   ENTERPRISE ADMIN SIDEBAR — final authoritative responsive fix
+   The <nav> element carries BOTH "adminMenuList" (legacy compact
+   sidebar) and "enterpriseMenuList" (current dark sidebar) classes
+   at once, and the sidebar itself carries "adminSidebar" and
+   "enterpriseSidebar" together. Over 20 media-query rules from
+   several design eras compete over position/grid-template-columns
+   between 640px and 1200px, with contradictory breakpoints
+   (min-width:1081px fixed vs max-width:1080/1100/1200px static).
+   The actual winner at a given width is essentially accidental —
+   around 1081-1200px a stale rule forces 4 cramped icon-only
+   columns with clipped labels; around 900-1080px the sidebar can
+   lose its fixed position and overlap the page content.
+   This block uses maximum selector specificity (class list order
+   matches the actual DOM so specificity ties break in our favor)
+   plus placement at the very end of the cascade to be the single
+   source of truth for the whole 761px-1080px "collapsed" range.
+   The <=760px hamburger drawer (.adminMobileMenuOpen) is untouched.
+   ============================================================ */
+
+@media (max-width: 1200px) and (min-width: 761px){
+  .adminModernPage.adminShellPage .adminSidebar.enterpriseSidebar,
+  .adminModernPage .adminSidebar.enterpriseSidebar,
+  .adminShellPage .adminSidebar.enterpriseSidebar{
+    position:static!important;
+    left:auto!important;
+    top:auto!important;
+    bottom:auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+    z-index:auto!important;
+    border-radius:0 0 26px 26px!important;
+  }
+  .adminModernPage.adminShellPage,
+  .adminModernPage{
+    display:block!important;
+  }
+  .adminModernPage .adminModernTop,
+  .adminModernPage .adminKpiGrid,
+  .adminModernPage .adminContentPanel{
+    grid-column:auto!important;
+  }
+
+  .adminModernPage .adminMenuList.enterpriseMenuList,
+  .adminShellPage .adminMenuList.enterpriseMenuList{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+    overflow:visible!important;
+    max-height:none!important;
+  }
+  .adminModernPage .adminMenuList.enterpriseMenuList button,
+  .adminShellPage .adminMenuList.enterpriseMenuList button{
+    grid-template-columns:40px minmax(0,1fr)!important;
+    min-height:56px!important;
+  }
+  .adminModernPage .adminMenuList.enterpriseMenuList button b,
+  .adminModernPage .adminMenuList.enterpriseMenuList button small,
+  .adminShellPage .adminMenuList.enterpriseMenuList button b,
+  .adminShellPage .adminMenuList.enterpriseMenuList button small{
+    display:block!important;
+    opacity:1!important;
+    width:auto!important;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .adminModernPage .enterpriseMenuGroup,
+  .adminShellPage .enterpriseMenuGroup{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  .adminModernPage .enterpriseMenuCaption,
+  .adminShellPage .enterpriseMenuCaption{
+    grid-column:1/-1!important;
+  }
+}
+
+@media (max-width: 640px) and (min-width: 761px){
+  /* Intentionally empty: the 761-1200px rule above is the single
+     source of truth in that band; the existing <=760px hamburger
+     drawer rules remain fully in control below 761px. */
+}
+
+/* ============================================================
+   HAMBURGER DRAWER MENU LABELS — fix zero-width button labels
+   Inside the <=768px drawer, an older horizontal-scrolling-rail
+   design (flex:0 0 168px + scroll-snap) still targets the same
+   ".adminMenuList button" selector as the current dark vertical
+   enterpriseMenuList drawer. Combined with min-width:0 elsewhere,
+   the browser was free to shrink the button's grid track for the
+   label down to 0px, so button text disappeared even though the
+   element itself was present (opacity/visibility both fine).
+   This restores the grid-based layout the drawer actually uses.
+   ============================================================ */
+@media (max-width: 768px){
+  .adminMenuList.enterpriseMenuList button,
+  .enterpriseSidebar .enterpriseMenuList button{
+    flex:none!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    display:grid!important;
+    grid-template-columns:42px minmax(0,1fr) auto!important;
+  }
+  .adminMenuList.enterpriseMenuList button b,
+  .adminMenuList.enterpriseMenuList button small,
+  .enterpriseSidebar .enterpriseMenuList button b,
+  .enterpriseSidebar .enterpriseMenuList button small{
+    display:block!important;
+    width:auto!important;
+    min-width:0!important;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+}
+
