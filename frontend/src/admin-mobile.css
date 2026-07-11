@@ -1958,10 +1958,15 @@
   .adminModernPage .enterpriseMenuList,
   .adminModernPage .enterpriseMenuGroup{
     display:grid!important;
+    grid-template-columns:1fr!important;
     width:100%!important;
     min-width:0!important;
     gap:8px!important;
     overflow:visible!important;
+    height:auto!important;
+  }
+  .adminModernPage .adminMenuList button:nth-of-type(n+6){
+    display:flex!important; /* undo the bottom-tab-bar rule that hides everything past the 5th item */
   }
   .adminModernPage .enterpriseMenuGroup{margin:0 0 14px!important;}
   .adminModernPage .enterpriseMenuCaption{
