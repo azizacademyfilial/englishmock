@@ -14381,3 +14381,254 @@ button.altPrimary b,
   .editUserModal{grid-template-columns:1fr;}
   .editUserModal .modalHeader{grid-column:1;}
 }
+
+/* ============================================================
+   COMPACT MOBILE TOPIC LIST — final authoritative override
+   Goal: turn tall stacked topic cards into a slim single-line
+   row, like a real lesson list, so 15 topics fit on screen
+   without endless scrolling. Also tidies the mobile home layout
+   spacing so it doesn't feel like empty banner space.
+   ============================================================ */
+
+@media (max-width: 900px){
+  .mobileTopicList{ gap:8px; }
+
+  .mobileTopicCard{
+    display:grid;
+    grid-template-columns:40px minmax(0,1fr) auto;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:16px;
+    min-height:0;
+  }
+
+  .mobileTopicNumber{
+    width:34px;
+    height:34px;
+    flex-basis:34px;
+    border-radius:10px;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .mobileTopicBody{
+    display:contents; /* let number/info/action share the row grid directly */
+  }
+
+  .mobileTopicHead{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    align-items:flex-start;
+    min-width:0;
+  }
+  .mobileTopicHead h4{
+    font-size:13.5px;
+    line-height:1.25;
+    margin:0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%;
+  }
+  .mobileTopicHead p{
+    display:none; /* description text was pushing height up; number+title+status is enough at a glance */
+  }
+  .mobileTopicBadge{
+    padding:3px 8px;
+    font-size:9.5px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+
+  .mobileTopicFoot{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:4px;
+  }
+  .mobileTopicFoot b{
+    font-size:12px;
+    order:2;
+  }
+  .mobileTopicAction{
+    min-height:0;
+    padding:6px 10px;
+    font-size:10.5px;
+    border-radius:10px;
+    order:1;
+    min-width:0;
+    white-space:nowrap;
+  }
+
+  /* Reclaim vertical space on the mobile home hero/summary so the
+     page reads as dense and useful rather than banner-heavy. */
+  .mobileStudentHero{ padding:14px 16px; }
+  .mobileStudentHero h1{ font-size:20px; margin:0 0 4px; }
+  .mobileStudentHero p{ font-size:13px; margin:0; }
+  .mobileSummaryGrid{ gap:8px; }
+  .mobileSummaryCard{ padding:12px 10px; }
+  .mobileSectionCard{ padding:12px; }
+}
+
+@media (max-width: 420px){
+  .mobileTopicCard{ grid-template-columns:32px minmax(0,1fr) auto; padding:9px 10px; }
+  .mobileTopicNumber{ width:30px; height:30px; flex-basis:30px; font-size:12.5px; }
+  .mobileTopicHead h4{ font-size:12.5px; }
+  .mobileTopicAction{ padding:6px 8px; font-size:10px; }
+}
+
+/* ============================================================
+   COMPACT MOBILE PLANS TABLE — final authoritative override
+   The "Rejalar" (kunlar biriktirish) table has 8 columns meant
+   for desktop. On phones it was forced into a fixed min-width
+   with horizontal scroll, which reads as cramped and messy.
+   Below a phone breakpoint we turn each row into a small
+   labeled card instead of a horizontally-scrolling table row.
+   ============================================================ */
+
+@media (max-width: 760px){
+  .plansPane .plansTable{
+    overflow-x:visible!important;
+  }
+  .plansPane .plansHead{
+    display:none!important; /* column headers don't make sense once rows become cards */
+  }
+  .plansPane .plansTr{
+    display:grid!important;
+    grid-template-columns:32px minmax(0,1fr)!important;
+    min-width:0!important;
+    width:100%!important;
+    gap:6px 10px!important;
+    padding:12px!important;
+    border-radius:16px!important;
+    margin-bottom:8px!important;
+    border:1px solid #e4edf6!important;
+  }
+  .plansPane .plansTr:last-child{
+    margin-bottom:0!important;
+  }
+
+  /* checkbox stays top-left, spans both rows visually */
+  .plansPane .planCheckboxCell{
+    grid-column:1!important;
+    grid-row:1/3!important;
+    align-self:start!important;
+  }
+
+  /* name + current topic: full width under the checkbox row */
+  .plansPane .planNameCell{
+    grid-column:2!important;
+  }
+
+  /* login, subject/level, status, badges: each takes full row width,
+     stacked, with a small label so the data stays legible without headers */
+  .plansPane .plansTr > span,
+  .plansPane .plansTr > .planDaysBadges{
+    grid-column:1/-1!important;
+    padding-left:42px!important;
+  }
+  .plansPane .planNameCell{
+    padding-left:0!important;
+  }
+
+  .plansPane .plansTr > span:before,
+  .plansPane .plansTr > .planDaysBadges:before{
+    content:attr(data-label);
+    display:block;
+    font-size:10.5px;
+    font-weight:800;
+    color:#94a3b8;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    margin-bottom:2px;
+  }
+
+  /* An older rule hides .planStatus and the 5th column at narrow
+     widths (meant for a desktop table breakpoint) — restore it here
+     since on the card layout it's a normal, useful field. */
+  .plansPane .plansTr span.planStatus,
+  .plansPane .plansTr span:nth-child(5){
+    display:inline-flex!important;
+  }
+}
+
+@media (max-width: 420px){
+  .plansPane .plansTr{ padding:10px!important; }
+  .plansPane .plansTr > span,
+  .plansPane .plansTr > .planDaysBadges{ padding-left:38px!important; }
+}
+
+/* ============================================================
+   COMPACT MOBILE ACCOUNTS TABLE — final authoritative override
+   .adminAccountsTable has ~40 competing column-width rules
+   accumulated over many patches, several of which force
+   min-width:920-1200px even on phone breakpoints. That forced
+   an 11-column desktop table into a ~390px viewport, causing
+   ~5x horizontal overflow. Below we neutralize every inherited
+   min-width and turn each row into a stacked mobile card,
+   the same proven pattern used for the topics and plans lists.
+   ============================================================ */
+
+@media (max-width: 900px){
+  .adminAccountsTable{
+    overflow-x:visible!important;
+  }
+  .adminAccountsTable .tr.head{
+    display:none!important; /* headers don't apply once rows become labeled cards */
+  }
+  .adminAccountsTable .tr,
+  .adminAccountsTable.bulkSelectMode .tr,
+  .adminAccountsTable.withCenters .tr,
+  .adminAccountsTable.bulkSelectMode.withCenters .tr{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    min-width:0!important;
+    width:100%!important;
+    gap:6px!important;
+    padding:14px!important;
+    border-radius:16px!important;
+    margin-bottom:10px!important;
+    border:1px solid #e4edf6!important;
+  }
+  .adminAccountsTable .tr:last-child{
+    margin-bottom:0!important;
+  }
+
+  .adminAccountsTable .personCell{
+    padding-bottom:8px!important;
+    border-bottom:1px solid #eef2f7!important;
+    margin-bottom:4px!important;
+  }
+
+  /* every plain data cell gets its label shown above the value */
+  .adminAccountsTable .tr > span[data-label]:before{
+    content:attr(data-label);
+    display:block;
+    font-size:10.5px;
+    font-weight:800;
+    color:#94a3b8;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    margin-bottom:2px;
+  }
+
+  /* row actions (buttons/select/date) stack cleanly and go full-width */
+  .adminAccountsTable .rowActions{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+    margin-top:6px!important;
+    padding-top:10px!important;
+    border-top:1px solid #eef2f7!important;
+  }
+  .adminAccountsTable .rowActions select,
+  .adminAccountsTable .rowActions input,
+  .adminAccountsTable .rowActions button{
+    width:100%!important;
+    max-width:none!important;
+  }
+}

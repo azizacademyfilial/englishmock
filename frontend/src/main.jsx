@@ -2299,16 +2299,16 @@ Bu amal qaytarib bo‘lmaydi.`);
                         <b>{user.fullName || user.username}</b>
                         <small>{user.currentTopicTitle || 'Mavzu boshlanmagan'}</small>
                       </div>
-                      <span>{user.username}</span>
-                      <span>{user.subjectTitle || user.subject} · {user.currentLevel || 'Beginner'}</span>
-                      <span className={`planStatus ${user.status === 'active' ? 'active' : 'inactive'}`}>{user.status}</span>
-                      <div className="planDaysBadges">
+                      <span data-label="Login">{user.username}</span>
+                      <span data-label="Fan / daraja">{user.subjectTitle || user.subject} · {user.currentLevel || 'Beginner'}</span>
+                      <span data-label="Status" className={`planStatus ${user.status === 'active' ? 'active' : 'inactive'}`}>{user.status}</span>
+                      <div className="planDaysBadges" data-label="Biriktirilgan kunlar">
                         {(user.planDays || []).length ? user.planDays.map(day => <span key={day} className="planDayBadge">{day}</span>) : <span className="planEmptyDays">Kun biriktirilmagan</span>}
                       </div>
-                      <div className="planDaysBadges levelBadges">
+                      <div className="planDaysBadges levelBadges" data-label="Ochiq darajalar">
                         {['Beginner', ...(user.unlockedLevels || [])].map(lv => <span key={lv} className="planDayBadge levelBadge">{lv}</span>)}
                       </div>
-                      <div className="planDaysBadges">
+                      <div className="planDaysBadges" data-label="Mavzu huquqi">
                         {(user.topicAccessMode || (user.allowUnlimitedTopics ? 'unlimited' : 'daily')) === 'unlimited' ? <span className="planDayBadge unlimitedBadge">Cheklovsiz</span> : <span className="planDayBadge">Kuniga 1 ta</span>}
                       </div>
                     </div>
@@ -2404,14 +2404,14 @@ Bu amal qaytarib bo‘lmaydi.`);
                     <div className={`tr ${selectedAccountIds.includes(user.id) ? 'checkedRow' : ''} ${selectedUserId === user.id ? 'selectedRow' : ''}`} key={user.id}>
                       {isSuperAdmin && <label className="accountCheck"><input type="checkbox" checked={selectedAccountIds.includes(user.id)} disabled={user.id === meta?.currentAdmin?.id} onChange={() => toggleAccountSelection(user.id)} /><span></span></label>}
                       <span className="personCell"><em>{getInitials(user.fullName)}</em><span><b>{user.fullName}</b><small>{user.role === 'student' ? (user.currentTopicTitle || 'Boshlanmagan') : 'Panel foydalanuvchisi'}</small></span></span>
-                      <span>{user.username}</span>
-                      {isSuperAdmin && <span>{user.centerName || '—'}</span>}
-                      <span>{user.role} · {user.subjectTitle}</span>
-                      <span>{user.role === 'student' ? (user.currentLevel || 'Beginner') : '—'}</span>
-                      <span>{user.role === 'student' ? `${user.speakingPercent || 0}% · ${user.speakingCheckedWords || 0}/${user.speakingTotalWords || 0}` : '—'}</span>
-                      <span className={`status ${user.status}`}>{user.status}</span>
-                      <span className={`status pay-${user.paymentStatus || 'paid'}`}>{user.paymentStatusTitle || user.paymentStatus || 'To‘langan'}</span>
-                      <span>{fmtDate(user.expiresAt)}</span>
+                      <span data-label="Login">{user.username}</span>
+                      {isSuperAdmin && <span data-label="Markaz">{user.centerName || '—'}</span>}
+                      <span data-label="Rol/Fan">{user.role} · {user.subjectTitle}</span>
+                      <span data-label="Daraja">{user.role === 'student' ? (user.currentLevel || 'Beginner') : '—'}</span>
+                      <span data-label="Speaking">{user.role === 'student' ? `${user.speakingPercent || 0}% · ${user.speakingCheckedWords || 0}/${user.speakingTotalWords || 0}` : '—'}</span>
+                      <span data-label="Status" className={`status ${user.status}`}>{user.status}</span>
+                      <span data-label="To‘lov" className={`status pay-${user.paymentStatus || 'paid'}`}>{user.paymentStatusTitle || user.paymentStatus || 'To‘langan'}</span>
+                      <span data-label="Muddat">{fmtDate(user.expiresAt)}</span>
                       <span className="rowActions accountRowActions">
                         {user.role === 'student' && <button className="primary small observeBtn accountObserveBtn" onClick={() => selectUserProgress(user.id)}>Kuzatish</button>}
                         <button type="button" className={`small ${user.status === 'active' ? 'dangerSoft' : 'successSoft'}`} disabled={user.paymentStatus === 'unpaid'} title={user.paymentStatus === 'unpaid' ? 'To‘lanmagan o‘quvchi avtomatik non-active bo‘ladi' : ''} onClick={() => toggleUserStatus(user)}>{user.paymentStatus === 'unpaid' ? 'To‘lov yo‘q' : user.status === 'active' ? 'Non-active' : 'Active'}</button>
