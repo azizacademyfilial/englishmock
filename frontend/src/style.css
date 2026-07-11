@@ -14761,3 +14761,433 @@ button.altPrimary b,
   }
 }
 
+
+/* ============================================================
+   PA-NAV — brand new admin sidebar menu, written from scratch
+   Replaces the old .adminMenuList / .enterpriseMenuList system,
+   which had 20+ competing rules from several past redesigns all
+   targeting the same classes across different breakpoints. This
+   block owns "paNav-*" classes exclusively — nothing else in the
+   stylesheet touches them, so there is nothing left to fight with.
+   ============================================================ */
+
+.paNav{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  height:100%;
+  color:#e6edf7;
+}
+
+.paNav-mobileHead{
+  display:none;
+}
+
+.paNav-brandRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(148,163,184,.16);
+}
+.paNav-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+.paNav-brandMark{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#3b82f6,#22c55e);
+  color:#fff;
+  font-weight:800;
+  font-size:15px;
+  box-shadow:0 10px 22px rgba(37,99,235,.28);
+}
+.paNav-brand > div{
+  min-width:0;
+}
+.paNav-brand b{
+  display:block;
+  color:#ffffff;
+  font-size:18px;
+  font-weight:800;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.paNav-brand small{
+  display:block;
+  margin-top:2px;
+  color:#93a3ba;
+  font-size:12px;
+  font-weight:600;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.paNav-planBadge{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  height:24px;
+  padding:0 10px;
+  border-radius:999px;
+  background:rgba(34,197,94,.14);
+  border:1px solid rgba(74,222,128,.32);
+  color:#86efac;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+
+.paNav-snapshot{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.paNav-snapshot > div{
+  padding:12px;
+  border-radius:14px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(148,163,184,.14);
+}
+.paNav-snapshot span{
+  display:block;
+  color:#93a3ba;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:5px;
+}
+.paNav-snapshot b{
+  display:block;
+  color:#ffffff;
+  font-size:20px;
+  font-weight:800;
+  line-height:1;
+}
+
+.paNav-menu{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  padding-right:2px;
+}
+.paNav-menu::-webkit-scrollbar{ width:5px; }
+.paNav-menu::-webkit-scrollbar-thumb{ background:rgba(148,163,184,.35); border-radius:999px; }
+
+.paNav-group{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.paNav-caption{
+  margin:0 0 2px;
+  padding:0 6px;
+  color:#64748b;
+  font-size:10.5px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.paNav-item{
+  width:100%;
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr) auto;
+  align-items:center;
+  gap:12px;
+  padding:10px 10px;
+  border:1px solid transparent;
+  border-radius:14px;
+  background:transparent;
+  color:#cbd5e1;
+  text-align:left;
+  cursor:pointer;
+  transition:background .15s ease, border-color .15s ease, color .15s ease;
+}
+.paNav-item:hover{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(148,163,184,.18);
+  color:#fff;
+}
+.paNav-item.is-active{
+  background:linear-gradient(90deg,rgba(59,130,246,.30),rgba(34,197,94,.14));
+  border-color:rgba(147,197,253,.30);
+  color:#ffffff;
+  box-shadow:0 10px 24px rgba(2,6,23,.22);
+}
+
+.paNav-itemIcon{
+  width:38px;
+  height:38px;
+  flex:0 0 38px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:rgba(148,163,184,.10);
+  font-style:normal;
+  font-size:16px;
+  line-height:1;
+}
+.paNav-item.is-active .paNav-itemIcon{
+  background:linear-gradient(135deg,#3b82f6,#22c55e);
+}
+
+.paNav-itemText{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  gap:2px;
+}
+.paNav-itemText b{
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.15;
+  color:inherit;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.paNav-itemText small{
+  display:block;
+  font-size:11px;
+  font-weight:600;
+  line-height:1.15;
+  color:#8b98ab;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.paNav-item.is-active .paNav-itemText small{
+  color:#cbd5e1;
+}
+
+.paNav-itemBadge{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:22px;
+  height:22px;
+  padding:0 6px;
+  border-radius:999px;
+  background:rgba(37,99,235,.20);
+  border:1px solid rgba(96,165,250,.30);
+  color:#bfdbfe;
+  font-style:normal;
+  font-size:11px;
+  font-weight:800;
+}
+
+.paNav-trust{
+  flex:0 0 auto;
+  display:grid;
+  grid-template-columns:32px minmax(0,1fr);
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:14px;
+  background:rgba(34,197,94,.08);
+  border:1px solid rgba(34,197,94,.22);
+}
+.paNav-trust > span{
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:rgba(34,197,94,.16);
+  color:#86efac;
+  font-weight:800;
+}
+.paNav-trust b{
+  display:block;
+  color:#fff;
+  font-size:12.5px;
+  font-weight:800;
+}
+.paNav-trust small{
+  display:block;
+  color:#93a3ba;
+  font-size:10.5px;
+  font-weight:600;
+  line-height:1.3;
+}
+
+.paNav-logout{
+  flex:0 0 auto;
+  width:100%;
+  display:grid;
+  grid-template-columns:32px minmax(0,1fr);
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border:1px solid rgba(248,113,113,.25);
+  border-radius:14px;
+  background:rgba(239,68,68,.08);
+  color:#fecaca;
+  cursor:pointer;
+  text-align:left;
+}
+.paNav-logout:hover{
+  background:rgba(239,68,68,.14);
+  border-color:rgba(252,165,165,.4);
+}
+.paNav-logout > span{
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:rgba(248,113,113,.14);
+  color:#fecaca;
+  font-weight:800;
+}
+.paNav-logout b{
+  display:block;
+  color:#fecaca;
+  font-size:13px;
+  font-weight:800;
+}
+.paNav-logout small{
+  display:block;
+  color:#fca5a5;
+  font-size:10.5px;
+  font-weight:600;
+}
+
+/* Desktop: fixed 280px sidebar, content offset to the right */
+@media (min-width: 1081px){
+  .adminModernPage.adminShellPage,
+  .adminShellPage.adminModernPage,
+  .adminModernPage{
+    grid-template-columns:280px minmax(0,1fr)!important;
+  }
+  .adminModernPage .adminSidebar.enterpriseSidebar{
+    position:fixed!important;
+    left:0!important;
+    top:0!important;
+    bottom:0!important;
+    width:280px!important;
+    height:100vh!important;
+    padding:22px 16px!important;
+    background:linear-gradient(180deg,#0b1220 0%,#0f1a2e 55%,#0a1120 100%)!important;
+    border:0!important;
+    border-right:1px solid rgba(148,163,184,.14)!important;
+    box-shadow:18px 0 50px rgba(2,6,23,.20)!important;
+    overflow:hidden!important;
+    z-index:60!important;
+  }
+  .adminModernPage .adminModernTop,
+  .adminModernPage .adminKpiGrid,
+  .adminModernPage .adminContentPanel{
+    grid-column:2!important;
+  }
+}
+
+/* Collapsed range: sidebar becomes a static block stacked above content */
+@media (max-width: 1080px){
+  .adminModernPage .adminSidebar.enterpriseSidebar{
+    position:static!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:20px 18px!important;
+    background:linear-gradient(135deg,#0b1220 0%,#111c33 100%)!important;
+    border:0!important;
+    border-radius:0 0 26px 26px!important;
+    box-shadow:none!important;
+    overflow:visible!important;
+  }
+  .adminModernPage,
+  .adminShellPage.adminModernPage{
+    display:block!important;
+  }
+  .adminModernPage .adminModernTop,
+  .adminModernPage .adminKpiGrid,
+  .adminModernPage .adminContentPanel{
+    grid-column:auto!important;
+  }
+  .paNav-menu{
+    max-height:none;
+    overflow:visible;
+  }
+  .paNav-group{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+  .paNav-caption{
+    grid-column:1/-1;
+  }
+}
+
+@media (max-width: 620px){
+  .paNav-group{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Phone drawer: hamburger toggle opens the sidebar as a left-side panel */
+@media (max-width: 760px){
+  .adminModernPage .adminSidebar.enterpriseSidebar{
+    position:fixed!important;
+    top:0!important;
+    left:0!important;
+    bottom:0!important;
+    width:min(86vw,320px)!important;
+    height:100vh!important;
+    padding:20px 16px 24px!important;
+    border-radius:0 24px 24px 0!important;
+    box-shadow:24px 0 60px rgba(2,6,23,.35)!important;
+    transform:translateX(-105%)!important;
+    transition:transform .22s ease!important;
+    z-index:999!important;
+    overflow-y:auto!important;
+  }
+  .adminModernPage.adminMobileMenuOpen .adminSidebar.enterpriseSidebar{
+    transform:translateX(0)!important;
+  }
+  .paNav-mobileHead{
+    display:flex!important;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding-bottom:14px;
+    margin-bottom:2px;
+    border-bottom:1px solid rgba(148,163,184,.16);
+  }
+  .paNav-mobileHead b{
+    color:#fff;
+    font-size:17px;
+    font-weight:800;
+  }
+  .paNav-mobileHead button{
+    width:34px;
+    height:34px;
+    border:0;
+    border-radius:10px;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-size:20px;
+    line-height:1;
+  }
+  .paNav-group{
+    grid-template-columns:1fr;
+  }
+}

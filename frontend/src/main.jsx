@@ -1903,20 +1903,20 @@ Bu amal qaytarib bo‘lmaydi.`);
       <button type="button" className="adminMobileBackdrop" aria-label="Admin menyuni yopish" onClick={() => setAdminMobileMenuOpen(false)} />
 
       <div className="adminShell">
-        <aside className="adminSidebar enterpriseSidebar">
-          <div className="adminMobileDrawerHead">
+        <aside className="adminSidebar enterpriseSidebar paNav">
+          <div className="adminMobileDrawerHead paNav-mobileHead">
             <b>Pro Admin menyu</b>
             <button type="button" onClick={() => setAdminMobileMenuOpen(false)} aria-label="Menyuni yopish">×</button>
           </div>
-          <div className="adminSidebarTop enterpriseSidebarTop">
-            <div className="adminBrand enterpriseBrand">
-              <BrandLogo brand={adminBrand} className="adminBrandMark enterpriseBrandMark" alt="Markaz logo" />
+          <div className="paNav-brandRow">
+            <div className="paNav-brand">
+              <BrandLogo brand={adminBrand} className="paNav-brandMark" alt="Markaz logo" />
               <div><b>{adminBrand.name}</b><small>{adminBrand.subtitle}</small></div>
             </div>
-            <span className="enterprisePlanBadge">PRO ADMIN</span>
+            <span className="paNav-planBadge">PRO ADMIN</span>
           </div>
 
-          <div className="enterpriseSidebarSnapshot">
+          <div className="paNav-snapshot">
             <div>
               <span>Bugungi fokus</span>
               <b>{focusCount}</b>
@@ -1927,32 +1927,32 @@ Bu amal qaytarib bo‘lmaydi.`);
             </div>
           </div>
 
-          <nav className="adminMenuList enterpriseMenuList" aria-label="Admin menyu">
+          <nav className="paNav-menu" aria-label="Admin menyu">
             {adminMenuGroups.map(section => (
-              <div className="enterpriseMenuGroup" key={section.group}>
-                <p className="enterpriseMenuCaption">{section.group}</p>
+              <div className="paNav-group" key={section.group}>
+                <p className="paNav-caption">{section.group}</p>
                 {section.items.map(item => (
                   <button
                     type="button"
                     key={item.id}
-                    className={adminTab === item.id ? 'active' : ''}
+                    className={`paNav-item ${adminTab === item.id ? 'is-active' : ''}`}
                     aria-current={adminTab === item.id ? 'page' : undefined}
                     onClick={() => { setAdminTab(item.id); setAdminMobileMenuOpen(false); scrollPageToTop('smooth'); }}
                   >
-                    <i>{item.icon}</i>
-                    <span><b>{item.title}</b><small>{item.desc}</small></span>
-                    {item.badge && <em>{item.badge}</em>}
+                    <i className="paNav-itemIcon">{item.icon}</i>
+                    <span className="paNav-itemText"><b>{item.title}</b><small>{item.desc}</small></span>
+                    {item.badge && <em className="paNav-itemBadge">{item.badge}</em>}
                   </button>
                 ))}
               </div>
             ))}
           </nav>
 
-          <div className="adminSidebarTrust enterpriseSidebarTrust">
+          <div className="paNav-trust">
             <span>✓</span>
             <div><b>System stable</b><small>Backup, log va account nazorati yoqilgan</small></div>
           </div>
-          <button type="button" className="sidebarLogoutBtn adminSidebarLogout enterpriseLogoutBtn" onClick={() => safeLogout(onLogout)}>
+          <button type="button" className="paNav-logout" onClick={() => safeLogout(onLogout)}>
             <span>↪</span>
             <div><b>Chiqish</b><small>Accountdan xavfsiz chiqish</small></div>
           </button>
